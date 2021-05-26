@@ -3,7 +3,7 @@ Documentació del servei ERES 2.0
 
 *INDEX*
 
-1. INTRODUCCIÓ
+[1]1. INTRODUCCIÓ
 
 	1.1 OBJECTIUS
 
@@ -144,7 +144,7 @@ Documentació del servei ERES 2.0
 
 3.9.17	Elimina un assumpte.
 
-##1	Introducció
+##[1 Introducció][1]
 
 >Per millorar la integració de la aplicació Genesys amb altres entrorns, s’ha desenvolupat una API amb arquitectura REST.
 

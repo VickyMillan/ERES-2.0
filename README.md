@@ -4,26 +4,45 @@ Documentació del servei ERES 2.0
 *INDEX*
 
 1	INTRODUCCIÓ
+
 1.1	OBJECTIUS
 
 1.2	AUDIÈNCIA
-2	CONSIDERACIONS GENERALS	8
-2.1	SWAGGER	8
-2.2	DADES GENERALS	9
-3	RECURSOS DE LA API	10
-3.1	CARRERS	11
-3.1.1	Operacions	11
-3.1.2	Alta o modificació	11
-3.1.3	Recuperar un Carrer	14
-3.1.4	Cercar Carrers	16
-3.1.5	Modificar Partícules dels Carrers. PARAMETRES	18
-3.1.6	Recuperar Partícules dels Carrers	19
-3.1.7	Modificar Sigles dels Carrers	20
-3.1.8	Recuperar Sigles dels Carrers	22
-3.2	DOMICILIS	24
-3.2.1	Operacions	24
-3.2.2	Alta. PARAMETRES EXEMPLE	24
-3.2.3	Recuperar un Domicili	28
+
+2	CONSIDERACIONS GENERALS
+
+2.1	SWAGGER
+
+2.2	DADES GENERALS
+
+3	RECURSOS DE LA API
+
+3.1	CARRERS
+
+3.1.1	Operacions
+
+3.1.2	Alta o modificació
+
+3.1.3	Recuperar un Carrer
+
+3.1.4	Cercar Carrers
+
+3.1.5	Modificar Partícules dels Carrers. PARAMETRES
+
+3.1.6	Recuperar Partícules dels Carrers
+
+3.1.7	Modificar Sigles dels Carrers
+
+3.1.8	Recuperar Sigles dels Carrers
+
+3.2	DOMICILIS
+
+3.2.1	Operacions
+
+3.2.2	Alta. PARAMETRES EXEMPLE
+
+3.2.3	Recuperar un Domicili
+
 3.2.4	Cercar Domicilis	30
 3.2.5	Recuperar les Persones d’un Domicili	34
 3.2.6	Recuperar Domicilis d’un Territori	37
@@ -105,21 +124,29 @@ Documentació del servei ERES 2.0
 3.9.5	Elimina una àrea	148
 3.9.6	Crea o modifica un departament.	149
 3.9.7	Recupera tots els departaments d’una àrea.	151
-3.9.8	Recupera un departament.	153
-3.9.9	Elimina un departament.	154
-3.9.10	Crea o modifica un grup de treball	156
-3.9.11	Recupera tots els grups de treball d’un departments	157
-3.9.12	Recupera un grup de treball.	159
-3.9.13	Elimina un grup de treball	161
-3.9.14	Crea o modifica un assumpte.	162
-3.9.15	Recupera tots els assumptes	163
-3.9.16	Recupera un assumpte.	166
-3.9.17	Elimina un assumpte.	168
- 
+3.9.8	Recupera un departament.
 
+3.9.9	Elimina un departament.
+
+3.9.10	Crea o modifica un grup de treball.
+
+3.9.11	Recupera tots els grups de treball d’un departments.
+
+3.9.12	Recupera un grup de treball.
+
+3.9.13	Elimina un grup de treball.
+
+3.9.14	Crea o modifica un assumpte.
+
+3.9.15	Recupera tots els assumptes.
+
+3.9.16	Recupera un assumpte.
+
+3.9.17	Elimina un assumpte.
 
 ##1	Introducció
-Per millorar la integració de la aplicació Genesys amb altres entrorns, s’ha desenvolupat una API amb arquitectura REST.
+
+>Per millorar la integració de la aplicació Genesys amb altres entrorns, s’ha desenvolupat una API amb arquitectura REST.
 
 ###1.1	Objectius
 Aquest document té com objectiu proporcionar una guia tècnica completa per la utilització de la API REST de l’aplicació Genesys de Audifilm Consulting.

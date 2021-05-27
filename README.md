@@ -1,5 +1,5 @@
 # ERES-2.0
-Documentació del servei ERES 2.0
+Document d'Integració del servei ERES 2.0
 
 # 1.Introducció
 

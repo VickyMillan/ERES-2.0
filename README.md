@@ -290,141 +290,300 @@ Expected response body:
 |tipusVia	|Tipus de via.                                                                              |
 
 
-Exemple:
- 
 
+***Exemple:***
 
+```XML
+Request:
+POST /carrerc/search
+
+Request body:
 
 {
-"maxResults": 1, "municipi": { "codMunicipi": 79,
-"codPais": 108,
-"codProvincia": 17
-},
-"nomCarrer": "MUNTAN", "nivell": "9999",
-"aplicacio": "NCL", "usuari": "G5Admin"
+"maxResults": 1,
+"municipi": {
+	"codMunicipi": 79,
+	"codPais": 108,
+	"codProvincia": 17
+	},
+"nomCarrer": "MUNTAN",
+"nivell": "9999",
+"aplicacio": "NCL",
+"usuari": "G5Admin"
 }
-
 
 Expected response body:
 {
 "carrerArray": [
 {
 "nom": "MUNTANYA",
-"codiCarrer": 234, "baixa": { "dataBaixa": "",
-"esBaixa": ""
-},
-"municipi": { "codPais": 108,
-"codProvincia": 17, "descPais": "ESPAÑA", "descProvincia": "GIRONA", "baixa": null, "codMunicipi": 79, "descMunicipi": "GIRONA"
-},
+"codiCarrer": 234,
+"baixa": { 
+	"dataBaixa": "",
+	"esBaixa": ""
+	},
+"municipi": { 
+	"codPais": 108,
+	"codProvincia": 17, 
+	"descPais": "ESPAÑA", 
+	"descProvincia": "GIRONA", 
+	"baixa": null, 
+	"codMunicipi": 79, 
+	"descMunicipi": "GIRONA"
+	},
 "codiSigla": "C/",
 "codiParticula": "",
 "nomAbreujat": "",
- 
-
-
-
- 
-
-
-5.1.5	Modificar Partícules dels Carrers. PARAMETRES
-
-Mètode	POST
-Ruta	/carrers/particules/put
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string", "particulaCarrer": { "codi1": "string",
-"codi2": "string", "comptador": 0, "descripcio": "string", "descripcio2": "string", "qual": "string"
-}
-}
-
-Paràmetres:
-
-codi1	
-codi2	
-comptador	
-descripcio	
-descripcio2	
- 
-
-
-
-qual	
-
-
-Exemple:
-
-
-5.1.6	Recuperar Partícules dels Carrers
-
-Mètode	POST
-Ruta	/carrers/particules/get
-Cos	de	la	{
- 
-
-
-
-petició	"nivell": "string", "aplicacio": "string", "usuari": "string"
-}
-
-
-Exemple:
-
-
-5.1.7	Modificar Sigles dels Carrers
-
-Mètode	POST
-Ruta	/carrers/sigles/put
- 
-
-
-
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string", "sigla": {
-"baixa": { "dataBaixa": "string", "esBaixa": "string"
+"descSigla": "C/", "descParticula": ""
 },
-"codiSigla": "string", "descAbreujada": "string", "descripcio": "string"
-}
-}
-
-
-Paràmetres:
-
-baixa	Informació de la baixa del registre.
-codiSigla	Codi de Sigla.
-descAbreuja da	Descripció abreujada.
-descripcio	Descripció completa.
-
-Exemple:
- 
-
-
-
- 
-
-5.1.8	Recuperar Sigles dels Carrers
-
-Mètode	POST
-Ruta	/carrers/sigles/get
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string"
+....
+]
 }
 
-Exemple:
+```
+
+### 3.1.5 Modificar Partícules dels Carrers. PARAMETRES
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST |	/carrers/particules/put |
+
+***Cos de la petició***:
+
+```XML
+{
+"nivell": "string", 
+"aplicacio": "string",
+"usuari": "string",
+"particulaCarrer": { 
+	"codi1": "string",
+	"codi2": "string", 
+	"comptador": 0, 
+	"descripcio": "string", 
+	"descripcio2": "string", 
+	"qual": "string"
+	}
+}
+
+```
+
+|Paràmetres| |
+|----------|-|
+|codi1	           ||
+|codi2	           ||
+|comptador	       ||
+|descripcio	       ||
+|descripcio2        ||	
+|qual	||
+
+
+***Exemple:***
+
+```XML
+Request:
+POST /carrers/particules/put
+
+
+Request body:
+{
+"particulaCarrer":{
+	"codi1": "A",
+	"codi2": "A",
+	"descripcio": "Partícula A"
+},
+"nivell": "9999",
+"aplicacio": "NCL", 
+"usuari": "G5Admin"
+}
+
+Expected response:
+{
+"descripcio": "Partícula A",
+"descripcio2": "",
+"codi1": "A",
+"codi2": "A",
+"qual": "",
+"comptador": null
+}
+
+```
+
+
+### 3.1.6 Recuperar Partícules dels Carrers
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST |	/carrers/particules/get |		
+
+***Cos de la petició***:
+
+```XML
+{
+"nivell": "string",
+"aplicacio": "string",
+"usuari": "string"
+}
+
+
+```` 
+
+***Exemple:***
+
+```XML
+Request:
+POST /carrers/particules/get
+
+
+Request body:
+{
+"nivell": "9999",
+"aplicacio": "NCL",
+"usuari": "G5Admin"
+}
+
+
+Expected response body:
+{
+	"particulaCarrerArray": [
+	{
+	"descripcio": "Partícula A",
+	"descripcio2": "",
+	"codi1": "A",
+	"codi2": "A",
+	"qual": "",
+	"comptador": null
+	}
+	]
+}
+
+
+```
+
+
+### 3.1.7 Modificar Sigles dels Carrers
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST |	/carrers/sigles/put |	
  
 
+***Cos de la petició***:
+
+```XML
+{
+"nivell": "string",
+"aplicacio": "string",
+"usuari": "string",
+"sigla": {
+	"baixa": {
+		"dataBaixa": "string", 
+		"esBaixa": "string"
+		},
+	"codiSigla": "string",
+	"descAbreujada": "string",
+	"descripcio": "string"
+	}
+}
+```
 
 
+|Paràmetres| |
+|----------|-|
+|baixa			|Informació de la baixa del registre.     |
+|codiSigla		|Codi de Sigla.                           |
+|descAbreujada	|Descripció abreujada.                    |
+|descripcio		|Descripció completa.                     |
+
+***Exemple:***
+
+```XML
+Request:
+POST /carrers/sigles/put
+
+
+Request body:
+{
+"sigla": { 
+	"codiSigla": "XX",
+	"descAbreujada": "XX",
+	"descripcio": "SIGLA XX"
+	},
+"nivell": "9999",
+"aplicacio": "NCL",
+"usuari": "G5Admin"
+}
+
+
+Expected response:
+{
+"descripcio": "SIGLA XX",
+"baixa": null,
+"codiSigla": "XX",
+"descAbreujada": "XX"
+}
+
+```
+### 3.1.8 Recuperar Sigles dels Carrers
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST |	/carrers/sigles/get |
+
+
+***Cos de la petició***:
+
+```XML
+{
+"nivell": "string", 
+"aplicacio": "string",
+"usuari": "string"
+}
+
+***Exemple:***
+
+```XML
  
+Request:
+POST /carrers/sigles/get
 
- 
- 
 
+Request body:
+{
+"nivell": "9999",
+"aplicacio": "NCL",
+"usuari": "G5Admin"
+Expected response:
+{
+"siglaArray": [
+	{
+	"descripcio": "L",
+	"baixa": { 
+		"dataBaixa": "",
+		"esBaixa": "0"
+		},
+	"codiSigla": "L", 
+	"descAbreujada": "L"
+	},
+{
+"descripcio": "-", 
+"baixa": { 
+	"dataBaixa": "",
+	"esBaixa": ""
+	},
+"codiSigla": "-",
+"descAbreujada": "-"
+},
+....
+]
+}
+```
+## 3.2	Domicilis
 
-5.2	Domicilis
+* ***Descripció*** - Permet guardar i obtenir informació de domicilis del territoris. També podem obtenir dades genèriques com tipus de domicilis o tipus de locals. I finalment permet obtenir les persones d’un domicili.
 
-Descripció	Permet guardar i obtenir informació de domicilis del territoris. També podem obtenir dades genèriques com tipus de domicilis o tipus de locals. I finalment permet obtenir les persones d’un domicili.
-Ruta	/domicilis
+* ***Ruta*** -  /domicilis
 
-5.2.1	Operacions
+### 2.2.1 Operacions
 
 Mètod e	Ruta	Descripció
 POST	/put	Alta d’un Domicili.

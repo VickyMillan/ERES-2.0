@@ -1,254 +1,127 @@
 # ERES-2.0
 Documentació del servei ERES 2.0
 
-*INDEX*
+# 1.Introducció
 
-[1]1. INTRODUCCIÓ
+Per millorar la integració de la aplicació Genesys amb altres entorns, s’ha desenvolupat una API amb arquitectura REST.
 
-	1.1 OBJECTIUS
+## 1.1	Objectius
 
-	1.2 AUDIÈNCIA
-
-2	CONSIDERACIONS GENERALS
-
-2.1	SWAGGER
-
-2.2	DADES GENERALS
-
-3	RECURSOS DE LA API
-
-3.1	CARRERS
-
-3.1.1	Operacions
-
-3.1.2	Alta o modificació
-
-3.1.3	Recuperar un Carrer
-
-3.1.4	Cercar Carrers
-
-3.1.5	Modificar Partícules dels Carrers. PARAMETRES
-
-3.1.6	Recuperar Partícules dels Carrers
-
-3.1.7	Modificar Sigles dels Carrers
-
-3.1.8	Recuperar Sigles dels Carrers
-
-3.2	DOMICILIS
-
-3.2.1	Operacions
-
-3.2.2	Alta. PARAMETRES EXEMPLE
-
-3.2.3	Recuperar un Domicili
-
-3.2.4	Cercar Domicilis	30
-3.2.5	Recuperar les Persones d’un Domicili	34
-3.2.6	Recuperar Domicilis d’un Territori	37
-3.2.7	Recuperar Tipus de Domicilis	38
-3.2.8	Recuperar Tipus de Locals	39
-3.3	PERSONES	42
-3.3.1	Operacions	42
-3.3.2	Modificar	43
-3.3.3	Creacio simple	49
-3.3.4	Recuperar una Persones	50
-5.3.5	Cercar Persones	53
-5.3.6	Recuperar les últimes Persones modificades	57
-5.3.7	Indicador de Persona Física	58
-3.3.8	Crear Partícules de cognoms	59
-3.3.9	Recuperar Partícules de cognoms	61
-3.3.10	Recuperar tots els Domicilis	62
-3.3.11	Recuperar un Domicili	65
-3.3.12	Recuperar el Domicili per defecte	67
-3.3.13	Recuperar els Domicilis Bancaris	70
-3.3.14	Recuperar les Notícies	71
-3.3.15	Recuperar els Representants	72
-3.3.16	Recuperar Tipus de Persones	74
-3.4	REGISTRE	77
-3.4.1	Operacions	77
-3.4.2	Duplicar	77
-3.4.3	Reservar	79
-3.4.4	Recuperar Àrees	81
-3.4.5	Recuperara Departaments	82
-3.4.6	Recuperar un Assumpte	84
-3.4.7	Recuperar Assumptes per Departament	85
-3.4.8	Recuperar Extractes	87
-3.4.9	Recuperar Idiomes	88
-3.4.10	Recuperar Tipus Transport	89
-3.5	REGISTRE D’ENTRADA	91
-3.5.1	Operacions	91
-3.5.2	Crear o modificar	91
-3.5.3	Creació simple.	98
-3.5.4	Modificació simple	101
-3.5.5	Recuperar un Registre	105
-3.5.6	Cercar Registres. TODO	109
-3.5.7	Relacionar Expedient. TODO	110
-3.5.8	Recuperar Expedient relacionat. TODO	110
-3.5.9	Assignar Interessat. TODO	111
-3.5.10	Recuperar Documents relacionats	111
-3.5.11	Recupera Entrades relacionades	113
-3.5.12	Recupera Sortides relacionades	114
-3.6	REGISTRE DE SORTIDA	116
-3.6.1	Operacions	116
-3.6.2	Crear o modificar. TODO	116
-3.6.3	Creació simple. TODO	117
-3.6.4	Modificació simple. TODO	117
-3.6.5	Cercar Registres. TODO	118
-3.6.6	Assignar Interessat. TODO	118
-3.6.7	Recuperar Documents relacionats. TODO	119
-3.6.8	Recuperar Entrades relacionades. TODO	119
-3.6.9	Recuperar Sortides relacionades. TODO	120
-3.7	EXPEDIENTS	121
-3.7.1	Operacions	121
-3.7.2	Creació simple	121
-3.7.3	Modificació simple	122
-3.7.4	Recuperar un Expedient	127
-3.7.5	Modificar o afegir dades addicionals	132
-3.7.6	Esborrar dades addicionals	133
-3.7.7	Obtenir dades addicionals	134
-3.8	DOCUMENTS	135
-3.8.1	Operacions	135
-3.8.2	Guardar un Document	135
-3.8.3	Obtenir un Document	137
-3.8.4	Modificar la informació associada	137
-3.8.5	Obtenir la informació associada	139
-3.8.6	Modificar o afegir dades addicionals	141
-3.8.7	Esborrar dades addicionals	142
-3.8.8	Obtenir la informació associada a partir de l’identificador de Document.	142
-3.9	ORGANIGRAMA	144
-3.9.1	Operacions	144
-3.9.2	Crea o modifica una àrea.	145
-3.9.3	Recupera totes les àrees.	146
-3.9.4	Recupera una àrea.	147
-3.9.5	Elimina una àrea	148
-3.9.6	Crea o modifica un departament.	149
-3.9.7	Recupera tots els departaments d’una àrea.	151
-3.9.8	Recupera un departament.
-
-3.9.9	Elimina un departament.
-
-3.9.10	Crea o modifica un grup de treball.
-
-3.9.11	Recupera tots els grups de treball d’un departments.
-
-3.9.12	Recupera un grup de treball.
-
-3.9.13	Elimina un grup de treball.
-
-3.9.14	Crea o modifica un assumpte.
-
-3.9.15	Recupera tots els assumptes.
-
-3.9.16	Recupera un assumpte.
-
-3.9.17	Elimina un assumpte.
-
-##[1 Introducció][1]
-
->Per millorar la integració de la aplicació Genesys amb altres entrorns, s’ha desenvolupat una API amb arquitectura REST.
-
-###1.1	Objectius
 Aquest document té com objectiu proporcionar una guia tècnica completa per la utilització de la API REST de l’aplicació Genesys de Audifilm Consulting.
 La documentació inclou la descripció detallada de totes les operacions així com exemples d’us que facilitin la integració.
 
-3.2	Audiència
+## 1.2	Audiència
+
 El present document va dirigit a equips o personal tècnic, encarregat de realitzar integracions amb l’aplicació Genesys de Audifilm Consulting.
 Requeriments previs:
-	Coneixement de l’arquitectura REST
-	Estructures de dades en format JSON
-	Coneixement funcional de l’aplicació Genesys.
+* Coneixement de l’arquitectura REST
+* Estructures de dades en format JSON
+* Coneixement funcional de l’aplicació Genesys.
 
 
-4	Consideracions generals
+# 2. Consideracions generals
+
 La API s’ha construit seguint la arquitectura REST en la mesura del possible.
+
 En els casos en que les peticions de dades requerien el pas d’estructures complexes de paràmetres, s’ha optat per definir-les amb la operació POST en lloc de GET. Això ens permet passar una estructura JSON complexa en el cos de la petició.
+
 Les respostes correctes de la API s’indiquen amb un retorn HTTP 200.
+
 Els error funcionals s’indiquen amb un HTTP 404 (Not Found) indicant el motiu de l’error.
+
 Si es produeix algun altre tipus d’incidència, pot ser deguda a altres causes i retornar algun dels codis HTTP estàndards.
 
-4.1	Swagger
+## 2.1 Swagger
+
 La API ofereix una documentació interactiva en format Swagger v2 accessible per web. La web permet consumir directament la API des de la pròpia web i obtenir la seva definició en format Swagger.
+
 Aquesta definició es pot utilitzar per generar automàticament les crides en clients com Postman o utilitzar generadors automàtics de codi.
+
 Punts d’accés a la API:
 
-URL	http://xxxx
-
-Endpoint	/JGenesysREST/api
- 
-
-
-
-Swagger UI	/JGenesysREST/api/swagger-ui.html
-Swagger doc	/JGenesysREST/api/v2/api-docs
+| Paràmetre | Descripció |
+| --------- | ---------- |
+| *URL*    | http://xxxx      |
+| *Endpoint*    | /JGenesysREST/api        |
+| *Swagger UI*    | /JGenesysREST/api/swagger-ui.html        |
+| *Swagger doc*    | /JGenesysREST/api/v2/api-docs        |
 
 
-4.2	Dades generals
+## 2.2 Dades generals
+
 Hi ha tres paràmetres que solen enviar-se en totes les peticions:
 
-Paràmetre	Descripció	Proves de test
-nivell	Indica el nivell e seguretat.	Podem utilitzar 9999
-aplicacio	Indica l’aplicació a la que accedim.	Per exemple:
-SDE - Seguiment D’Esxpedients RES - Registre d’Entrada i Sortida
-usuari	Identificador de l’usuari	Podem utilitzar G5Admin o qualsevol usuari de l’aplicació.
+| Paràmetre | Descripció | Proves de test |
+| --------- | ---------- | -------------- |
+| nivell | Indica el nivell de seguretat | Podem utilitzar 9999 |
+| aplicacio | Indica l’aplicació a la que accedim | Per exemple: SDE - Seguiment D’Esxpedients RES - Registre d’Entrada i Sortida |
+| usuari | Identificador de l’usuari |	Podem utilitzar G5Admin o qualsevol usuari de l’aplicació |
  
 
 
-5	Recursos de la API
-Els recursos que ofereix la API són:
-	Carrers
-	Domicilis
-	Persones
-	Persona-Domicili
-	Registre
-	Registre d’Entrada
-	Registre de Sortida
-	Expedients
-	Documents
+# 3. Recursos de la API
 
+Els recursos que ofereix la API són:
+* Carrers
+* Domicilis
+* Persones
+* Persona-Domicili
+* Registre
+* Registre d’Entrada
+* Registre de Sortida
+* Expedients
+* Documents
 
 A continuació els descrivim en detall.
- 
 
+## 3.1 Carrers
 
-5.1	Carrers
+* ***Descripció*** - Permet guardar i obtenir informació de carrers del territoris. També podem obtenir dades genèriques com partícules dels carrers o sigles
 
-Descripció	Permet guardar i obtenir informació de carrers del territoris. També podem obtenir dades genèriques com partícules dels carrers o sigles.
-Ruta	/carrers
+* ***Ruta*** -  /carrers 
 
-5.1.1	Operacions
+### 3.1.1 Operacions
 
-Mètod e	Ruta	Descripció
-POST	/put	Alta o modificació de Carrers.
-POST	/get	Recuperar un Carrer.
-POST	/search	Cerca de Carrers per diferents criteris.
-POST	/particules/put	Modificació de partícules dels Carrers.
-POST	/particules/get	Recuperar partícules dels Carrers.
-POST	/sigles/put	Modificació de sigles dels Carrers.
-POST	/sigles/get	Recuperar sigles dels Carrers.
+| Mètode | Ruta | Descripció |
+| ------ | ---- | ---------- |
+|POST |	/put			|Alta o modificació de Carrers.              |
+|POST |	/get			|Recuperar un Carrer.                        |
+|POST |	/search			|Cerca de Carrers per diferents criteris.    |
+|POST |	/particules/put	|Modificació de partícules dels Carrers.     |
+|POST |	/particules/get	|Recuperar partícules dels Carrers.          |
+|POST |	/sigles/put		|Modificació de sigles dels Carrers.         |
+|POST |	/sigles/get		|Recuperar sigles dels Carrers.              |
 
+### 3.1.2 Alta o modificació
 
-5.1.2	Alta o modificació
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST |	/carrers/put |		
 
-Mètode	POST
-Ruta	/carrers/put
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string", "carrer": {
-"baixa": { "dataBaixa": "string", "esBaixa": "string"
-},
-"codiCarrer": 0,
- 
+***Cos de la petició***:
 
-
-
-	"codiParticula": "string", "codiSigla": "string", "municipi": { "codMunicipi": 0,
-"codPais": 0,
-"codProvincia": 0
-},
-"nom": "string", "nomAbreujat": "string"
+```xml
+{
+"nivell": "string",
+"aplicacio": "string",
+"usuari": "string",
+"carrer": {
+"baixa": { 
+	"dataBaixa": "string",
+	"esBaixa": "string"
+ },
+ "codiCarrer": 0,
+ "codiParticula": "string",
+ "codiSigla": "string",
+ "municipi": { "codMunicipi": 0,
+ "codPais": 0,
+ "codProvincia": 0
+ },
+ "nom": "string",
+ "nomAbreujat": "string"
+ }
 }
-}
-
+```
 
 Paràmetres:
 

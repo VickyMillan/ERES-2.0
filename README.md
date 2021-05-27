@@ -163,18 +163,18 @@ Expected response:
 "nom": "MIGDIA PROVA",
 "codiCarrer": 3,
 "baixa": { 
-"dataBaixa": "",
-"esBaixa": ""
-},
+	"dataBaixa": "",
+	"esBaixa": ""
+	},
 "municipi": { 
-"codPais": 108,
-"codProvincia": 17,
-"descPais": "ESPAÑA",
-"descProvincia": "GIRONA",
-"baixa": null,
-"codMunicipi": 79,
-"descMunicipi": "GIRONA"
-},
+	"codPais": 108,
+	"codProvincia": 17,
+	"descPais": "ESPAÑA",
+	"descProvincia": "GIRONA",
+	"baixa": null,
+	"codMunicipi": 79,
+	"descMunicipi": "GIRONA"
+	},
 "codiSigla": "C/",
 "codiParticula": "",
 "nomAbreujat": "MP",
@@ -258,16 +258,28 @@ Expected response body:
 
 ### 3.1.4 Cercar Carrers
 
-Mètode	POST
-Ruta	/carrers/search
-Cos	de	la petició	{
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST |	/carrers/search |
+
+***Cos de la petició***:
+
+```XML
+{
 "codiCarrer": 0,
-"maxResults": 0, "municipi": { "codMunicipi": 0,
-"codPais": 0,
-"codProvincia": 0
-},
-"nomCarrer": "string", "tipusVia": "string", "nivell": "string", "aplicacio": "string", "usuari": "string"
+"maxResults": 0,
+"municipi": {
+	"codMunicipi": 0,
+	"codPais": 0,
+	"codProvincia": 0
+	},
+"nomCarrer": "string",
+"tipusVia": "string", 
+"nivell": "string", 
+"aplicacio": "string", 
+"usuari": "string"
 }
+```
 
 |Paràmetres| |
 |----------|-|

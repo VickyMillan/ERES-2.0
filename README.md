@@ -583,139 +583,188 @@ Expected response:
 
 * ***Ruta*** -  /domicilis
 
-### 2.2.1 Operacions
+### 3.2.1 Operacions
 
-Mètod e	Ruta	Descripció
-POST	/put	Alta d’un Domicili.
-POST	/get	Recuperar un Domicili.
-POST	/search	Cerca de Domicilis per diferents criteris.
-POST	/persones/get	Recuperar les Persones d’un Domicili.
-POST	/getperterritori	Recuperar Domicilis d’un Territori.
-POST	/tipus/get	Recuperar els Tipus de Domicilis.
-POST	/tipuslocals/get	Recuperar els Tipus de Locals.
+| Mètode | Ruta | Descripció |
+| ------ | ---- | ---------- |
+|POST|	/put				|Alta d’un Domicili.                                   |
+|POST|	/get				|Recuperar un Domicili.                                |
+|POST|	/search				|Cerca de Domicilis per diferents criteris.            |
+|POST|	/persones/get		|Recuperar les Persones d’un Domicili.                 |
+|POST|	/getperterritori	|Recuperar Domicilis d’un Territori.                   |
+|POST|	/tipus/get			|Recuperar els Tipus de Domicilis.                     |
+|POST|	/tipuslocals/get	|Recuperar els Tipus de Locals                         |
 
 
-5.2.2	Alta. PARAMETRES EXEMPLE
+### 3.2.2 Alta. PARAMETRES EXEMPLE
 
-Mètode	POST
-Ruta	/domicilis/put
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string", "ambKm": true,
-"domTip": [ "string"
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST |	/domicilis/put |		
+
+***Cos de la petició***:
+
+```XML
+{
+"nivell": "string",
+"aplicacio": "string",
+"usuari": "string",
+"ambKm": true,
+"domTip": [ 
+"string"
 ],
 "domTloc": [
- 
-
-
-
-	"string"
+ "string"
 ],
-"domicili": { "apartatCorreus": 0, "baixa": { "dataBaixa": "string", "esBaixa": "string"
-},
-"bis1": "string",
-"bis2": "string",
-"bloc": "string", "codiCarrer": 0,
-"codiDomicili": 0, "codiGIS": "string", "codiPostal": "string", "codiPseudovia": 0,
-"codiTipusDomicili": "string", "codiTipusLocal": "string", "escala": "string",
-"hm": 0,
-"km": 0,
-"municipi": { "codMunicipi": 0,
-"codPais": 0,
-"codProvincia": 0
-},
-"num1": "string",
-"num2": "string", "observacions": "string", "pis": "string", "pobldesc": "string", "porta": "string",
-"portal": "string",
-"refCadastral": "string"
- 
-
-
-
+"domicili": { 
+	"apartatCorreus": 0, 
+	"baixa": {
+		"dataBaixa": "string",
+		"esBaixa": "string"
+		},
+	"bis1": "string",
+	"bis2": "string",
+	"bloc": "string", "codiCarrer": 0,
+	"codiDomicili": 0, 
+	"codiGIS": "string", 
+	"codiPostal": "string", 
+	"codiPseudovia": 0,
+	"codiTipusDomicili": "string",
+	"codiTipusLocal": "string",
+	"escala": "string",
+	"hm": 0,
+	"km": 0,
+	"municipi": { 
+		"codMunicipi": 0,
+		"codPais": 0,
+		"codProvincia": 0
+		},
+	"num1": "string",
+	"num2": "string", 
+	"observacions": "string", 
+	"pis": "string", 
+	"pobldesc": "string", 
+	"porta": "string",
+	"portal": "string",
+	"refCadastral": "string"
 	},
-"duplicarAcceptat": true, "g_G5Municod": 0,
+"duplicarAcceptat": true,
+"g_G5Municod": 0,
 "g_G5Paiscod": 0,
 "g_G5Provcod": 0,
-"maxResults": 0, "nomesBaixa": true, "senseAproximadors": true, "senseNumero": true
+"maxResults": 0, 
+"nomesBaixa": true, 
+"senseAproximadors": true, 
+"senseNumero": true
 }
-Paràmetres:
 
-ambKm	
-domTip	
-domTLoc	
-apartatCorreus	Apartat de Correus.
-baixa	Dades de baixa del Domicili.
-bis1	
-bis2	
-bloc	Número de bloc.
-codiCarrer	Codi del Carrer.
-codiDomicili	Codi del Domicili.
-codiGIS	
-codiPostal	Codi Postal.
-codiPseudovia	
-codiTipusdomicil i	Tipus de Domicili.
-codiTipusLocal	Tipus de Local.
-escala	Escala.
-hm	
- 
+```
 
-
-
-km	Kilòmetre per vies no numerades.
-municipi	Dades del Municipi. Inclou país, província i municipi.
-num1	Número 1 del Domicili.
-num2	Número 2 del Domicili.
-observacions	Observacions vàries.
-pis	Pis.
-pobledesc	
-porta	Porta.
-portal	Número de portal.
-refCadastral	Referència Cadastral de l’immoble.
-duplicarAcceptat	
-g_G5Municod	
-g_G5Paiscod	
-g_G5provcod	
-maxResults	
-nomesBaixa	
-senseAproximad ors	
-senseNumero	Indicador de Domicili sense número.
-
-
-Exemple:
- 
+|Paràmetres| |
+|----------|-|
+|ambKm	            |                                                                  |
+|domTip	            |                                                                  |
+|domTLoc	            |                                                                  |
+|apartatCorreus		|Apartat de Correus.                                               |
+|baixa				|Dades de baixa del Domicili.                                      |
+|bis1	            |                                                                  |
+|bis2	            |                                                                  |
+|bloc				|Número de bloc.                                                   |
+|codiCarrer			|Codi del Carrer.                                                  |
+|codiDomicili		|Codi del Domicili.                                                |
+|codiGIS	            |                                                                  |
+|codiPostal			|Codi Postal.                                                      |
+|codiPseudovia	    |                                                                  |
+|codiTipusdomicili	|Tipus de Domicili.                                                |
+|codiTipusLocal		|Tipus de Local.                                                   |
+|escala	Escala.     |                                                                  |
+|hm	                |                                                                  |
+|km					|Kilòmetre per vies no numerades.                                  |
+|municipi			|Dades del Municipi. Inclou país, província i municipi.            |
+|num1				|Número 1 del Domicili.                                            |
+|num2				|Número 2 del Domicili.                                            |
+|observacions		|Observacions vàries.                                              |
+|pis	Pis.            |                                                                  |
+|pobledesc	        |                                                                  |
+|porta				|Porta.                                                            |
+|portal				|Número de portal.                                                 |
+|refCadastral		|Referència Cadastral de l’immoble.                                |
+|duplicarAcceptat	|                                                                  |
+|g_G5Municod	        |                                                                  |
+|g_G5Paiscod	        |                                                                  |
+|g_G5provcod	        |                                                                  |
+|maxResults	        |                                                                  |
+|nomesBaixa	        |                                                                  |
+|senseAproximadors	|                                                                  |
+|senseNumero			|Indicador de Domicili sense número.                               |
 
 
+***Exemple:***
 
-5.2.3	Recuperar un Domicili
+```XML
+Request:
+POST /domicilis/put
 
-Mètode	POST
-Ruta	/domicilis/get
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string", "codiDomicili": 0,
+Request body:
+
+Expected response body:
+
+```
+
+
+### 3.2.3 Recuperar un Domicili
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST |	/domicilis/get |
+
+***Cos de la petició***:
+
+```XML
+{
+"nivell": "string",
+"aplicacio": "string",
+"usuari": "string",
+"codiDomicili": 0,
 "codiMunicipi": 0,
 "codiPais": 0,
 "codiProvincia": 0
 }
 
-Paràmetres:
+```
 
-codiDomicili	Codi delDomicili.
-codiMunicipi	Codi del municipi.
-codiPais	Codi del País.
-codiProvincia	Codi de la Província.
+|Paràmetres| |
+|----------|-|
+|codiDomicili	|Codi delDomicili.             |
+|codiMunicipi	|Codi del municipi.            |
+|codiPais		|Codi del País.                |
+|codiProvincia	|Codi de la Província.         |
 
-Exemple:
- 
+***Exemple:***
+
+```XML
+ Request:
+POST /domicilis/get
 
 
-
+Request body:
+{
+"codiDomicili": 555,
+"nivell": "9999",
+"aplicacio": "NCL",
+"usuari": "G5Admin"
 Expected response body:
 {
 "codiDomicili": 555,
-"codiCarrer": 74, "codiPseudovia": null, "num1": "0138",
+"codiCarrer": 74,
+"codiPseudovia": null,
+"num1": "0138",
 "num2": "",
 "bis1": "",
-"bis2": "", "km": null,
-"hm": null, "bloc": "",
+"bis2": "",
+"km": null,
+"hm": null,
+"bloc": "",
 "portal": "",
 "escala": "",
 "pis": "",
@@ -724,63 +773,111 @@ Expected response body:
 "baixa": { "dataBaixa": "",
 "esBaixa": "0"
 },
-"baixaRelacio": null, "municipi": { "codPais": 108,
-"codProvincia": 17, "descPais": "ESPAÑA", "descProvincia": "GIRONA", "baixa": null, "codMunicipi": 160,
-"descMunicipi": "SANT FELIU DE GUIXOLS"
-},
-"observacions": "", "codiTipusDomicili": "POST", "codiTipusLocal": "1",
+"baixaRelacio": null, "municipi": {
+	"codPais": 108,
+	"codProvincia": 17, 
+	"descPais": "ESPAÑA", 
+	"descProvincia": "GIRONA", 
+	"baixa": null, 
+	"codMunicipi": 160,
+	"descMunicipi": "SANT FELIU DE GUIXOLS"
+	},
+"observacions": "",
+"codiTipusDomicili": "POST",
+"codiTipusLocal": "1",
 "codiPostal": "17220",
- 
+"apartatCorreus": null,
+"codiGIS": "2561923",
+"refCadastral": "",
+"descCarrer": "C/ CREU",
+"descPseudovia": "",
+"descTipusDomicili": null,
+"descTipusLocal": null, 
+"pobldesc": "",
+"paiscod": null,
+"provcod": null,
+"municod": null,
+"stddgr": "20021129",
+"stddmod": "20021129",
+"stdhgr": "105010",
+"stdhmod": "105010",
+"stdugr": "traspas",
+"stdumod": "traspas",
+"stdapladd": "HAB",
+"stdaplmod": "HAB",
+"swRevisat": null
+}
+``` 
 
+### 3.2.4 Cercar Domicilis
 
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST |	/domicilis/search |	
 
- 
+***Cos de la petició***:
 
-5.2.4	Cercar Domicilis
-
-Mètode	POST
-Ruta	/domicilis/search
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string", "ambKm": true,
-"domTip": [ "string"
+```XML
+{
+"nivell": "string",
+"aplicacio": "string",
+"usuari": "string",
+"ambKm": true,
+"domTip": [
+"string"
 ],
- 
-
-
-
-	"domTloc": [ "string"
+"domTloc": [
+"string"
 ],
-"domicili": { "apartatCorreus": 0, "baixa": { "dataBaixa": "string", "esBaixa": "string"
-},
-"bis1": "string",
-"bis2": "string",
-"bloc": "string", "codiCarrer": 0,
-"codiDomicili": 0, "codiGIS": "string", "codiPostal": "string", "codiPseudovia": 0,
-"codiTipusDomicili": "string", "codiTipusLocal": "string", "escala": "string",
-"hm": 0,
-"km": 0,
-"municipi": { "codMunicipi": 0,
-"codPais": 0,
-"codProvincia": 0
-},
-"num1": "string",
-"num2": "string", "observacions": "string", "pis": "string", "pobldesc": "string", "porta": "string",
-"portal": "string",
- 
-
-
-
+"domicili": { 
+	"apartatCorreus": 0,
+	"baixa": {
+		"dataBaixa": "string", 
+		"esBaixa": "string"
+		},
+	"bis1": "string",
+	"bis2": "string",
+	"bloc": "string",
+	"codiCarrer": 0,
+	"codiDomicili": 0,
+	"codiGIS": "string",
+	"codiPostal": "string",
+	"codiPseudovia": 0,
+	"codiTipusDomicili": "string",
+	"codiTipusLocal": "string",
+	"escala": "string",
+	"hm": 0,
+	"km": 0,
+	"municipi": { 
+		"codMunicipi": 0,
+		"codPais": 0,
+		"codProvincia": 0
+		},
+	"num1": "string",
+	"num2": "string",
+	"observacions": "string", 
+	"pis": "string", 
+	"pobldesc": "string",
+	"porta": "string",
+	"portal": "string",
 	"refCadastral": "string"
-},
-"duplicarAcceptat": true, "g_G5Municod": 0,
+	},
+"duplicarAcceptat": true, 
+"g_G5Municod": 0,
 "g_G5Paiscod": 0,
 "g_G5Provcod": 0,
-"maxResults": 0, "nomesBaixa": true, "senseAproximadors": true, "senseNumero": true
+"maxResults": 0, 
+"nomesBaixa": true,
+"senseAproximadors": true,
+"senseNumero": true
 }
+```
 
 
-Paràmetres:
-Veure la descrició de paràmetres de l’apartat Alta.
+|Paràmetres|
+|----------|
+|Veure la descrició de paràmetres de l’apartat **Alta**.|
+
 
 
 Exemple:

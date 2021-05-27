@@ -100,7 +100,7 @@ A continuació els descrivim en detall.
 
 ***Cos de la petició***:
 
-```xml
+```XML
 {
 "nivell": "string",
 "aplicacio": "string",
@@ -123,86 +123,140 @@ A continuació els descrivim en detall.
 }
 ```
 
-Paràmetres:
+|Paràmetres| |
+|----------|-|
+|carrer.baixa			| Dades de baixa del Carrer.                                                         |
+|carrer.codiCarrer		| Codi del Carrer.                                                                   |
+|carrer.codiParticula	| Codi de Partícula del Carrer.                                                      |
+|carrer.codiSigla		| Sigla del Carrer.                                                                  |
+|carrer.municipi		| Municipi del Carrer indicant codi de país, codi de provícia i codi de municipi.    |
+|carrer.nom				| Nom del Carrer.                                                                    |
+|carrer.nomAbreujat		| Nom abreujaT del Carrer.                                                           |
 
-carrer.baixa	Dades de baixa del Carrer.
-carrer.codiCarrer	Codi del Carrer.
-carrer.codiParticu la	Codi de Partícula del Carrer.
-carrer.codiSigla	Sigla del Carrer.
-carrer.municipi	Municipi del Carrer indicant codi de país, codi de provícia i codi de municipi.
-carrer.nom	Nom del Carrer.
-carrer.nomAbreuj at	Nom abreujaT del Carrer.
+***Exemple:***
 
+```XML
+Request:
+POST /carrers/put
 
-Exemple
- 
-
-
-
-"municipi": { "codMunicipi": 79,
-"codPais": 108,
-"codProvincia": 17
-},
-"nom": "MIGDIA PROVA",
-"nomAbreujat": "MP"
-},
+Request body:
+{
+"carrer": { 
+	"codiCarrer": 3, 
+	"codiSigla": "C/",
+	"municipi": { 
+		"codMunicipi": 79,
+		"codPais": 108,
+		"codProvincia": 17
+		},
+	"nom": "MIGDIA PROVA",
+	"nomAbreujat": "MP"
+	},
 "nivell": "9999",
-"aplicacio": "NCL", "usuari": "G5Admin"
+"aplicacio": "NCL",
+"usuari": "G5Admin"
 }
 
 
 Expected response:
 {
 "nom": "MIGDIA PROVA",
-"codiCarrer": 3, "baixa": { "dataBaixa": "",
+"codiCarrer": 3,
+"baixa": { 
+"dataBaixa": "",
 "esBaixa": ""
 },
-"municipi": { "codPais": 108,
-"codProvincia": 17, "descPais": "ESPAÑA", "descProvincia": "GIRONA", "baixa": null, "codMunicipi": 79, "descMunicipi": "GIRONA"
+"municipi": { 
+"codPais": 108,
+"codProvincia": 17,
+"descPais": "ESPAÑA",
+"descProvincia": "GIRONA",
+"baixa": null,
+"codMunicipi": 79,
+"descMunicipi": "GIRONA"
 },
 "codiSigla": "C/",
 "codiParticula": "",
 "nomAbreujat": "MP",
-"descSigla": "C/", "descParticula": ""
- 
+"descSigla": "C/",
+"descParticula": ""
+```
 
+### 3.1.3 Recuperar un Carrer
 
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST |	/carrers/get |		
 
- 
+***Cos de la petició***:
 
-
-5.1.3	Recuperar un Carrer
-
-Mètode	POST
-Ruta	/carrers/get
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string", "carrer": { "codCarrer": 0,
-"codMunicipi": 0,
-"codPais": 0,
-"codProvincia": 0
+```XML
+Cos de la petició
+{
+"nivell": "string",
+"aplicacio": "string",
+"usuari": "string",
+"carrer": { 
+	"codCarrer": 0,
+	"codMunicipi": 0,
+	"codPais": 0,
+	"codProvincia": 0
+	}
 }
+```
+|Paràmetres| |
+|----------|-|
+|carrer.codCarrer	|Codi del Carrer.              |
+|carrer.codMunicipi	|Codi del Municipi.            |
+|carrer.codPais		|Codi del País.                |
+|carrer.codiProvincia|Codi de provincia.           |
+
+***Exemple:***
+```XML
+Request:
+POST /carrers/get
+
+
+Request body:
+{
+"carrer": { "codCarrer": 616,
+"codMunicipi": 19,
+"codPais": 108,
+"codProvincia": 8
+},
+"nivell": "9999",
+"aplicacio": "NCL", "usuari": "G5Admin"
 }
 
-Paràmetres:
 
-carrer.codCarrer	Codi del Carrer.
-carrer.codMunici pi	Codi del Municipi.
-carrer.codPais	Codi del País.
-carrer.codiProvi ncia	Codi de provincia.
+Expected response body:
+{
+"nom": "PUIGMARTI",
+"codiCarrer": 616, 
+"baixa": { 
+	"dataBaixa": "",
+	"esBaixa": ""
+	},
+"municipi": { 
+	"codPais": 108,
+	"codProvincia": 8,
+	"descPais": "ESPAÑA",
+	"descProvincia": "BARCELONA",
+	"baixa": null,
+	"codMunicipi": 19,
+	"descMunicipi": "BARCELONA"
+	},
+"codiSigla": "C/",
+"codiParticula": "",
+"nomAbreujat": "",
+"descSigla": "C/",
+"descParticula": ""
+}
 
-Exemple:
- 
+```
 
 
-
- 
- 
-
-
-
-
-
-5.1.4	Cercar Carrers
+### 3.1.4 Cercar Carrers
 
 Mètode	POST
 Ruta	/carrers/search
@@ -215,13 +269,13 @@ Cos	de	la petició	{
 "nomCarrer": "string", "tipusVia": "string", "nivell": "string", "aplicacio": "string", "usuari": "string"
 }
 
-Paràmetres:
-
-codiCarrer	Codi del Carrer.
-maxResults	Número màxim de resultats retornats.
-municipi	Identificador de municipi. Inclou codi de país, codi de provincia i codi de municipi.
-nomCarrer	Nom del carrer.
-tipusVia	Tipus de via.
+|Paràmetres| |
+|----------|-|
+|codiCarrer	|Codi del Carrer.                                                                           |
+|maxResults	|Número màxim de resultats retornats.                                                       |
+|municipi	|Identificador de municipi. Inclou codi de país, codi de provincia i codi de municipi.      |
+|nomCarrer	|Nom del carrer.                                                                            |
+|tipusVia	|Tipus de via.                                                                              |
 
 
 Exemple:

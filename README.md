@@ -100,7 +100,7 @@ A continuació els descrivim en detall.
 
 ***Cos de la petició***:
 
-```XML
+```json
 {
 "nivell": "string",
 "aplicacio": "string",
@@ -135,7 +135,7 @@ A continuació els descrivim en detall.
 
 ***Exemple:***
 
-```XML
+```json
 Request:
 POST /carrers/put
 
@@ -190,7 +190,7 @@ Expected response:
 
 ***Cos de la petició***:
 
-```XML
+```json
 Cos de la petició
 {
 "nivell": "string",
@@ -212,7 +212,7 @@ Cos de la petició
 |carrer.codiProvincia|Codi de provincia.           |
 
 ***Exemple:***
-```XML
+```json
 Request:
 POST /carrers/get
 
@@ -264,7 +264,7 @@ Expected response body:
 
 ***Cos de la petició***:
 
-```XML
+```json
 {
 "codiCarrer": 0,
 "maxResults": 0,
@@ -293,7 +293,7 @@ Expected response body:
 
 ***Exemple:***
 
-```XML
+```json
 Request:
 POST /carrerc/search
 
@@ -350,7 +350,7 @@ Expected response body:
 
 ***Cos de la petició***:
 
-```XML
+```json
 {
 "nivell": "string", 
 "aplicacio": "string",
@@ -364,7 +364,6 @@ Expected response body:
 	"qual": "string"
 	}
 }
-
 ```
 
 |Paràmetres| |
@@ -379,7 +378,7 @@ Expected response body:
 
 ***Exemple:***
 
-```XML
+```json
 Request:
 POST /carrers/particules/put
 
@@ -405,7 +404,6 @@ Expected response:
 "qual": "",
 "comptador": null
 }
-
 ```
 
 
@@ -417,19 +415,17 @@ Expected response:
 
 ***Cos de la petició***:
 
-```XML
+```json
 {
 "nivell": "string",
 "aplicacio": "string",
 "usuari": "string"
 }
-
-
 ```` 
 
 ***Exemple:***
 
-```XML
+```json
 Request:
 POST /carrers/particules/get
 
@@ -455,8 +451,6 @@ Expected response body:
 	}
 	]
 }
-
-
 ```
 
 
@@ -469,7 +463,7 @@ Expected response body:
 
 ***Cos de la petició***:
 
-```XML
+```json
 {
 "nivell": "string",
 "aplicacio": "string",
@@ -496,7 +490,7 @@ Expected response body:
 
 ***Exemple:***
 
-```XML
+```json
 Request:
 POST /carrers/sigles/put
 
@@ -532,7 +526,7 @@ Expected response:
 
 ***Cos de la petició***:
 
-```XML
+```json
 {
 "nivell": "string", 
 "aplicacio": "string",
@@ -541,11 +535,9 @@ Expected response:
 
 ***Exemple:***
 
-```XML
- 
+```json
 Request:
 POST /carrers/sigles/get
-
 
 Request body:
 {
@@ -604,7 +596,7 @@ Expected response:
 
 ***Cos de la petició***:
 
-```XML
+```json
 {
 "nivell": "string",
 "aplicacio": "string",
@@ -657,7 +649,6 @@ Expected response:
 "senseAproximadors": true, 
 "senseNumero": true
 }
-
 ```
 
 |Paràmetres| |
@@ -701,7 +692,7 @@ Expected response:
 
 ***Exemple:***
 
-```XML
+```json
 Request:
 POST /domicilis/put
 
@@ -720,7 +711,7 @@ Expected response body:
 
 ***Cos de la petició***:
 
-```XML
+```json
 {
 "nivell": "string",
 "aplicacio": "string",
@@ -742,7 +733,7 @@ Expected response body:
 
 ***Exemple:***
 
-```XML
+```json
  Request:
 POST /domicilis/get
 
@@ -817,7 +808,7 @@ Expected response body:
 
 ***Cos de la petició***:
 
-```XML
+```json
 {
 "nivell": "string",
 "aplicacio": "string",
@@ -873,7 +864,6 @@ Expected response body:
 }
 ```
 
-
 |Paràmetres|
 |----------|
 |Veure la descrició de paràmetres de l’apartat **Alta**.|
@@ -911,19 +901,12 @@ Expected response:
 "descMunicipi": "SANT FELIU DE GUIXOLS"
  
 
-
-
- 
-
 5.2.5	Recuperar les Persones d’un Domicili
 
 Mètode	POST
 Ruta	/domicilis/persones/get
 Cos	de	{
  
-
-
-
 lapetició	"nivell": "string", "aplicacio": "string", "usuari": "string", "codiDomicili": 0,
 "codiMunicipi": 0,
 "codiPais": 0,

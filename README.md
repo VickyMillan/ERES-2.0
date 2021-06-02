@@ -1503,176 +1503,374 @@ Exemple:
 
 ### 3.3.4 Recuperar una Persones
 
-Mètode	POST
-Ruta	/persones/get
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string",
-"codiPersona": 0,
- 
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST |	/persones/get|		
+
+***Cos de la petició***:
+
+```json
+{
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string",
+    "codiPersona": 0,
+    "formatNomCognoms": true,
+    "g_G5Paiscod": 0,
+    "mostrarBaixes": true
+}
+```
+|Paràmetres| |
+|----------|-|
+|codiPersona			|Codi de la persona a recuperar.        |
+|formatNomCosnoms	|                                       |
+|g_G5Paiscod	        |                                       |
+|mostrarBaixes	    |                                       |
 
 
+***Exemple:***
 
-	"formatNomCognoms": true, "g_G5Paiscod": 0, "mostrarBaixes": true
+```json
+Request:
+POST /persones/get
+
+
+Request body: {
+    "codiPersona": 555,
+    "formatNomCognoms": false,
+    "mostrarBaixes": false,
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string"
 }
 
 
-Paràmetres:
+Expected response: {
+    "nom": "MARIA",
+    "nif": "41111111",
+    "nifDC": "J",
+    "particula1": "",
+    "cognom1": "XXXX",
+    "particula2": "",
+    "cognom2": "YYYY",
+    "baixa": {
+        "dataBaixa": "",
+        "esBaixa": "0"
+    },
+    "password": "",
+    "descTipusPersona": null,
+    "descNacionalitat": "ESPAÑA",
+    "codi": 555,
+    "codTipusPersona": "F",
+    "passaport": "",
+    "dataNaixement": "19950126",
+    "codNacionalitat": 108,
+    "sexe": "1",
+    "municipiNaixement": {
+        "codPais": 108,
+        "codProvincia": 17,
+        "descPais": "ESPAÑA",
+        "descProvincia": "GIRONA",
+        "baixa": null,
+        "codMunicipi": 160,
+        "descMunicipi": "SANT FELIU DE GUIXOLS"
+    },
+    "nomComplet": "XXXX YYYY MARIA",
+    "contacte": null,
+    "formaContacte": null,
+    "codIdioma": "",
+    "perssw": "0",
+    "nifOrig": "",
+    "esHabitant": false,
+    "esPersnull": false,
+    "esContribuent": false,
+    "esNifModificable": false,
+    "stddgr": "20021129",
+    "stddmod": "20080508",
+    "stdhgr": "104455",
+    "stdhmod": "000002",
+    "stdugr": "traspas",
+    "stdumod": "ALFRED",
+    "stdapladd": "HAB ",
+    "stdaplmod": "HAB ",
+    "codiEstudis": null,
+    "nomesBaixa": false,
+    "dataBaixa2": null,
+    "gestCont": false
+}
 
-codiPersona	Codi de la persona a recuperar.
-formatNomC osnoms	
-g_G5Paiscod	
-mostrarBaixe s	
+```
 
 
-Exemple:
  
 
+### 3.3.5 Cercar Persones
 
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST |	/persones/search|	
 
-"cognom1": "XXXX",
-"particula2": "",
-"cognom2": "YYYY", "baixa": { "dataBaixa": "",
-"esBaixa": "0"
-},
-"password": "", "descTipusPersona": null, "descNacionalitat": "ESPAÑA", "codi": 555, "codTipusPersona": "F", "passaport": "", "dataNaixement": "19950126",
-"codNacionalitat": 108,
-"sexe": "1", "municipiNaixement": { "codPais": 108,
-"codProvincia": 17, "descPais": "ESPAÑA", "descProvincia": "GIRONA", "baixa": null, "codMunicipi": 160,
-"descMunicipi": "SANT FELIU DE GUIXOLS"
-},
-"nomComplet": "XXXX YYYY MARIA", "contacte": null,
-"formaContacte": null, "codIdioma": "",
-"perssw": "0",
-"nifOrig": "", "esHabitant": false, "esPersnull": false, "esContribuent": false, "esNifModificable": false,
- 
+***Cos de la petició***:
 
-
-
- 
-
-5.3.5	Cercar Persones
-
-Mètode	POST
-Ruta	/persones/search
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string", "g_G5Paiscod": 0,
-"maxResult": 0, "persona": {
-"baixa": { "dataBaixa": "string", "esBaixa": "string"
-},
-"codIdioma": "string", "codNacionalitat": 0, "codTipusPersona": "string", "codi": 0,
-"codiEstudis": "string",
- 
-
-
-
-	"cognom1": "string",
-"cognom2": "string", "contacte": "string", "dataBaixa2": "string", "dataNaixement": "string", "descNacionalitat": "string", "descTipusPersona": "string", "esContribuent": true, "esHabitant": true, "esNifModificable": true, "esPersnull": true, "formaContacte": "string", "gestCont": true, "municipiNaixement": { "baixa": {
-"dataBaixa": "string",
-"esBaixa": "string"
-},
-"codMunicipi": 0,
-"codPais": 0,
-"codProvincia": 0, "descMunicipi": "string", "descPais": "string", "descProvincia": "string"
-},
-"nif": "string",
-"nifDC": "string",
-"nifOrig": "string",
-"nom": "string", "nomComplet": "string", "nomesBaixa": true, "particula1": "string", "particula2": "string",
-"passaport": "string",
- 
-
-
-
-	"password": "string", "perssw": "string",
-"sexe": "string", "stdapladd": "string", "stdaplmod": "string", "stddgr": "string",
-"stddmod": "string",
-"stdhgr": "string",
-"stdhmod": "string",
-"stdugr": "string", "stdumod": "string"
-},
-"tipoPersona": [ "string"
-]
+```json
+{
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string",
+    "g_G5Paiscod": 0,
+    "maxResult": 0,
+    "persona": {
+        "baixa": {
+            "dataBaixa": "string",
+            "esBaixa": "string"
+        },
+        "codIdioma": "string",
+        "codNacionalitat": 0,
+        "codTipusPersona": "string",
+        "codi": 0,
+        "codiEstudis": "string",
+        "cognom1": "string",
+        "cognom2": "string",
+        "contacte": "string",
+        "dataBaixa2": "string",
+        "dataNaixement": "string",
+        "descNacionalitat": "string",
+        "descTipusPersona": "string",
+        "esContribuent": true,
+        "esHabitant": true,
+        "esNifModificable": true,
+        "esPersnull": true,
+        "formaContacte": "string",
+        "gestCont": true,
+        "municipiNaixement": {
+            "baixa": {
+                "dataBaixa": "string",
+                "esBaixa": "string"
+            },
+            "codMunicipi": 0,
+            "codPais": 0,
+            "codProvincia": 0,
+            "descMunicipi": "string",
+            "descPais": "string",
+            "descProvincia": "string"
+        },
+        "nif": "string",
+        "nifDC": "string",
+        "nifOrig": "string",
+        "nom": "string",
+        "nomComplet": "string",
+        "nomesBaixa": true,
+        "particula1": "string",
+        "particula2": "string",
+        "passaport": "string",
+        "password": "string",
+        "perssw": "string",
+        "sexe": "string",
+        "stdapladd": "string",
+        "stdaplmod": "string",
+        "stddgr": "string",
+        "stddmod": "string",
+        "stdhgr": "string",
+        "stdhmod": "string",
+        "stdugr": "string",
+        "stdumod": "string"
+    },
+    "tipoPersona": [
+        "string"
+    ]
 }
 
 
-Paràmetres:
-Veure l’apartat Modifcar.
+```
+|Paràmetres| 
+|----------|
+|Veure l’apartat **Modifcar.** |
 
 
-Exemple:
+***Exemple:***
+
+```json
+Request:
+POST /persones/search
+
+
+Request body: {
+    "persona": {
+        "cognom1": "SOLER"
+    },
+    "nivell": "9999",
+    "aplicacio": "NCL",
+    "usuari": "string"
+}
+Expected response: {
+    "personaArray": [
+        {
+            "nom": "SOLER XXXXXX JAUME",
+            "nif": "11111111",
+            "nifDC": "V",
+            "particula1": "",
+            "cognom1": "SOLER",
+            "particula2": "",
+            "cognom2": "",
+            "baixa": {
+                "dataBaixa": "",
+                "esBaixa": "0"
+            },
+            "password": "",
+            "descTipusPersona": null,
+            "descNacionalitat": "ESPAÑA",
+            "codi": 32871,
+            "codTipusPersona": "F",
+            "passaport": "",
+            "dataNaixement": "",
+            "codNacionalitat": 108,
+            "sexe": "",
+            "municipiNaixement": null,
+            "nomComplet": "SOLER XXXXX JAUME",
+            "contacte": null,
+            "formaContacte": null,
+            "codIdioma": "",
+            "perssw": "0",
+            "nifOrig": "",
+            "esHabitant": false,
+            "esPersnull": false,
+            "esContribuent": false,
+            "esNifModificable": false,
+            "stddgr": "20031113",
+            "stddmod": "20031113",
+            "stdhgr": "165753",
+            "stdhmod": "000002",
+            "stdugr": "traspas",
+            "stdumod": "traspas",
+            "stdapladd": "GTR ",
+            "stdaplmod": "GTR ",
+            "codiEstudis": null,
+            "nomesBaixa": false,
+            "dataBaixa2": null,
+            "gestCont": false
+        },
+....
+    ]
+}
+
+```
+
  
 
+### 3.3.6 Recuperar les últimes Persones modificades
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST |	/persones/getmodificades|
+
+***Cos de la petició***:
+
+```json
+{
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string",
+    "dataModificacio": "string",
+    "horaModificacio": "string"
+}
+```
+|Paràmetres| |
+|----------|-|
+|dataModificacio	|Dia de modificació.|
+|horaModificacio		|Hora de modificació.|
+ 
+
+***Exemple:***
+
+```json
+Request:
+POST /persones/getmodificades
+
+
+Request body: {
+    "dataModificacio": "20200101",
+    "horaModificacio": "000000",
+    "nivell": "9999",
+    "aplicacio": "NCL",
+    "usuari": "G5Admin"
+}
 
 
 Expected response:
+
+
+Response body
 {
-"personaArray": [
+    "persones": [
+        106260
+    ]
+}
+
+```
+
+### 3.3.7 Indicador de Persona Física
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST |	/persones/espersonafisica	|
+
+***Cos de la petició***:
+
+```json
 {
-"nom": "SOLER XXXXXX JAUME", "nif": "11111111",
-"nifDC": "V",
-"particula1": "",
-"cognom1": "SOLER",
-"particula2": "",
-"cognom2": "", "baixa": { "dataBaixa": "",
-"esBaixa": "0"
-},
-"password": "", "descTipusPersona": null, "descNacionalitat": "ESPAÑA", "codi": 32871, "codTipusPersona": "F", "passaport": "",
-"dataNaixement": "", "codNacionalitat": 108, "sexe": "", "municipiNaixement": null,
-"nomComplet": "SOLER XXXXX JAUME",
-"contacte": null, "formaContacte": null, "codIdioma": "",
-"perssw": "0",
-"nifOrig": "", "esHabitant": false, "esPersnull": false, "esContribuent": false, "esNifModificable": false,
- 
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string",
+    "codiPersona": 0,
+    "gestCont": true
+}
+```
+
+***Exemple:***
+
+```json
+Request:
+POST /persones/espersonafisica
 
 
-
- 
-
-5.3.6	Recuperar les últimes Persones modificades
-
-Mètode	POST
-Ruta	/persones/getmodificades
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string", "dataModificacio": "string", "horaModificacio": "string"
+Request body: {
+    "codiPersona": 555,
+    "gestCont": true,
+    "nivell": "9999",
+    "aplicacio": "NCL",
+    "usuari": "G5Admin"
 }
 
-Parámetres:
 
-dataModifica cio	Dia de modificació.
-horaModifica cio	Hora de modificació.
- 
-
-
-
-
-Exemple:
-
-5.3.7	Indicador de Persona Física
-
-Mètode	POST
-Ruta	/persones/espersonafisica
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string", "codiPersona": 0, "gestCont": true
+Expected response: {
+    "response": true
 }
- 
 
+```
 
+### 3.3.8 Crear Partícules de cognoms
 
-Exemple:
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST |	/persones/particulescognom/put	|	
 
-5.3.8	Crear Partícules de cognoms
+***Cos de la petició***:
 
-Mètode	POST
-Ruta	/persones/particulescognom/put
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string", "particulaCognom": { "codi1": "string",
-"codi2": "string", "comptador": 0, "descripcio": "string", "descripcio2": "string", "qual": "string"
-}
- 
+```json
+{
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string",
+    "particulaCognom": {
+        "codi1": "string",
+        "codi2": "string",
+        "comptador": 0,
+        "descripcio": "string",
+        "descripcio2": "string",
+        "qual": "string"
+    }
 
-
-
-	}
+```
 
 
 Paràmetres:

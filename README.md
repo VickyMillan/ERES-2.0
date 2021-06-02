@@ -870,361 +870,638 @@ Expected response body:
 
 
 
-Exemple:
- 
+***Exemple:***
+
+```json
+Request:
+POST /domicilis/search
 
 
-
+Request body: {
+    "domicili": {
+        "codiCarrer": 74,
+        "municipi": {
+            "codMunicipi": 160,
+            "codPais": 108,
+            "codProvincia": 17
+        },
+        "num1": "0064",
+        "pis": "01"
+    },
+    "nivell": "9999",
+    "aplicacio": "NCL",
+    "usuari": "G5Admin"
 }
 
 
-Expected response:
+Expected response: {
+    "domiciliArray": [
+        {
+            "codiDomicili": 1240,
+            "codiCarrer": 74,
+            "codiPseudovia": null,
+            "num1": "0064",
+            "num2": "",
+            "bis1": "",
+            "bis2": "",
+            "km": null,
+            "hm": null,
+            "bloc": "",
+            "portal": "",
+            "escala": "",
+            "pis": "01",
+            "porta": "",
+            "descripcio": "C/ CREU N.0064 Pis.01 CP 17220 SANT FELIU DE GUIXOLS (GIRONA) - ESPAÑA",
+            "baixa": {
+                "dataBaixa": "",
+                "esBaixa": "0"
+            },
+            "baixaRelacio": null,
+            "municipi": {
+                "codPais": 108,
+                "codProvincia": 17,
+                "descPais": "ESPAÑA",
+                "descProvincia": "GIRONA",
+                "baixa": null,
+                "codMunicipi": 160,
+                "descMunicipi": "SANT FELIU DE GUIXOLS"
+            },
+            "observacions": "",
+            "codiTipusDomicili": "POST",
+            "codiTipusLocal": "1",
+            "codiPostal": "17220",
+            "apartatCorreus": null,
+            "codiGIS": "2659213",
+            "refCadastral": "",
+            "descCarrer": "C/ CREU",
+            "descPseudovia": "",
+            "descTipusDomicili": null,
+            "descTipusLocal": null,
+            "pobldesc": "",
+            "paiscod": null,
+            "provcod": null,
+            "municod": null,
+            "stddgr": "20021129",
+            "stddmod": "20021129",
+            "stdhgr": "105819",
+            "stdhmod": "105819",
+            "stdugr": "traspas",
+            "stdumod": "traspas &1",
+            "stdapladd": "HAB",
+            "stdaplmod": "HAB",
+            "swRevisat": null
+        },
+....
+    ]
+}
+
+```
+
+
+### 3.2.5 Recuperar les Persones d’un Domicili
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST |	/domicilis/persones/get |	
+
+
+***Cos de la petició***:
+
+```json
 {
-"domiciliArray": [
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string",
+    "codiDomicili": 0,
+    "codiMunicipi": 0,
+    "codiPais": 0,
+    "codiProvincia": 0
+}
+```
+
+
+
+|Paràmetres| |
+|----------|-|
+|Veure apartat **Recuperar un domicili** |
+
+
+***Exemple:***
+
+```json
+Request:
+POST /domicilis/persones/get
+
+
+Request body: {
+    "codiDomicili": 555,
+    "nivell": "9999",
+    "aplicacio": "NCL",
+    "usuari": "G5Admin"
+}
+
+
+Expected response: {
+    "personaArray": [
+        {
+            "nom": "PERE",
+            "nif": "40000000",
+            "nifDC": "F",
+            "particula1": "",
+            "cognom1": "XXXX",
+            "particula2": "",
+            "cognom2": "YYYY",
+            "baixa": {
+                "dataBaixa": "",
+                "esBaixa": "0"
+            },
+            "password": "",
+            "descTipusPersona": null,
+            "descNacionalitat": "ESPAÑA",
+            "codi": 1820,
+            "codTipusPersona": "F",
+            "passaport": "",
+            "dataNaixement": "19190414",
+            "codNacionalitat": 108,
+            "sexe": "1",
+            "municipiNaixement": {
+                "codPais": 108,
+                "codProvincia": 17,
+                "descPais": "ESPAÑA",
+                "descProvincia": "GIRONA",
+                "baixa": null,
+                "codMunicipi": 160,
+                "descMunicipi": "SANT FELIU DE GUIXOLS"
+            },
+            "nomComplet": "XXXX YYYY PERE",
+            "contacte": null,
+            "formaContacte": null,
+            "codIdioma": "",
+            "perssw": "0",
+            "nifOrig": "",
+            "esHabitant": false,
+            "esPersnull": false,
+            "esContribuent": false,
+            "esNifModificable": false,
+            "stddgr": "20021129",
+            "stddmod": "20021129",
+            "stdhgr": "105009",
+            "stdhmod": "000002",
+            "stdugr": "traspas",
+            "stdumod": "traspas",
+            "stdapladd": "HAB ",
+            "stdaplmod": "HAB ",
+            "codiEstudis": null,
+            "nomesBaixa": false,
+            "dataBaixa2": null,
+            "gestCont": false
+        }
+    ]
+}
+
+```
+### 3.2.6 Recuperar Domicilis d’un Territori
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST |	/domicilis/getperterritori |		
+
+***Cos de la petició***:
+
+```json
 {
-"codiDomicili": 1240,
-"codiCarrer": 74, "codiPseudovia": null, "num1": "0064",
-"num2": "",
-"bis1": "",
-"bis2": "", "km": null,
-"hm": null, "bloc": "",
-"portal": "",
-"escala": "",
-"pis": "01",
-"porta": "",
-"descripcio": "C/ CREU N.0064 Pis.01 CP 17220 SANT FELIU DE GUIXOLS (GIRONA) - ESPAÑA",
-"baixa": { "dataBaixa": "",
-"esBaixa": "0"
-},
-"baixaRelacio": null, "municipi": { "codPais": 108,
-"codProvincia": 17, "descPais": "ESPAÑA", "descProvincia": "GIRONA", "baixa": null, "codMunicipi": 160,
-"descMunicipi": "SANT FELIU DE GUIXOLS"
- 
-
-5.2.5	Recuperar les Persones d’un Domicili
-
-Mètode	POST
-Ruta	/domicilis/persones/get
-Cos	de	{
- 
-lapetició	"nivell": "string", "aplicacio": "string", "usuari": "string", "codiDomicili": 0,
-"codiMunicipi": 0,
-"codiPais": 0,
-"codiProvincia": 0
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string",
+    "codiTerritori": "string"
 }
+```
 
 
-Paràmetres:
-Veure apartat Recuperar un domicili.
+|Paràmetres| |
+|----------|-|
+|codiTerritori	|Codi de territori. |
+
+***Exemple:***
+
+```json
+Request:
+POST /domicilis/getperterritori
 
 
-Exemple:
- 
-
-
-
-"cognom2": "YYYY", "baixa": { "dataBaixa": "",
-"esBaixa": "0"
-},
-"password": "", "descTipusPersona": null, "descNacionalitat": "ESPAÑA", "codi": 1820, "codTipusPersona": "F", "passaport": "", "dataNaixement": "19190414",
-"codNacionalitat": 108,
-"sexe": "1", "municipiNaixement": { "codPais": 108,
-"codProvincia": 17, "descPais": "ESPAÑA", "descProvincia": "GIRONA", "baixa": null, "codMunicipi": 160,
-"descMunicipi": "SANT FELIU DE GUIXOLS"
-},
-"nomComplet": "XXXX YYYY PERE", "contacte": null,
-"formaContacte": null, "codIdioma": "",
-"perssw": "0",
-"nifOrig": "", "esHabitant": false, "esPersnull": false, "esContribuent": false, "esNifModificable": false, "stddgr": "20021129",
-"stddmod": "20021129",
- 
-
-
-
- 
-
-5.2.6	Recuperar Domicilis d’un Territori
-
-Mètode	POST
-Ruta	/domicilis/getperterritori
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string", "codiTerritori": "string"
+Request body: {
+    "codiTerritori": "2163104",
+    "nivell": "9999",
+    "aplicacio": "NCL",
+    "usuari": "G5Admin"
 }
+    
+    
+    Expected response: [
+    265,
+    9607
+]
 
-Paràmetres:
+```
+### 3.2.7 Recuperar Tipus de Domicilis
 
-codiTerritori	Codi de territori.
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST |	/domicilis/tipus/get |		
 
-Exemple:
- 
+***Cos de la petició***:
 
-
-
- 
-
-
-5.2.7	Recuperar Tipus de Domicilis
-
-Mètode	POST
-Ruta	/domicilis/tipus/get
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string"
+```json
+{
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string"
 }
+```
+***Exemple:***
 
-Exemple:
- 
+```json
+Request:
+POST /domicilis/tipus/get
 
 
-
- 
-
-
-5.2.8	Recuperar Tipus de Locals
-
-Mètode	POST
-Ruta	/domicilis/tipuslocals/get
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string"
+Request body: {
+    "nivell": "9999",
+    "aplicacio": "NCL",
+    "usuari": "G5Admin"
 }
+Expected response: {
+    "tipusDomiciliArray": [
+        {
+            "descripcio": "Apartat de correus",
+            "descripcio2": "",
+            "codi1": "APTC",
+            "codi2": "",
+            "qual": "",
+            "comptador": null
+        },
+        {
+            "descripcio": "Adreça postal",
+            "descripcio2": "",
+            "codi1": "POST",
+            "codi2": "",
+            "qual": "",
+            "comptador": null
+        }
+    ]
+}
+```
+### 3.2.8 Recuperar Tipus de Locals
 
-Exemple:
- 
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST |	/domicilis/tipuslocals/get|		
 
+***Cos de la petició***:
 
+```json
+{
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string"
+}
+```
+***Exemple:***
 
+```json
 Request:
 POST /domicilis/tipuslocals/get
 
 
-Request body:
-{
-"nivell": "9999",
-"aplicacio": "NCL", "usuari": "G5Admin"
+Request body: {
+    "nivell": "9999",
+    "aplicacio": "NCL",
+    "usuari": "G5Admin"
 }
 
 
-Expected response:
-{
-"tipusLocalArray": [
-{
-"descripcio": "DOMICILIO FAMILIAR", "descripcio2": "",
-"codi1": "1",
-"codi2": "",
-"qual": "", "comptador": null
-},
-{
-"descripcio": "LOCAL SOCIAL", "descripcio2": "",
-"codi1": "2",
-"codi2": "",
-"qual": "", "comptador": null
-},
-{
-"descripcio": "Apartat de correus", "descripcio2": "",
-"codi1": "A",
-"codi2": "",
-"qual": "",
- 
-
-
-
- 
- 
-
-
-5.3	Persones
-
-Descripció	Permet guardar i obtenir informació de persones i dades relacionades com el domicili i el domicili bancari. També permetn obtenir dades genèriques com partícules dels cognoms o tipus de persones.
-Ruta	/persones
-
-
-
-5.3.1	Operacions
-
-Mètod e	Ruta	Descripció
-POST	/put	Modificar les dades d’una Persona.
-POST	/putsimple	Crea un registre de Persona amb les mínimes dades requerides.
-POST	/get	Recupera una Persona.
-POST	/search	Cerca Persones per diferents criteris.
-POST	/getmodificades	Recupera les últimes Persones modificades per límits de dates.
-POST	/espersonafisica	Retorna l’indicador de Persona Física.
-POST	/particulescognom/put	Crea noves Partícules de Cognom.
-POST	/particulescognom/get	Recupera les Partícules dels Cognoms.
-POST	/domicilis/get	Recupera tots els Domicilis d’una Persona.
-POST	/domicilis/getone	Recupera un Domicili d’una Persona.
-POST	/domicilis/getdefault	Recupera el Domicili per defecte d’una Persona.
-POST	/domicilisbancaris/get	Recupera els Domicilis Bancaris d’una Persona.
-POST	/noticies/get	Recupera les Notícies d’una Persona.
-POST	/representants/get	Recupera els Representants d’una Persona.
-POST	/tipus/get	Recupera els tipus de Persones.
- 
-
-
-
-5.3.2	Modificar
-
-Mètode	POST
-Ruta	/persones/put
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string", "g_G5Paiscod": 0,
-"maxResult": 0, "persona": {
-"baixa": { "dataBaixa": "string", "esBaixa": "string"
-},
-"codIdioma": "string", "codNacionalitat": 0, "codTipusPersona": "string", "codi": 0,
-"codiEstudis": "string", "cognom1": "string",
-"cognom2": "string", "contacte": "string", "dataBaixa2": "string", "dataNaixement": "string", "descNacionalitat": "string", "descTipusPersona": "string", "esContribuent": true, "esHabitant": true, "esNifModificable": true, "esPersnull": true, "formaContacte": "string", "gestCont": true,
-"municipiNaixement": {
- 
-
-
-
-	"baixa": {
-"dataBaixa": "string", "esBaixa": "string"
-},
-"codMunicipi": 0,
-"codPais": 0,
-"codProvincia": 0, "descMunicipi": "string", "descPais": "string", "descProvincia": "string"
-},
-"nif": "string",
-"nifDC": "string",
-"nifOrig": "string",
-"nom": "string", "nomComplet": "string", "nomesBaixa": true, "particula1": "string", "particula2": "string", "passaport": "string", "password": "string", "perssw": "string",
-"sexe": "string", "stdapladd": "string", "stdaplmod": "string", "stddgr": "string",
-"stddmod": "string",
-"stdhgr": "string",
-"stdhmod": "string",
-"stdugr": "string", "stdumod": "string"
-},
-"tipoPersona": [ "string"
- 
-
-
-
-	]
+Expected response: {
+    "tipusLocalArray": [
+        {
+            "descripcio": "DOMICILIO FAMILIAR",
+            "descripcio2": "",
+            "codi1": "1",
+            "codi2": "",
+            "qual": "",
+            "comptador": null
+        },
+        {
+            "descripcio": "LOCAL SOCIAL",
+            "descripcio2": "",
+            "codi1": "2",
+            "codi2": "",
+            "qual": "",
+            "comptador": null
+        },
+        {
+            "descripcio": "Apartat de correus",
+            "descripcio2": "",
+            "codi1": "A",
+            "codi2": "",
+            "qual": "",
+            "comptador": null
+        }
+    ]
 }
+```
+## 3.3 Persones
 
+* ***Descripció*** - Permet guardar i obtenir informació de persones i dades relacionades com el domicili i el domicili bancari. També permetn obtenir dades genèriques com partícules dels cognoms o tipus de persones.
 
-Paràmetres:
+* ***Ruta*** -  /persones
 
-g_G5Paiscod	
-maxResult	
-baixa	
-codiIdioma	Codi d’idioma (per defecte català).
-codiNacionalitat	Codi de país.
-codiTipusPerson a	Cod de tipus de persona.
-codi	Codi de persona.
-codiEstudis	Codi d’estudis
-cognom1	
-cognom2	
-contacte	
-dataBaixa2	
-dataNaixement	
-descNacionalitat	
-descTipusPerson a	
-esContribuent	True/false.
-esHabitant	True/false.
-esNifModificable	True/false.
-esPersnull	True/false.
-formaContacte	
-gesCont	
+### 3.3.1 Operacions
+
+| Mètode | Ruta | Descripció |
+| ------ | ---- | ---------- |                                                                   |
+|POST|	/put					|Modificar les dades d’una Persona.                               |
+|POST|	/putsimple				|Crea un registre de Persona amb les mínimes dades requerides.    |
+|POST|	/get					|Recupera una Persona.                                            |
+|POST|	/search					|Cerca Persones per diferents criteris.                           |
+|POST|	/getmodificades			|Recupera les últimes Persones modificades per límits de dates.   |
+|POST|	/espersonafisica		|Retorna l’indicador de Persona Física.                           |
+|POST|	/particulescognom/put	|Crea noves Partícules de Cognom.                                 |
+|POST|	/particulescognom/get	|Recupera les Partícules dels Cognoms.                            |
+|POST|	/domicilis/get			|Recupera tots els Domicilis d’una Persona.                       |
+|POST|	/domicilis/getone		|Recupera un Domicili d’una Persona.                              |
+|POST|	/domicilis/getdefault	|Recupera el Domicili per defecte d’una Persona.                  |
+|POST|	/domicilisbancaris/get	|Recupera els Domicilis Bancaris d’una Persona.                   |
+|POST|	/noticies/get			|Recupera les Notícies d’una Persona.                             |
+|POST|	/representants/get		|Recupera els Representants d’una Persona.                        |
+|POST|	/tipus/get				|Recupera els tipus de Persones.                                  |
  
 
 
 
-municipiNaixeme nt	
-nif	Part numèrica del NIF.
-nifDC	Dígit de control de l NIF.
-nifOrig	
-nom	
-nomComplet	Nom i cognoms.
-nomesBaixa	
-particula1	
-particula2	
-passaport	
-password	
-perssw	
-sexe	
-stdapladd	
-stdasplmod	
-stdhgr	
-stdhmod	
-stdugr	
-stdumod	
+### 3.3.2 Modificar
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST |	/persones/put|		
+
+***Cos de la petició***:
+
+```json
+{
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string",
+    "g_G5Paiscod": 0,
+    "maxResult": 0,
+    "persona": {
+        "baixa": {
+            "dataBaixa": "string",
+            "esBaixa": "string"
+        },
+        "codIdioma": "string",
+        "codNacionalitat": 0,
+        "codTipusPersona": "string",
+        "codi": 0,
+        "codiEstudis": "string",
+        "cognom1": "string",
+        "cognom2": "string",
+        "contacte": "string",
+        "dataBaixa2": "string",
+        "dataNaixement": "string",
+        "descNacionalitat": "string",
+        "descTipusPersona": "string",
+        "esContribuent": true,
+        "esHabitant": true,
+        "esNifModificable": true,
+        "esPersnull": true,
+        "formaContacte": "string",
+        "gestCont": true,
+        "municipiNaixement": {
+            "baixa": {
+                "dataBaixa": "string",
+                "esBaixa": "string"
+            },
+            "codMunicipi": 0,
+            "codPais": 0,
+            "codProvincia": 0,
+            "descMunicipi": "string",
+            "descPais": "string",
+            "descProvincia": "string"
+        },
+        "nif": "string",
+        "nifDC": "string",
+        "nifOrig": "string",
+        "nom": "string",
+        "nomComplet": "string",
+        "nomesBaixa": true,
+        "particula1": "string",
+        "particula2": "string",
+        "passaport": "string",
+        "password": "string",
+        "perssw": "string",
+        "sexe": "string",
+        "stdapladd": "string",
+        "stdaplmod": "string",
+        "stddgr": "string",
+        "stddmod": "string",
+        "stdhgr": "string",
+        "stdhmod": "string",
+        "stdugr": "string",
+        "stdumod": "string"
+    },
+    "tipoPersona": [
+        "string"
+    ]
+}
+```
+|Paràmetres| |
+|----------|-|
+|g_G5Paiscod	      |                                      |
+|maxResult	      |                                      |
+|baixa	          |                                      |
+|codiIdioma			|Codi d’idioma (per defecte català). |
+|codiNacionalitat	|Codi de país.                       |
+|codiTipusPersona	|Cod de tipus de persona.            |
+|codi				|Codi de persona.                    |
+|codiEstudis			|Codi d’estudis                      |
+|cognom1	          |                                      |
+|cognom2	          |                                      |
+|contacte	      |                                      |
+|dataBaixa2	      |                                      |
+|dataNaixement	  |                                      |
+|descNacionalitat	|                                    |
+|descTipusPersona	|                                    |
+|esContribuent		|True/false.                         |
+|esHabitant			|True/false.                         |
+|esNifModificable	|True/false.                         |
+|esPersnull			|True/false.                         |
+|formaContacte	  |                                      |
+|gesCont	          |                                      |
+|municipiNaixement|                                       |
+|nif					|Part numèrica del NIF.                 |
+|nifDC				|Dígit de control de l NIF.             |
+|nifOrig	          |                                       |
+|nom	              |                                       |
+|nomComplet			|Nom i cognoms.                         |
+|nomesBaixa	      |                                       |
+|particula1	      |                                       |
+|particula2	      |                                       |
+|passaport	      |                                       |
+|password	      |                                       |
+|perssw	          |                                       |
+|sexe	          |                                       |
+|stdapladd	      |                                       |
+|stdasplmod	      |                                       |
+|stdhgr	          |                                       |
+|stdhmod	          |                                       |
+|stdugr	          |                                       |
+|stdumod	          |                                       |
 
 
+***Exemple:***
+
+```json
+Request:
+POST /persones/put
+
+
+Request body: {
+    "aplicacio": "NCL",
+Request:
+POST /persones/put
+
+
+Request body: {
+        "aplicacio": "NCL",
+        "nivell": "9999",
+        "persona": {
+            "codNacionalitat": 108,
+            "codTipusPersona": "F",
+            "codi": 1678,
+            "cognom1": "TESTC1",
+            "cognom2": "TESTC2",
+            "dataNaixement": "19251226",
+            "descNacionalitat": "ESPAÑA",
+            "esContribuent": false,
+            "esHabitant": false,
+            "esNifModificable": false,
+            "esPersnull": false,
+            "gestCont": false,
+            "municipiNaixement": {
+                "codMunicipi": 232,
+                "codPais": 108,
+                "codProvincia": 31,
+                "descMunicipi": "TUDELA",
+                "descPais": "ESPAÑA",
+                "descProvincia": "NAVARRA"
+            },
+            "nif": "00507486",
+            "nifDC": "Z",
+            "nom": "PACO",
+            "nomComplet": "PACO TESTC1 TESTC2",
+            "nomesBaixa": false,
+            "sexe": "1"
+        },
+        "tipoPersona": [
+            "F"
+        ],
+        "usuari": "G5Admin"
+    }
+     
+    Expected response: {
+        "nom": "PACO",
+        "nif": "00507486",
+        "nifDC": "Z",
+        "particula1": "",
+        "cognom1": "TESTC1",
+        "particula2": "",
+        "cognom2": "TESTC2",
+        "baixa": {
+            "dataBaixa": "",
+            "esBaixa": ""
+        },
+        "password": "",
+        "descTipusPersona": null,
+        "descNacionalitat": "ESPAÑA",
+        "codi": 1678,
+        "codTipusPersona": "F",
+        "passaport": "",
+        "dataNaixement": "19251226",
+        "codNacionalitat": 108,
+        "sexe": "1",
+        "municipiNaixement": {
+            "codPais": 108,
+            "codProvincia": 31,
+            "descPais": "ESPAÑA",
+            "descProvincia": "NAVARRA",
+            "baixa": null,
+            "codMunicipi": 232,
+            "descMunicipi": "TUDELA"
+        },
+        "nomComplet": "TESTC1 TESTC2 PACO",
+        "contacte": null,
+        "formaContacte": null,
+        "codIdioma": "",
+        "perssw": "",
+        "nifOrig": "",
+        "esHabitant": false,
+        "esPersnull": false,
+        "esContribuent": false,
+        "esNifModificable": false,
+        "stddgr": "20021129",
+        "stddmod": "20200709",
+        "stdhgr": "104936",
+        "stdhmod": "092742",
+        "stdugr": "traspas",
+        "stdumod": "G5Admin",
+        "stdapladd": "HAB ",
+        "stdaplmod": "NCL",
+        "codiEstudis": null,
+        "nomesBaixa": false,
+        "dataBaixa2": null,
+        "gestCont": false
+    }
+
+```
+### 3.3.3 Creacio simple
+
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST |	/persones/putsimple|	
+
+***Cos de la petició***:
+
+```json
+{
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string",
+    "cognom1": "string",
+    "cognom2": "string",
+    "document": "string",
+    "nom": "string"
+}
+    {
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string",
+    "cognom1": "string",
+    "cognom2": "string",
+    "document": "string",
+    "nom": "string"
+}
+```
+
+|Paràmetres| |
+|----------|-|
+|cognom1		|Primer cognom.                   |
+|cognom2		|Segon cognom.                     |
+|document	|Document identificatiu            |
+|nom			|Nom.                              |
 Exemple:
- 
 
-
-
-"nivell": "9999", "persona": { "codNacionalitat": 108, "codTipusPersona": "F", "codi": 1678, "cognom1": "TESTC1",
-"cognom2": "TESTC2", "dataNaixement": "19251226", "descNacionalitat": "ESPAÑA", "esContribuent": false, "esHabitant": false, "esNifModificable": false, "esPersnull": false,
-"gestCont": false, "municipiNaixement": { "codMunicipi": 232,
-"codPais": 108,
-"codProvincia": 31, "descMunicipi": "TUDELA", "descPais": "ESPAÑA", "descProvincia": "NAVARRA"
-},
-"nif": "00507486",
-"nifDC": "Z",
-"nom": "PACO",
-"nomComplet": "PACO TESTC1 TESTC2",
-"nomesBaixa": false, "sexe": "1"
-},
-"tipoPersona": [ "F"
-],
-"usuari": "G5Admin"
-}
- 
-
-
-
-Expected response:
-{
-"nom": "PACO",
-"nif": "00507486",
-"nifDC": "Z",
-"particula1": "",
-"cognom1": "TESTC1",
-"particula2": "",
-"cognom2": "TESTC2", "baixa": {
-"dataBaixa": "",
-"esBaixa": ""
-},
-"password": "", "descTipusPersona": null, "descNacionalitat": "ESPAÑA", "codi": 1678, "codTipusPersona": "F", "passaport": "", "dataNaixement": "19251226",
-"codNacionalitat": 108,
-"sexe": "1", "municipiNaixement": { "codPais": 108,
-"codProvincia": 31, "descPais": "ESPAÑA", "descProvincia": "NAVARRA", "baixa": null,
-"codMunicipi": 232, "descMunicipi": "TUDELA"
-},
-"nomComplet": "TESTC1 TESTC2 PACO",
-"contacte": null, "formaContacte": null, "codIdioma": "",
- 
-
-
-
- 
-
-5.3.3	Creacio simple
-
-Mètode	POST
-Ruta	/persones/putsimple
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string",
-"cognom1": "string",
-"cognom2": "string", "document": "string", "nom": "string"
-}
- 
-
-
-
-Paràmetres:
-
-cognom1	Primer cognom.
-cognom2	Segon cognom.
-document	Document identificatiu
-nom	Nom.
-
-Exemple:
-
-5.3.4	Recuperar una Persones
+### 3.3.4 Recuperar una Persones
 
 Mètode	POST
 Ruta	/persones/get

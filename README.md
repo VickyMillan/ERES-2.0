@@ -1873,488 +1873,1119 @@ Expected response: {
 ```
 
 
-Paràmetres:
+|Paràmetres| |
+|----------|-|
+|codi1		|Codi partícula                     |
+|codi2		|No s’utilitza.                     |
+|comptador	|No s’utilitza.                     |
+|descripcio	|Descripció de la partícula.        |
+|descripcio2	|No s’utilitza.                     |
+|qual		|No s’utilitza.                     |
 
-codi1	Codi partícula
-codi2	No s’utilitza.
-comptador	No s’utilitza.
-descripcio	Descripció de la partícula.
-descripcio2	No s’utilitza.
-qual	No s’utilitza.
+***Exemple:***
 
-Exemple:
- 
-
-
-
- 
-
-5.3.9	Recuperar Partícules de cognoms
-
-Mètode	POST
-Ruta	/persones/particulescognom/get
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string"
-}
-
-Exemple:
- 
+```json
+Request:
+POST /persones/particulescognom/put
 
 
-
- 
-
-5.3.10	Recuperar tots els Domicilis
-
-Mètode	POST
-Ruta	/persones/domicilis/get
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string", "codiPersona": , "formatNomCognoms": true, "g_G5Paiscod": 0, "mostrarBaixes": true
-}
-
-Exemple:
- 
-
-
-
-"formatNomCognoms": true, "g_G5Paiscod": 0, "mostrarBaixes": true, "nivell": "string", "aplicacio": "string", "usuari": "string"
+Request body: {
+    "particulaCognom": {
+        "codi1": "XX",
+        "descripcio": "XX"
+    },
+    "nivell": "9999",
+    "aplicacio": "NCL",
+    "usuari": "G5Admin"
 }
 
 
-Expected response:
+Expected response: {
+    "descripcio": "XX",
+    "descripcio2": "",
+    "codi1": "XX",
+    "codi2": "",
+    "qual": "",
+    "comptador": null
+}
+
+```
+### 3.3.9 Recuperar Partícules de cognoms
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST |	/persones/particulescognom/get	|	
+
+**Cos de la petició***:
+
+```json
 {
-"domiciliArray": [
-{
-"codiDomicili": 52287,
-"codiCarrer": 465,
-"codiPseudovia": 10177,
-"num1": "0016",
-"num2": "",
-"bis1": "",
-"bis2": "", "km": null,
-"hm": null, "bloc": "",
-"portal": "",
-"escala": "2",
-"pis": "02",
-"porta": "02", "descripcio": null, "baixa": { "dataBaixa": "",
-"esBaixa": "0"
-},
-"baixaRelacio": { "dataBaixa": "",
-"esBaixa": ""
-},
- 
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string"
+}
+```
+
+***Exemple:***
+
+```json
+Request:
+POST /persones/particulescognom/get
 
 
+Request body: {
+    "nivell": "9999",
+    "aplicacio": "NCL",
+    "usuari": "G5Admin"
+}
 
-"municipi": { "codPais": 108,
-"codProvincia": 17, "descPais": "ESPAÑA", "descProvincia": "GIRONA", "baixa": null, "codMunicipi": 160,
-"descMunicipi": "SANT FELIU DE GUIXOLS"
-},
-"observacions": "", "codiTipusDomicili": "POST", "codiTipusLocal": "1",
-"codiPostal": "17220", "apartatCorreus": null, "codiGIS": "2355810",
-"refCadastral": "",
-"descCarrer": "PL LLUIS ESTEVA I CRUAÑAS",
-"descPseudovia": "- APARTAMENTS GASELA", "descTipusDomicili": null,
-"descTipusLocal": null, "pobldesc": null, "paiscod": null, "provcod": null, "municod": null, "stddgr": "20050330",
-"stddmod": "20050330",
-"stdhgr": "091613",
-"stdhmod": "091613",
-"stdugr": "RAFA",
-"stdumod": "RAFA",
-"stdapladd": "PAD ",
-"stdaplmod": "PAD ", "swRevisat": null
-},
+
+Expected response: {
+    "particulaCognomArray": [
+        {
+            "descripcio": "D'",
+            "descripcio2": "",
+            "codi1": "D'",
+            "codi2": "",
+            "qual": "",
+            "comptador": null
+        },
+        {
+            "descripcio": "DE",
+            "descripcio2": "",
+            "codi1": "DE",
+            "codi2": "",
+            "qual": "",
+            "comptador": null
+        },
 ....
- 
-
-
-
- 
-
-5.3.11	Recuperar un Domicili
-
-Mètode	POST
-Ruta	/persones/domicilis/getone
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string", "codiDomicili": 0,
-"perscod": 0,
-"persnd": 0
+    ]
 }
 
-Paràmetres:
-
-codiDomicili	Codi del domicili.
-perscod	Codi de persona.
-persnd	Número de domicili de la persona
-
-
-Exemple:
+```
  
+### 3.3.10 Recuperar tots els Domicilis
 
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST |	/persones/domicilis/get	|	
 
+***Cos de la petició***:
 
-
-
-Expected response:
+```json
 {
-"codiDomicili": 150,
-"codiCarrer": 277, "codiPseudovia": null, "num1": "xx",
-"num2": "",
-"bis1": "",
-"bis2": "", "km": null,
-"hm": null, "bloc": "",
-"portal": "",
-"escala": "",
-"pis": "xx",
-"porta": "xx",
-"descripcio": "CARRETERA GIRONA N.xx Pis.xx Pta.x CP 17220 SANT FELIU DE GUIXOLS (GIRONA) - ESPAÑA",
-"baixa": { "dataBaixa": "",
-"esBaixa": "0"
-},
-"baixaRelacio": null, "municipi": { "codPais": 108,
-"codProvincia": 17, "descPais": "ESPAÑA", "descProvincia": "GIRONA", "baixa": null, "codMunicipi": 160,
-"descMunicipi": "SANT FELIU DE GUIXOLS"
-},
-"observacions": "", "codiTipusDomicili": "POST",
- 
-
-
-
- 
-
-5.3.12	Recuperar el Domicili per defecte
-
-Mètode	POST
-Ruta	/persones/domicilis/getdefault
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string", "perscod": 0
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string",
+    "codiPersona": ,
+    "formatNomCognoms": true,
+    "g_G5Paiscod": 0,
+    "mostrarBaixes": true
 }
- 
+```
+
+***Exemple:***
+
+```json
+Request:
+POST /persones/domicilis/get
 
 
-
-Exemple:
- 
-
-
-
- 
- 
-
-
-
-5.3.13	Recuperar els Domicilis Bancaris
-
-Mètode	POST
-Ruta	/persones/domicilisbancaris/get
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string", "codiPersona": 0, "formatNomCognoms": true, "g_G5Paiscod": 0, "mostrarBaixes": true
+Request body: {
+    "codiPersona": 555,
+    "formatNomCognoms": true,
+    "g_G5Paiscod": 0,
+    "mostrarBaixes": true,
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string"
 }
 
-Exemple:
- 
 
-
-
- 
-
-5.3.14	Recuperar les Notícies
-
-Mètode	POST
-Ruta	/persones/noticies/get
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string", "codiPersona": 0,
-"idioma": 0
+Expected response: {
+    "domiciliArray": [
+        {
+            "codiDomicili": 52287,
+            "codiCarrer": 465,
+            "codiPseudovia": 10177,
+            "num1": "0016",
+            "num2": "",
+            "bis1": "",
+            "bis2": "",
+            "km": null,
+            "hm": null,
+            "bloc": "",
+            "portal": "",
+            "escala": "2",
+            "pis": "02",
+            "porta": "02",
+            "descripcio": null,
+            "baixa": {
+                "dataBaixa": "",
+                "esBaixa": "0"
+            },
+            "baixaRelacio": {
+                "dataBaixa": "",
+                "esBaixa": ""
+            },
+            "municipi": {
+                "codPais": 108,
+                "codProvincia": 17,
+                "descPais": "ESPAÑA",
+                "descProvincia": "GIRONA",
+                "baixa": null,
+                "codMunicipi": 160,
+                "descMunicipi": "SANT FELIU DE GUIXOLS"
+            },
+            "observacions": "",
+            "codiTipusDomicili": "POST",
+            "codiTipusLocal": "1",
+            "codiPostal": "17220",
+            "apartatCorreus": null,
+            "codiGIS": "2355810",
+            "refCadastral": "",
+            "descCarrer": "PL LLUIS ESTEVA I CRUAÑAS",
+            "descPseudovia": "- APARTAMENTS GASELA",
+            "descTipusDomicili": null,
+            "descTipusLocal": null,
+            "pobldesc": null,
+            "paiscod": null,
+            "provcod": null,
+            "municod": null,
+            "stddgr": "20050330",
+            "stddmod": "20050330",
+            "stdhgr": "091613",
+            "stdhmod": "091613",
+            "stdugr": "RAFA",
+            "stdumod": "RAFA",
+            "stdapladd": "PAD ",
+            "stdaplmod": "PAD ",
+            "swRevisat": null
+        },
+    ....
+    ]
 }
 
-Exemple:
- 
+```
+
+### 3.3.11 Recuperar un Domicili
 
 
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST |	/persones/domicilis/getone	|	
 
- 
+***Cos de la petició***:
 
-5.3.15	Recuperar els Representants
-
-Mètode	POST
-Ruta	/persones/representants/get
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string", "perscod": 0, "reprtip": "string", "swBaixa": true
+```json
+{
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string",
+    "codiDomicili": 0,
+    "perscod": 0,
+    "persnd": 0
 }
 
-Exemple:
+```
+
+|Paràmetres| |
+|----------|-|
+|codiDomicili	|Codi del domicili.                          |
+|perscod			|Codi de persona.                            |
+|persnd			|Número de domicili de la persona            |
+
+
+***Exemple:***
+
+```json
+Request:
+POST /persones/domicilis/getone
+
+
+Request body: {
+    "perscod": 555,
+    "persnd": 1,
+    "nivell": "9999",
+    "aplicacio": "NCL",
+    "usuari": "G5Admin"
+}
+Expected response: {
+    "codiDomicili": 150,
+    "codiCarrer": 277,
+    "codiPseudovia": null,
+    "num1": "xx",
+    "num2": "",
+    "bis1": "",
+    "bis2": "",
+    "km": null,
+    "hm": null,
+    "bloc": "",
+    "portal": "",
+    "escala": "",
+    "pis": "xx",
+    "porta": "xx",
+    "descripcio": "CARRETERA GIRONA N.xx Pis.xx Pta.x CP 17220 SANT FELIU DE GUIXOLS (GIRONA) - ESPAÑA",
+    "baixa": {
+        "dataBaixa": "",
+        "esBaixa": "0"
+    },
+    "baixaRelacio": null,
+    "municipi": {
+        "codPais": 108,
+        "codProvincia": 17,
+        "descPais": "ESPAÑA",
+        "descProvincia": "GIRONA",
+        "baixa": null,
+        "codMunicipi": 160,
+        "descMunicipi": "SANT FELIU DE GUIXOLS"
+    },
+    "observacions": "",
+    "codiTipusDomicili": "POST",
+    "codiTipusLocal": "1",
+    "codiPostal": "17220",
+    "apartatCorreus": null,
+    "codiGIS": "2064207",
+    "refCadastral": "",
+    "descCarrer": "CARRETERA GIRONA",
+    "descPseudovia": "",
+    "descTipusDomicili": null,
+    "descTipusLocal": null,
+    "pobldesc": "",
+    "paiscod": null,
+    "provcod": null,
+    "municod": null,
+    "stddgr": "20021129",
+    "stddmod": "20030206",
+    "stdhgr": "104455",
+    "stdhmod": "134208",
+    "stdugr": "traspas",
+    "stdumod": "INTER3",
+    "stdapladd": "HAB",
+    "stdaplmod": "HAB",
+    "swRevisat": null
+}
+
+```
+### 3.3.12 Recuperar el Domicili per defecte
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST |/persones/domicilis/getdefault	|	
+
+***Cos de la petició***:
+
+```json
+{
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string",
+    "perscod": 0
+}
+
+```
+
+***Exemple:***
+
+```json
+Request:
+POST /persones/domicilio/detdefault
+
+
+Request body: {
+    "perscod": 555,
+    "nivell": "9999",
+    "aplicacio": "NCL",
+    "usuari": "G5Admin"
+}
+
+
+Expected response: {
+    "codiDomicili": 52287,
+    "codiCarrer": 465,
+    "codiPseudovia": 10177,
+    "num1": "xx",
+    "num2": "",
+    "bis1": "",
+    "bis2": "",
+    "km": null,
+    "hm": null,
+    "bloc": "",
+    "portal": "",
+    "escala": "x",
+    "pis": "xx",
+    "porta": "xx",
+    "descripcio": "PL LLUIS ESTEVA I CRUAÑAS [- APARTAMENTS GASELA] N.xx Esc.x Pis.xx Pta.xx CP 17220 SANT FELIU DE GUIXOLS (GIRONA) - ESPAÑA",
+    "baixa": {
+        "dataBaixa": "",
+        "esBaixa": "0"
+    },
+    "baixaRelacio": null,
+    "municipi": {
+        "codPais": 108,
+        "codProvincia": 17,
+        "descPais": "ESPAÑA",
+        "descProvincia": "GIRONA",
+        "baixa": null,
+        "codMunicipi": 160,
+        "descMunicipi": "SANT FELIU DE GUIXOLS"
+    },
+    "observacions": "",
+    "codiTipusDomicili": "POST",
+    "codiTipusLocal": "1",
+    "codiPostal": "17220",
+    "apartatCorreus": null,
+    "codiGIS": "2355810",
+    "refCadastral": "",
+    "descCarrer": "PL LLUIS ESTEVA I CRUAÑAS",
+    "descPseudovia": "- APARTAMENTS GASELA",
+    "descTipusDomicili": null,
+    "descTipusLocal": null,
+    "pobldesc": "",
+    "paiscod": null,
+    "provcod": null,
+    "municod": null,
+    "stddgr": "20050330",
+    "stddmod": "20050330",
+    "stdhgr": "091613",
+    "stdhmod": "091613",
+    "stdugr": "RAFA",
+    "stdumod": "RAFA",
+    "stdapladd": "PAD",
+    "stdaplmod": "PAD",
+    "swRevisat": null
+}
+
+```
+### 3.3.13 Recuperar els Domicilis Bancaris
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /persones/domicilisbancaris/get	|	
+
+***Cos de la petició***:
+
+```json
+{
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string",
+    "codiPersona": 0,
+    "formatNomCognoms": true,
+    "g_G5Paiscod": 0,
+    "mostrarBaixes": true
+}
+```
+
+***Exemple:***
+
+```json
+Request:
+POST /persones/domicilisbancaris/get
+
+
+Request body: {
+    "codiPersona": 555,
+    "nivell": "9999",
+    "aplicacio": "NCL",
+    "usuari": "G5Admin"
+}
+
+
+Expected response: {
+    "comptadorDomiciliBancariArray": [
+        1
+    ],
+    "domiciliBancariArray": [
+        {
+            "codiBanc": "0131",
+            "numeroCompte": "0000111122223333",
+            "observacions": "",
+            "numComptePrint": "0131 0000 11 1122223333",
+            "dataDomiciliacio": "",
+            "descBanc": "BANCO ESPIRITU SANTO",
+            "bic": "",
+            "iban": "",
+            "dataValidesa": ""
+        }
+    ]
+}
+
+```
+
  
+### 3.3.14 Recuperar les Notícies
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /persones/noticies/gett	|	
+
+***Cos de la petició***:
+
+```json
+{
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string",
+    "codiPersona": 0,
+    "idioma": 0
+}
+```
+
+***Exemple:***
+
+```json
+Request:
+POST /persones/noticies/get
 
 
+Request body: {
+    "idioma": 0,
+    "codiPersona": 555,
+    "nivell": "9999",
+    "aplicacio": "NOTA",
+    "usuari": "G5Admin"
+}
 
+
+Expected response: {
+    "noticies": [
+        {
+            "notcod": 23,
+            "notdesc": "X2012006089",
+            "nottxt": "es passa full d'incidències pel tractament amb XXXXX.",
+            "notsql": null,
+            "dataini": "20120727",
+            "datafi": null,
+            "aplcod": null,
+            "idiocod": null
+        },
+....
+    ]
+}
+
+```
+### 3.3.15 Recuperar els Representants
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /persones/representants/get	|	
+
+***Cos de la petició***:
+
+```json
+{
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string",
+    "perscod": 0,
+    "reprtip": "string",
+    "swBaixa": true
+}
+```
+
+***Exemple:***
+
+```json
 Request:
 POST /persones/representants/get
 
 
-Request body:
+Request body: {
+    "perscod": 511,
+    "reprtip": "",
+    "nivell": "9999",
+    "aplicacio": "NCL",
+    "usuari": "G5Admin"
+}
+
+
+Expected response: {
+    "personaArray": [
+        {
+            "nom": "ANGEL",
+            "nif": "",
+            "nifDC": "",
+            "particula1": "",
+            "cognom1": "XXXX",
+            "particula2": "",
+            "cognom2": "YYYY",
+            "baixa": {
+                "dataBaixa": "",
+                "esBaixa": "0"
+            },
+            "password": "",
+            "descTipusPersona": null,
+            "descNacionalitat": null,
+            "codi": 89561,
+            "codTipusPersona": "Z",
+            "passaport": "",
+            "dataNaixement": "",
+            "codNacionalitat": null,
+            "sexe": "1",
+            "municipiNaixement": null,
+            "nomComplet": "XXXX YYYY ANGEL",
+            "contacte": null,
+            "formaContacte": null,
+            "codIdioma": "",
+            "perssw": "0",
+            "nifOrig": "",
+            "esHabitant": false,
+            "esPersnull": false,
+            "esContribuent": false,
+            "esNifModificable": false,
+            "stddgr": "20080709",
+            "stddmod": "20080709",
+            "stdhgr": "123730",
+            "stdhmod": "000002",
+            "stdugr": "IPONT",
+            "stdumod": "IPONT",
+            "stdapladd": "SDE ",
+            "stdaplmod": "SDE ",
+            "codiEstudis": null,
+            "nomesBaixa": false,
+            "dataBaixa2": null,
+            "gestCont": false
+        }
+    ]
+}
+
+```
+### 3.3.16 Recuperar Tipus de Persones
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /persones/tipus/get	|	
+
+***Cos de la petició***:
+
+```json
 {
-"perscod": 511, "reprtip": "",
-"nivell": "9999",
-"aplicacio": "NCL", "usuari": "G5Admin"
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string"
+}
+```
+
+***Exemple:***
+
+```json
+Request:
+POST /persones/tipus/get
+
+
+Request body: {
+    "nivell": "9999",
+    "aplicacio": "NCL",
+    "usuari": "G5Admin"
 }
 
 
-Expected response:
+Expected response: {
+    "tipusPersonaArray": [
+        {
+            "descripcio": "ENTITAT",
+            "descripcio2": "",
+            "codi1": "E",
+            "codi2": "",
+            "qual": "",
+            "comptador": null
+        },
+        {
+            "descripcio": "PERSONA FÍSICA",
+            "descripcio2": "",
+            "codi1": "F",
+            "codi2": "",
+            "qual": "",
+            "comptador": null
+        },
+....
+    ]
+}
+
+```
+## 3.4 Registre
+
+* ***Descripció*** - Permet obtenir dades genèriques com àrees, departaments, unitats de treball, idiomes, assumptes i altres. També operacions com duplicar o reservar registres.
+
+* ***Ruta*** -  /registre
+
+### 3.4.1 Operacions
+
+| Mètode | Ruta | Descripció |
+| ------ | ---- | ---------- |                                                                   |
+|POST	|/duplicar						|Duplica registres.                                              |
+|POST	|/reservar						|Reserva registres.                                              |
+|POST	|/arees/get						|Recupera les Àrees.                                             |
+|POST	|/departaments/get				|Recupera Departaments / Unitats de Treball d’una Àrea.          |
+|POST	|/assumptes/get					|Recupera un Assumpte.                                           |
+|POST	|/assumptes/getperdepartament	|Recupera els Assumptes d’un Departament / Unitat de Treball.    |
+|POST	|/extractes/get					|Recupera Extractes.                                             |
+|POST	|/idiomes/get					|Recupera Idiomes.                                               |
+|POST	|/tipustransport/get				|Recupera Tipus de Transport.                                    |
+
+
+### 3.4.2 Duplicar
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /registre/duplicar	|	
+
+***Cos de la petició***:
+
+```json
 {
-"personaArray": [
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string",
+    "codiEntitat": "string",
+    "copiarDownload4J": true,
+    "copiarFileBase64": true,
+    "crearPDF": true,
+    "directori": "string",
+    "idioma": "string",
+    "numeroRegistre": "string",
+    "plantilla": "string",
+    "quantitat": 0,
+    "recalcularDirectoriPlantilles": true,
+    "urlServer": "string"
+}
+```
+
+|Paràmetres| |
+|----------|-|
+|codiEntitat	                          |
+|copiarDownload4J	                  |
+|copiarFileBase64	                  |
+|crearPDF	                          |
+|directori	                          |
+|idioma	                              |
+|numeroRegistr 	                      |
+|plantilla	                          |
+|quantitat	                          |
+|recalcularDirectoriPlantilles	      |
+|urlServer	                          |
+
+***Exemple:***
+
+```json
+Request:
+POST /registre/duplicar
+Request body: {
+    "numeroRegistre": "E2020000001",
+    "quantitat": 1,
+    "crearPDF": false,
+    "nivell": "9999",
+    "aplicacio": "RES",
+    "usuari": "G5Admin"
+}
+
+
+Expected response: {
+    "numeroRegistres": [
+        "E2020000014"
+    ],
+    "fitxerPDF": null,
+    "linkDownload4J": null,
+    "fileBase64": null
+}
+
+```
+### 3.4.3 Reservar
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /registre/reservar	|	
+
+***Cos de la petició***:
+
+```json
 {
-"nom": "ANGEL",
-"nif": "",
-"nifDC": "",
-"particula1": "",
-"cognom1": "XXXX",
-"particula2": "",
-"cognom2": "YYYY", "baixa": { "dataBaixa": "",
-"esBaixa": "0"
-},
-"password": "", "descTipusPersona": null, "descNacionalitat": null, "codi": 89561, "codTipusPersona": "Z", "passaport": "",
-"dataNaixement": "", "codNacionalitat": null,
- 
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string",
+    "areacodCreador": "string",
+    "assumcod": "string",
+    "codiEntitat": "string",
+    "copiarDownload4J": true,
+    "copiarFileBase64": true,
+    "crearPDF": true,
+    "data": "string",
+    "depcodCreador": "string",
+    "directori": "string",
+    "hora": "string",
+    "idioma": "string",
+    "plantilla": "string",
+    "quantitat": 0,
+    "recalcularDirectoriPlantilles": true,
+    "tipusRegistre": "string",
+    "urlServer": "string"
+}
+
+```
+|Paràmetres| |
+|----------|-|
+|areacodCreador	               |                                                        |
+|assumcod						|Codi d’assumpte.                                       |
+|codiEntitat						|Codi d’entitat. Si no es multi-entitat, posar 1.       |
+|copiaDownload4J	               |                                                        |
+|copiarFileBase64	           |                                                        |
+|crearPDF						|Indica si cal crear un PDF (true/false).               |
+|data							|Data del registre reservat.                            |
+|hora							|Hora del registre reservat.                            |
+|idioma							|Codi d’idioma.                                         |
+|plantilla	                   |                                                        |
+|quantitat						|Número de registres a reservar.                        |
+|recalcularDirectoriPlantilles	|                                                       |
+|tipusRegistre					|Tipus de registre E/S (entrada o sortida).             |
+|urlServer	                   |      |
 
 
+***Exemple:***
 
- 
-
-5.3.16	Recuperar Tipus de Persones
-
-Mètode	POST
-Ruta	/persones/tipus/get
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string",
- 
+```json
+Request:
+POST /registre/reservar
 
 
-
-	"usuari": "string"
+Request body: {
+    "assumcod": "COMU",
+    "codiEntitat": "1",
+    "crearPDF": false,
+    "data": "20200525",
+    "hora": "090000",
+    "quantitat": 1,
+    "tipusRegistre": "E",
+    "nivell": "9999",
+    "aplicacio": "RES",
+    "usuari": "G5Audi"
 }
 
 
-Exemple:
- 
+Expected response: {
+    "numeroRegistres": [
+        "E2020000015"
+    ],
+    "fitxerPDF": null,
+    "linkDownload4J": null,
+    "fileBase64": null
+}
+
+```
+
+### 3.4.4 Recuperar Àrees
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /registre/arees/get	|	
+
+***Cos de la petició***:
+
+```json
+{
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string"
+}
+```
+
+***Exemple:***
+
+```json
+Request:
+POST /registre/arees/get
 
 
-
- 
- 
-
-
-5.4	Registre
-
-Descripció	Permet obtenir dades genèriques com àrees, departaments, unitats de treball, idiomes, assumptes i altres. També operacions com duplicar o reservar registres.
-Ruta	/registre
-
-5.4.1	Operacions
-
-Mètod e	Ruta	Descripció
-POST	/duplicar	Duplica registres.
-POST	/reservar	Reserva registres.
-POST	/arees/get	Recupera les Àrees.
-POST	/departaments/get	Recupera Departaments / Unitats de Treball d’una Àrea.
-POST	/assumptes/get	Recupera un Assumpte.
-POST	/assumptes/getperdepart ament	Recupera els Assumptes d’un Departament / Unitat de Treball.
-POST	/extractes/get	Recupera Extractes.
-POST	/idiomes/get	Recupera Idiomes.
-POST	/tipustransport/get	Recupera Tipus de Transport.
-
-
-5.4.2	Duplicar
-
-Mètode	POST
-Ruta	/registre/duplicar
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string", "codiEntitat": "string", "copiarDownload4J": true,
-"copiarFileBase64": true,
- 
-
-
-
-	"crearPDF": true, "directori": "string", "idioma": "string", "numeroRegistre": "string", "plantilla": "string", "quantitat": 0,
-"recalcularDirectoriPlantilles": true, "urlServer": "string"
+Request body: {
+    "nivell": "9999",
+    "aplicacio": "RES",
+    "usuari": "G5Admin"
 }
 
 
-Paràmetres:
+Expected response: {
+    "areaArray": [
+        {
+            "codiArea": "ADM",
+            "descArea": "ADMINISTRACIÓ ELECTRÒNICA",
+            "sdeprioritat": null
+        },
+        {
+            "codiArea": "AL",
+            "descArea": "ALCALDIA",
+            "sdeprioritat": null
+        },
+....
+    ]
+}
 
-codiEntitat	
-copiarDownloa d4J	
-copiarFileBase 64	
-crearPDF	
-directori	
-idioma	
-numeroRegistr e	
-plantilla	
-quantitat	
-recalcularDirec toriPlantilles	
-urlServer	
+```
+
+## 3.4.5 Recuperara Departaments
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /registre/departaments/get	|	
+
+***Cos de la petició***:
+
+```json
+{
+    "codiArea": "string",
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string"
+}
+```
+
+***Exemple:***
+
+```json
+Request:
+POST /registre/departaments/get
 
 
-Exemple:
- 
-
-
-
- 
-
-5.4.3	Reservar
-
-Mètode	POST
-Ruta	/registre/reservar
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string", "areacodCreador": "string", "assumcod": "string", "codiEntitat": "string", "copiarDownload4J": true, "copiarFileBase64": true,
-"crearPDF": true,
- 
-
-
-
-	"data": "string", "depcodCreador": "string", "directori": "string", "hora": "string",
-"idioma": "string", "plantilla": "string", "quantitat": 0,
-"recalcularDirectoriPlantilles": true, "tipusRegistre": "string", "urlServer": "string"
+Request body: {
+    "codiArea": "AL",
+    "nivell": "9999",
+    "aplicacio": "RES",
+    "usuari": "G5Admin"
 }
 
 
-Paràmetres:
+Expected response: {
+    "departamentArray": [
+        {
+            "codiArea": "AL",
+            "descArea": "ALCALDIA",
+            "codiDepartament": "XXXX",
+            "descDepartament": "XXXXXXXXXXXXXXX"
+        },
+        {
+            "codiArea": "AL",
+            "descArea": "ALCALDIA",
+            "codiDepartament": "YYYY",
+            "descDepartament": "YYYYYYYYYYYYYYY"
+        },
+....
+    ]
+}
 
-areacodCread or	
-assumcod	Codi d’assumpte.
-codiEntitat	Codi d’entitat. Si no es multi-entitat, posar 1.
-copiaDownload 4J	
-copiarFileBase 64	
-crearPDF	INdica si cal crear un PDF (true/false).
-data	Data del registre reservat.
-hora	Hora del registre reservat.
-idioma	Codi d’idioma.
-plantilla	
-quantitat	Número de registres a reservar.
-recalcularDirec toriPlantilles	
-tipusRegistre	Tipus de registre E/S (entrada o sortida).
-urlServer	
+```
  
+### 3.4.6 Recuperar un Assumpte
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /registre/assumptes/get	|	
+
+***Cos de la petició***:
+
+```json
+{
+    "codiAssumpte": "string",
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string"
+}
+```
+
+***Exemple:***
+
+```json
+Request:
+POST /registre/assumptes/get
 
 
-
-
-Exemple:
-
-5.4.4	Recuperar Àrees
-
-Mètode	POST
-Ruta	/registre/arees/get
-Cos	de	la petició	{
-"nivell": "string",
- 
-
-
-
-	"aplicacio": "string", "usuari": "string"
+Request body: {
+    "codiAssumpte": "FACT",
+    "nivell": "9999",
+    "aplicacio": "NCL",
+    "usuari": "G5Admin"
 }
 
 
-Exemple:
+Expected response: {
+    "assumpteArray": [
+        {
+            "descripcio": "FACTURES",
+            "baixa": null,
+            "codi": "FACT",
+            "departament": {
+                "codiArea": "AL",
+                "descArea": "ALCALDIA",
+                "codiDepartament": "G5AD",
+                "descDepartament": "AUDIFILM"
+            }
+        }
+    ]
+}
 
-5.4.5	Recuperara Departaments
+```
+### 3.4.8 Recuperar Extractes
 
-Mètode	POST
- 
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /registre/extracte/get	|	
+
+***Cos de la petició***:
+
+```json
+{
+    "codiArea": "string",
+    "codiDepartament": "string",
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string"
+}
+
+```
+
+***Exemple:***
+
+```json
+Request:
+POST /registre/assumptes/getperdepartament
 
 
-
-Ruta	/registre/departaments/get
-Cos	de	la petició	{
-"codiArea": "string", "nivell": "string", "aplicacio": "string", "usuari": "string"
+Request body: {
+    "codiArea": "AL",
+    "codiDepartament": "G5AD",
+    "nivell": "9999",
+    "aplicacio": "RES",
+    "usuari": "G5Admin"
 }
 
 
-Exemple:
- 
-
-
-
- 
-
-
-5.4.6	Recuperar un Assumpte
-
-Mètode	POST
-Ruta	/registre/assumptes/get
-Cos	de	la petició	{
-"codiAssumpte": "string", "nivell": "string", "aplicacio": "string", "usuari": "string"
+Expected response: {
+    "assumpteArray": [
+        {
+            "descripcio": "AJUTS I BEQUES",
+            "baixa": null,
+            "codi": "AJBE",
+            "departament": {
+                "codiArea": "AL",
+                "descArea": "ALCALDIA",
+                "codiDepartament": "G5AD",
+                "descDepartament": "AUDIFILM"
+            }
+        },
+        {
+            "descripcio": "ALTA RÀPIDA",
+            "baixa": null,
+            "codi": "ALTA",
+            "departament": {
+                "codiArea": "AL",
+                "descArea": "ALCALDIA",
+                "codiDepartament": "G5AD",
+                "descDepartament": "AUDIFILM"
+            }
+        },
+....
+    ]
 }
 
-Exemple:
- 
+```
+
+### 3.4.9 Recuperar Idiomes
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /registre/idiomes/get	|	
+
+***Cos de la petició***:
+
+```json
+{
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string"
+}
+```
+
+***Exemple:***
+
+```json
+Request:
+POST /registre/extracte/get
 
 
-
- 
-
-
-5.4.7	Recuperar Assumptes per Departament
-
-Mètode	POST
-Ruta	/registre/assumptes/getperdepartament
-Cos	de	la petició	{
-"codiArea": "string", "codiDepartament": "string", "nivell": "string",
-"aplicacio": "string", "usuari": "string"
+Request body: {
+    "nivell": "9999",
+    "aplicacio": "RES",
+    "usuari": "G5Admin"
 }
 
-Exemple:
- 
 
-
-
- 
- 
-
-
-
-5.4.8	Recuperar Extractes
-
-Mètode	POST
-Ruta	/registre/extracte/get
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string"
+Expected response: {
+    "extracteArray": [
+        {
+            "codi1": "XXX",
+            "codi2": "",
+            "comptador": 0,
+            "descripcio": "XXX",
+            "descripcio2": "",
+            "qual": ""
+        }
+    ]
 }
 
-Exemple:
- 
+```
+
+### 3.4.10 Recuperar Tipus Transport
 
 
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /registre/tipustransport/get	|	
+
+***Cos de la petició***:
+
+```json
+{
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string"
+}
+```
+
+***Exemple:***
+
+```json
+Request:
+POST /registre/tipustransport/get
 
 
-
-5.4.9	Recuperar Idiomes
-
-Mètode	POST
-Ruta	/registre/idiomes/get
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string"
+Request body: {
+    "nivell": "9999",
+    "aplicacio": "RES",
+    "usuari": "G5Admin"
 }
 
-Exemple:
- 
 
-
-
- 
-
-
-5.4.10	Recuperar Tipus Transport
-
-Mètode	POST
-Ruta	/registre/tipustransport/get
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string"
+Expected response: {
+    "tipusTransportArray": [
+        {
+            "descripcio": "Correu electrònic",
+            "descripcio2": "",
+            "codi1": "1",
+            "codi2": "E",
+            "qual": "",
+            "comptador": null
+        },
+        {
+            "descripcio": "Correu administratiu",
+            "descripcio2": "",
+            "codi1": "10",
+            "codi2": "",
+            "qual": "",
+            "comptador": null
+        },
+        ....
+    ]
 }
 
-Exemple:
- 
-
-
+```
 
  
  

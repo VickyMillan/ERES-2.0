@@ -2986,275 +2986,368 @@ Expected response: {
 }
 
 ```
+## 3.5 Registre d’entrada
 
- 
- 
+* ***Descripció*** - Operacions relacionades amb el registre d’entrada. Creació i modificació de registres, obtenir registres relacionats, documents, relacionar registres, relacionar expedients, cercar i altres.
 
+* ***Ruta*** -  /registreentrada
 
-5.5	Registre d’entrada
-
-Descripció	Operacions relacionades amb el registre d’entrada. Creació i modificació de registres, obtenir registres relacionats, documents, relacionar registres, relacionar expedients, cercar i altres.
-Ruta	/registreentrada
-
-5.5.1	Operacions
-
-Mètod e	Ruta	Descripció
-POST	/put	Crea o modifica un Registre d’Entrada.
-POST	/newsimple	Crea	un	Registre	d’Entrada	amb	les	dades	mínimes necessàries.
-POST	/putsimple	Modifica dades concretes d’un Registre d’Entrada.
-POST	/get	Recupera un Registre d’Entrada.
-POST	/search	Cerca per diferents criteris.
-POST	/expedients/put	Relaciona un Expedient amb un Registre d’Entrada.
-POST	/expedients/get	Recupera els Expedients relacionats.
-POST	/interessat/put	Assigna un Interessat a un Registre d’Entrada.
-POST	/documents/get	Recupera els Documents d’un Registre d’Entrada.
-POST	/entrades/get	Recupera els Registres d’Entrada relacionats.
-POST	/sortides/get	Recupera els Registres de Sortida relacionats.
+### 3.5.1 Operacions
 
 
-5.5.2	Crear o modificar
-
-Mètode	POST
-Ruta	/registreentrada/put
-Cos	de	la petició	{
-"aplicacio": "string", "gestCont": true,
- 
-
-
-
-	"idioma": 0, "nivell": "string",
-"nivellTaula": "string", "registreEntrada": { "arxiu": "string",
-"codiAreaAssumpte": "string", "codiAreaCreador": "string", "codiAssumpte": "string", "codiDepartamentAssumpte": "string", "codiDepartamentCreador": "string", "codiEntitat": "string",
-"codiExtracte": "string", "codiIdioma": "string", "codiOrganismeOrigen": 0,
-"codiPersona": 0,
-"codiRepresentant": 0,
-"codiTerritori": 0, "codiTipusTransport": "string", "comptDomiciliOrganisme": 0,
-"comptDomiciliPersona": 0,
-"comptDomiciliRepresentant": 0, "contingutExtracte": "string", "dataDocument": "string", "dataPresentacio": "string", "dataRegistreOrganisme": "string", "dataTransport": "string", "descAreaAssumpte": "string", "descDepartamentAssumpte": "string", "domNot": "string", "efactComptabilitat": "string", "efactEstat": "string", "efactNumfactura": "string", "efactObs": "string",
-"efactProveidor": "string",
- 
+| Mètode | Ruta | Descripció |
+| ------ | ---- | ---------- |                                                                   
+|POST	|/put			|Crea o modifica un Registre d’Entrada.                                     |
+|POST	|/newsimple		|Crea	un	Registre	d’Entrada	amb	les	dades	mínimes necessàries.   |
+|POST	|/putsimple		|Modifica dades concretes d’un Registre d’Entrada.                          |
+|POST	|/get			|Recupera un Registre d’Entrada.                                            |
+|POST	|/search			|Cerca per diferents criteris.                                              |
+|POST	|/expedients/put	|Relaciona un Expedient amb un Registre d’Entrada.                          |
+|POST	|/expedients/get	|Recupera els Expedients relacionats.                                       |
+|POST	|/interessat/put	|Assigna un Interessat a un Registre d’Entrada.                             |
+|POST	|/documents/get	|Recupera els Documents d’un Registre d’Entrada.                            |
+|POST	|/entrades/get	|Recupera els Registres d’Entrada relacionats.                              |
+|POST	|/sortides/get	|Recupera els Registres de Sortida relacionats.                             |
 
 
+### 3.5.2 Crear o modificar
 
-	"fcontactMail": 0,
-"fcontactSms": 0, "firmaTopograficaArxiu": "string", "habilitarEFactura": true, "horaPresentacio": "string", "horaRegistre": "string", "horaRegistreOrganisme": "string", "horaTransport": "string", "ine10Origen": "string",
-"notMail": "string",
-"notSms": "string", "numPagines": 0,
-"numconordreMail": 0,
-"numconordreSms": 0, "numeroEntrada": "string", "numeroEntradaEntitat": "string", "numeroFormaContacte": 0,
-"numeroOrdreContacte": 0, "numeroRegistreOrganisme": "string", "numeroTransport": "string", "observacionsDocument": "string", "observacionsTransport": "string", "persNifFoto": "string", "persNomFoto": "string",
-"persNot": "string", "perscontacn": "string", "persndMail": 0,
-"persndSms": 0, "persnumconordre": "string", "plataforma": "string", "registreRelacionat": "string", "repcontac": 0,
-"repfcontac": 0,
-"resNumeExt": "string",
- 
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /registreentrada/put	|	
 
+***Cos de la petició***:
 
-
-	"resorgcontac": 0,
-"resorgfcontac": 0, "responsable": "string", "tipusOrganisme": "string", "tractat": 0,
-"tramcod": 0, "tramdesc": "string"
-},
-"usuari": "string", "validarCampsObligatoris": true
-}
-
-
-Paràmetres:
-
-arxiu	
-codiAreaAssumpte	
-codiAreaCreador	
-codiAssumpte	
-codiDepartamentAssu mpte	
-codiDepartamentCread or	
-coientitat	
-codiExtracte	
-codiIdioma	
-codiOrganismeOrigen	
-codiPersona	
-codiRepresentant	
-codiTerritori	
-codiTipusTransport	
-comptDomiciliOrganis	
- 
-
-
-
-me	
-comptDomiciliPersona	
-comptDomiciliReprese ntant00
-contingutExtracte	
-dataDocument	
-dataPresentacio	
-dataRegistreOrganism e	
-dataTransport	
-descAreaAssumpte	
-descDepartamentAssu mpte	
-domNot	
-efactComptabilitat	
-efactEstat	
-efactNumfactura	
-efactObs	
-efactProveidor	
-fcontactMail	
-fcontactSms	
-numPagines	
-numconordreMail	
-numconordreSms	
-numeroEntrada	
-numeroEntradaEntitat	
-numeroFormaContacte	
-numeroRegistreOrgani	
- 
-
-
-
-sme	
-numeroTransport	
-observacionsDocumen t	
-observacionsTransport	
-persNifFoto	
-persNomFoto	
-persNot	
-perscontacn	
-persndMail	
-persnmSms	
-persnumconordre	
-plataforma	
-registreRelacionat	
-repcontac	
-repfcontac	
-resNumExt	
-resorgcontac	
-resorgfcontac	
-responsable	
-tipusOrganisme	
-tractat	
-tramcod	
-tramdesc	
-
-
-Exemple:
- 
-
-
-
-POST /registreentrada/put
-
-
-Request body:
+```json
 {
-"aplicacio": "RES", "gestCont": false, "idioma": 0,
-"nivell": "9999",
-"nivellTaula": "9999", "registreEntrada": { "codiAreaCreador": "AL", "codiAssumpte": "LLAC", "codiDepartamentAssumpte": "G5AD", "codiDepartamentCreador": "G5AD", "codiEntitat": "1",
-"codiPersona": 1678,
-"codiTerritori": 500,
-"codiTipusTransport": "5",
-"comptDomiciliPersona": 0, "descAreaAssumpte": "ALCALDIA", "descDepartamentAssumpte": "AUDIFILM", "fcontactMail": 0,
-"fcontactSms": 0, "firmaTopograficaArxiu": "string", "numPagines": 0, "numeroEntrada": "E2020000016",
-"numeroEntradaEntitat": "E2020000016", "observacionsDocument": "PROVA MODIFICACIO", "observacionsTransport": "",
-"persNifFoto": "00507486Z", "persNomFoto": "PEP", "persNot": "",
-"perscontacn": "", "persndMail": 0,
-"persndSms": 0,
- 
+    "aplicacio": "string",
+    "gestCont": true,
+    "idioma": 0,
+    "nivell": "string",
+    "nivellTaula": "string",
+    "registreEntrada": {
+        "arxiu": "string",
+        "codiAreaAssumpte": "string",
+        "codiAreaCreador": "string",
+        "codiAssumpte": "string",
+        "codiDepartamentAssumpte": "string",
+        "codiDepartamentCreador": "string",
+        "codiEntitat": "string",
+        "codiExtracte": "string",
+        "codiIdioma": "string",
+        "codiOrganismeOrigen": 0,
+        "codiPersona": 0,
+        "codiRepresentant": 0,
+        "codiTerritori": 0,
+        "codiTipusTransport": "string",
+        "comptDomiciliOrganisme": 0,
+        "comptDomiciliPersona": 0,
+        "comptDomiciliRepresentant": 0,
+        "contingutExtracte": "string",
+        "dataDocument": "string",
+        "dataPresentacio": "string",
+        "dataRegistreOrganisme": "string",
+        "dataTransport": "string",
+        "descAreaAssumpte": "string",
+        "descDepartamentAssumpte": "string",
+        "domNot": "string",
+        "efactComptabilitat": "string",
+        "efactEstat": "string",
+        "efactNumfactura": "string",
+        "efactObs": "string",
+        "efactProveidor": "string",
+        "fcontactMail": 0,
+        "fcontactSms": 0,
+        "firmaTopograficaArxiu": "string",
+        "habilitarEFactura": true,
+        "horaPresentacio": "string",
+        "horaRegistre": "string",
+        "horaRegistreOrganisme": "string",
+        "horaTransport": "string",
+        "ine10Origen": "string",
+        "notMail": "string",
+        "notSms": "string",
+        "numPagines": 0,
+        "numconordreMail": 0,
+        "numconordreSms": 0,
+        "numeroEntrada": "string",
+        "numeroEntradaEntitat": "string",
+        "numeroFormaContacte": 0,
+        "numeroOrdreContacte": 0,
+        "numeroRegistreOrganisme": "string",
+        "numeroTransport": "string",
+        "observacionsDocument": "string",
+        "observacionsTransport": "string",
+        "persNifFoto": "string",
+        "persNomFoto": "string",
+        "persNot": "string",
+        "perscontacn": "string",
+        "persndMail": 0,
+        "persndSms": 0,
+        "persnumconordre": "string",
+        "plataforma": "string",
+        "registreRelacionat": "string",
+        "repcontac": 0,
+        "repfcontac": 0,
+        "resNumeExt": "string",
+        "resorgcontac": 0,
+        "resorgfcontac": 0,
+        "responsable": "string",
+        "tipusOrganisme": "string",
+        "tractat": 0,
+        "tramcod": 0,
+        "tramdesc": "string"
+    },
+    "usuari": "string",
+    "validarCampsObligatoris": true
+}
+```
+
+|Paràmetres| |
+|----------|-|
+|arxiu	                          |
+|codiAreaAssumpte	              |
+|codiAreaCreador	                  |
+|codiAssumpte	                  |
+|codiDepartamentAssumpte	          |
+|codiDepartamentCreador	          |
+|coientitat	                      |
+|codiExtracte	                  |
+|codiIdioma	                      |
+|codiOrganismeOrigen	              |
+|codiPersona	                      |
+|codiRepresentant	              |
+|codiTerritori	                  |
+|codiTipusTransport	              |
+|comptDomiciliOrganisme	          |
+|comptDomiciliPersona	           |
+|comptDomiciliRepresentant00        |
+|contingutExtracte	               |
+|dataDocument	                   |
+|dataPresentacio	                   |
+|dataRegistreOrganisme	           |
+|dataTransport	                   |
+|descAreaAssumpte	               |
+|descDepartamentAssumpte	           |
+|domNot	                           |
+|efactComptabilitat	               |
+|efactEstat	                       |
+|efactNumfactura	                   |
+|efactObs	                       |
+|efactProveidor	                   |
+|fcontactMail	                   |
+|fcontactSms	                       |
+|numPagines	                       |
+|numconordreMail	                   |
+|numconordreSms	                   |
+|numeroEntrada	                   |
+|numeroEntradaEntitat	           |
+|numeroFormaContacte	               |
+|numeroRegistreOrganisme	           |
+|numeroTransport	                   |
+|observacionsDocumen t	           |
+|observacionsTransport	           |
+|persNifFoto	                       |
+|persNomFoto	                       |
+|persNot	                           |
+|perscontacn	                       |
+|persndMail	                       |
+|persnmSms	                       |
+|persnumconordre	                   |
+|plataforma	                       |
+|registreRelacionat	               |
+|repcontac	                       |
+|repfcontac	                       |
+|resNumExt	                       |
+|resorgcontac	                   |
+|resorgfcontac	                   |
+|responsable	                       |
+|tipusOrganisme	                   |
+|tractat	                           |
+|tramcod	                           |
+|tramdesc	                       |
+
+***Exemple:***
+
+```json
+Request:POST /registreentrada/put
 
 
-
- 
-
-
-5.5.3	Creació simple.
-
-Mètode	POST
-Ruta	/registreentrada/newsimple
-Cos	de	la petició	{
-"aplicacio": "string", "areacodAssumpte": "string", "assumcod": "string", "codiTransport": "string", "contingut": "string", "depcodAssumpte": "string", "descripcioCurta": "string",
-"nivell": "string",
- 
-
-
-
-	"notificacioElectronica": true, "numeroTransport": "string", "representant": {
-"carcod": 0, "codiPostal": "string", "cognom1": "string",
-"cognom2": "string", "crearPersonaSiNoExisteix": true, "escala": "string",
-"mail": "string", "municipi": "string", "municod": 0,
-"nif": "string",
-"nom": "string", "nomCarrer": "string", "numero": "string",
-"pais": "string", "paiscod": 0, "passaport": "string", "pis": "string",
-"porta": "string", "provcod": 0, "provincia": "string", "telefon": "string"
-},
-"responsable": "string", "solicitant": {
-"carcod": 0, "codiPostal": "string", "cognom1": "string",
-"cognom2": "string", "crearPersonaSiNoExisteix": true, "escala": "string",
-"mail": "string",
- 
-
-
-
-	"municipi": "string", "municod": 0,
-"nif": "string",
-"nom": "string", "nomCarrer": "string", "numero": "string",
-"pais": "string", "paiscod": 0, "passaport": "string", "pis": "string",
-"porta": "string", "provcod": 0, "provincia": "string", "telefon": "string"
-},
-"tramcod": 0, "transObs": "string", "usuari": "string"
+Request body: {
+    "aplicacio": "RES",
+    "gestCont": false,
+    "idioma": 0,
+    "nivell": "9999",
+    "nivellTaula": "9999",
+    "registreEntrada": {
+        "codiAreaCreador": "AL",
+        "codiAssumpte": "LLAC",
+        "codiDepartamentAssumpte": "G5AD",
+        "codiDepartamentCreador": "G5AD",
+        "codiEntitat": "1",
+        "codiPersona": 1678,
+        "codiTerritori": 500,
+        "codiTipusTransport": "5",
+        "comptDomiciliPersona": 0,
+        "descAreaAssumpte": "ALCALDIA",
+        "descDepartamentAssumpte": "AUDIFILM",
+        "fcontactMail": 0,
+        "fcontactSms": 0,
+        "firmaTopograficaArxiu": "string",
+        "numPagines": 0,
+        "numeroEntrada": "E2020000016",
+        "numeroEntradaEntitat": "E2020000016",
+        "observacionsDocument": "PROVA MODIFICACIO",
+        "observacionsTransport": "",
+        "persNifFoto": "00507486Z",
+        "persNomFoto": "PEP",
+        "persNot": "",
+        "perscontacn": "",
+        "persndMail": 0,
+        "persndSms": 0,
+        "repcontac": 0,
+        "repfcontac": 0,
+        "tractat": 0,
+        "tramcod": 0,
+        "horaRegistre": "124443"
+    },
+    "usuari": "G5Admin",
+    "validarCampsObligatoris": false
 }
 
 
-Exemple:
- 
-
-
-
- 
-
-
-5.5.4	Modificació simple
-
-Mètode	POST
-Ruta	/registreentrada/putsimple
-Cos	de	la petició	{
-"aplicacio": "string", "gestCont": true, "idioma": 0, "nivell": "string",
-"nivellTaula": "string", "registreEntrada": { "arxiu": "string",
-"codiAreaAssumpte": "string",
- 
-
-
-
-	"codiAreaCreador": "string", "codiAssumpte": "string", "codiDepartamentAssumpte": "string", "codiDepartamentCreador": "string", "codiEntitat": "string",
-"codiExtracte": "string", "codiIdioma": "string", "codiOrganismeOrigen": 0,
-"codiPersona": 0,
-"codiRepresentant": 0,
-"codiTerritori": 0, "codiTipusTransport": "string", "comptDomiciliOrganisme": 0,
-"comptDomiciliPersona": 0,
-"comptDomiciliRepresentant": 0, "contingutExtracte": "string", "dataDocument": "string", "dataPresentacio": "string", "dataRegistreOrganisme": "string", "dataTransport": "string", "descAreaAssumpte": "string", "descDepartamentAssumpte": "string", "domNot": "string", "efactComptabilitat": "string", "efactEstat": "string", "efactNumfactura": "string", "efactObs": "string",
-"efactProveidor": "string", "fcontactMail": 0,
-"fcontactSms": 0, "firmaTopograficaArxiu": "string", "habilitarEFactura": true, "horaPresentacio": "string",
-"horaRegistre": "string",
- 
-
-
-
-	"horaRegistreOrganisme": "string", "horaTransport": "string", "ine10Origen": "string",
-"notMail": "string",
-"notSms": "string", "numPagines": 0,
-"numconordreMail": 0,
-"numconordreSms": 0, "numeroEntrada": "string", "numeroEntradaEntitat": "string", "numeroFormaContacte": 0,
-"numeroOrdreContacte": 0, "numeroRegistreOrganisme": "string", "numeroTransport": "string", "observacionsDocument": "string", "observacionsTransport": "string", "persNifFoto": "string", "persNomFoto": "string",
-"persNot": "string", "perscontacn": "string", "persndMail": 0,
-"persndSms": 0, "persnumconordre": "string", "plataforma": "string", "registreRelacionat": "string", "repcontac": 0,
-"repfcontac": 0, "resNumeExt": "string", "resorgcontac": 0,
-"resorgfcontac": 0, "responsable": "string", "tipusOrganisme": "string", "tractat": 0,
-"tramcod": 0,
- 
-
-
-
-	"tramdesc": "string"
-},
-"usuari": "string", "validarCampsObligatoris": true
+Expected response: {
+    "registreEntrada": "E2020000016",
+    "registreEntradaEntitat": "E2020000016",
+    "dataRegistreEntrada": "20200708",
+    "horaRegistreEntrada": "124443",
+    "dataPresentacioEntrada": null,
+    "horaPresentacioEntrada": null
 }
 
+```
+
+### 3.5.3 Creació simple.
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /registreentrada/newsimple	|	
+
+***Cos de la petició***:
+
+```json
+{
+    "aplicacio": "string",
+    "areacodAssumpte": "string",
+    "assumcod": "string",
+    "codiTransport": "string",
+    "contingut": "string",
+    "depcodAssumpte": "string",
+    "descripcioCurta": "string",
+    "nivell": "string",
+    "notificacioElectronica": true,
+    "numeroTransport": "string",
+    "representant": {
+        "carcod": 0,
+        "codiPostal": "string",
+        "cognom1": "string",
+        "cognom2": "string",
+        "crearPersonaSiNoExisteix": true,
+        "escala": "string",
+        "mail": "string",
+        "municipi": "string",
+        "municod": 0,
+        "nif": "string",
+        "nom": "string",
+        "nomCarrer": "string",
+        "numero": "string",
+        "pais": "string",
+        "paiscod": 0,
+        "passaport": "string",
+        "pis": "string",
+        "porta": "string",
+        "provcod": 0,
+        "provincia": "string",
+        "telefon": "string"
+    },
+    "responsable": "string",
+    "solicitant": {
+        "carcod": 0,
+        "codiPostal": "string",
+        "cognom1": "string",
+        "cognom2": "string",
+        "crearPersonaSiNoExisteix": true,
+        "escala": "string",
+        "mail": "string",
+        "municipi": "string",
+        "municod": 0,
+        "nif": "string",
+        "nom": "string",
+        "nomCarrer": "string",
+        "numero": "string",
+        "pais": "string",
+        "paiscod": 0,
+        "passaport": "string",
+        "pis": "string",
+        "porta": "string",
+        "provcod": 0,
+        "provincia": "string",
+        "telefon": "string"
+    },
+    "tramcod": 0,
+    "transObs": "string",
+    "usuari": "string"
+}
+```
+***Exemple:***
+
+```json
+Request:
+POST /registreentrada/newsimple
+
+
+Request body: {
+    "aplicacio": "RES",
+    "areacodAssumpte": "",
+    "assumcod": "LLAC",
+    "codiTransport": "5",
+    "contingut": "",
+    "depcodAssumpte": "",
+    "descripcioCurta": "Proves registre entrada",
+    "nivell": "9999",
+    "notificacioElectronica": false,
+    "numeroTransport": "",
+    "solicitant": {
+        "nif": "00507486Z"
+    },
+    "tramcod": 20,
+    "transObs": "prova",
+    "usuari": "G5Admin"
+}
+    
+    
+    Expected response: {
+    "registreEntrada": "E2020000016",
+    "registreEntradaEntitat": "E2020000016",
+    "dataRegistreEntrada": "20200708",
+    "horaRegistreEntrada": "124443",
+    "dataPresentacioEntrada": "20200708",
+    "horaPresentacioEntrada": "124442"
+}
+
+```
+
+### 3.5.4 Modificació simple
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /registreentrada/putsimple	|	
+
+***Cos de la petició***:
+
+```json
+
+```
 
 Paràmetres:
 

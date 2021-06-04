@@ -1217,6 +1217,7 @@ Expected response: {
 
 ### 3.3.1 Operacions
 
+
 | Mètode | Ruta | Descripció |
 | ------ | ---- | ---------- |                                                                   |
 |POST|	/put					|Modificar les dades d’una Persona.                               |
@@ -1233,7 +1234,7 @@ Expected response: {
 |POST|	/domicilisbancaris/get	|Recupera els Domicilis Bancaris d’una Persona.                   |
 |POST|	/noticies/get			|Recupera les Notícies d’una Persona.                             |
 |POST|	/representants/get		|Recupera els Representants d’una Persona.                        |
-|POST|	/tipus/get				|Recupera els tipus de Persones.                                  |
+|POST|	/tipus/get				|Recupera els tipus de Persones.                          |
  
 
 
@@ -2514,15 +2515,15 @@ Expected response: {
 
 | Mètode | Ruta | Descripció |
 | ------ | ---- | ---------- |                                                                   |
-|POST	|/duplicar						|Duplica registres.                                              |
-|POST	|/reservar						|Reserva registres.                                              |
-|POST	|/arees/get						|Recupera les Àrees.                                             |
-|POST	|/departaments/get				|Recupera Departaments / Unitats de Treball d’una Àrea.          |
-|POST	|/assumptes/get					|Recupera un Assumpte.                                           |
-|POST	|/assumptes/getperdepartament	|Recupera els Assumptes d’un Departament / Unitat de Treball.    |
-|POST	|/extractes/get					|Recupera Extractes.                                             |
-|POST	|/idiomes/get					|Recupera Idiomes.                                               |
-|POST	|/tipustransport/get				|Recupera Tipus de Transport.                                    |
+|POST	| /duplicar						|Duplica registres.                                              |
+|POST	| /reservar						|Reserva registres.                                              |
+|POST	| /arees/get						|Recupera les Àrees.                                             |
+|POST	| /departaments/get				|Recupera Departaments / Unitats de Treball d’una Àrea.          |
+|POST	| /assumptes/get					|Recupera un Assumpte.                                           |
+|POST	| /assumptes/getperdepartament	|Recupera els Assumptes d’un Departament / Unitat de Treball.    |
+|POST	| /extractes/get					|Recupera Extractes.                                             |
+|POST	| /idiomes/get					|Recupera Idiomes.                                               |
+|POST	| /tipustransport/get				|Recupera Tipus de Transport.                                    |
 
 
 ### 3.4.2 Duplicar
@@ -4276,7 +4277,7 @@ Expected response: {
 ```
 
 
-5.7.4	Recuperar un Expedient
+### 3.7.4 Recuperar un Expedient
 
 Mètode	POST
 Ruta	/expedients/get

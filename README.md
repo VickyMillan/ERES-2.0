@@ -3346,497 +3346,934 @@ Request body: {
 ***Cos de la petició***:
 
 ```json
+{
+    "aplicacio": "string",
+    "gestCont": true,
+    "idioma": 0,
+    "nivell": "string",
+    "nivellTaula": "string",
+    "registreEntrada": {
+        "arxiu": "string",
+        "codiAreaAssumpte": "string",
+        "codiAreaCreador": "string",
+        "codiAssumpte": "string",
+        "codiDepartamentAssumpte": "string",
+        "codiDepartamentCreador": "string",
+        "codiEntitat": "string",
+        "codiExtracte": "string",
+        "codiIdioma": "string",
+        "codiOrganismeOrigen": 0,
+        "codiPersona": 0,
+        "codiRepresentant": 0,
+        "codiTerritori": 0,
+        "codiTipusTransport": "string",
+        "comptDomiciliOrganisme": 0,
+        "comptDomiciliPersona": 0,
+        "comptDomiciliRepresentant": 0,
+        "contingutExtracte": "string",
+        "dataDocument": "string",
+        "dataPresentacio": "string",
+        "dataRegistreOrganisme": "string",
+        "dataTransport": "string",
+        "descAreaAssumpte": "string",
+        "descDepartamentAssumpte": "string",
+        "domNot": "string",
+        "efactComptabilitat": "string",
+        "efactEstat": "string",
+        "efactNumfactura": "string",
+        "efactObs": "string",
+        "efactProveidor": "string",
+        "fcontactMail": 0,
+        "fcontactSms": 0,
+        "firmaTopograficaArxiu": "string",
+        "habilitarEFactura": true,
+        "horaPresentacio": "string",
+        "horaRegistre": "string",
+        "horaRegistreOrganisme": "string",
+        "horaTransport": "string",
+        "ine10Origen": "string",
+        "notMail": "string",
+        "notSms": "string",
+        "numPagines": 0,
+        "numconordreMail": 0,
+        "numconordreSms": 0,
+        "numeroEntrada": "string",
+        "numeroEntradaEntitat": "string",
+        "numeroFormaContacte": 0,
+        "numeroOrdreContacte": 0,
+        "numeroRegistreOrganisme": "string",
+        "numeroTransport": "string",
+        "observacionsDocument": "string",
+        "observacionsTransport": "string",
+        "persNifFoto": "string",
+        "persNomFoto": "string",
+        "persNot": "string",
+        "perscontacn": "string",
+        "persndMail": 0,
+        "persndSms": 0,
+        "persnumconordre": "string",
+        "plataforma": "string",
+        "registreRelacionat": "string",
+        "repcontac": 0,
+        "repfcontac": 0,
+        "resNumeExt": "string",
+        "resorgcontac": 0,
+        "resorgfcontac": 0,
+        "responsable": "string",
+        "tipusOrganisme": "string",
+        "tractat": 0,
+        "tramcod": 0,
+        "tramdesc": "string"
+    },
+    "usuari": "string",
+    "validarCampsObligatoris": true
+}
+```
+
+***Exemple:***
+
+```json
+Request:
+POST /registreentrada/putsimple
+
+
+Request body: {
+    "aplicacio": "RES",
+    "gestCont": true,
+    "idioma": 0,
+    "nivell": "9999",
+    "nivellTaula": "9999",
+    "registreEntrada": {
+        "numeroEntrada": "E2020000016",
+        "numeroEntradaEntitat": "E2020000016",
+        "observacionsDocument": "MODIFICACIO SIMPLE",
+        "observacionsTransport": "MODIFICACIO SIMPLE"
+    },
+    "usuari": "G5Admin",
+    "validarCampsObligatoris": false
+}
+
+
+Expected response: {
+    "registreEntrada": "E2020000016",
+    "registreEntradaEntitat": "E2020000016",
+    "dataRegistreEntrada": "20200708",
+    "horaRegistreEntrada": "124443",
+    "dataPresentacioEntrada": null,
+    "horaPresentacioEntrada": null
+}
 
 ```
 
-Paràmetres:
-
-	
+### 3.5.5 Recuperar un Registre
 
 
-Exemple:
- 
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /registreentrada/get	|	
 
+***Cos de la petició***:
 
-
- 
-
-
-5.5.5	Recuperar un Registre
-
-Mètode	POST
-Ruta	/registreentrada/get
-Cos	de	la petició	{
-"idioma": 0, "numeroRegistreEntrada": "string", "nivell": "string",
-"aplicacio": "string", "usuari": "string"
+```json
+{
+    "idioma": 0,
+    "numeroRegistreEntrada": "string",
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string"
 }
+```
 
-Exemple:
- 
+***Exemple:***
 
-
-
-"numeroRegistreEntitat": "E2020000001", "codiEntitat": "1",
-"codiPersona": 1, "fotoRepresentant": null, "fotoPersona": {
-"nom": "AJUNTAMENT DE PROVES", "nif": "P0826900C",
-"particula1": "",
-"cognom1": "",
-"particula2": "",
-"cognom2": "", "domicili": null, "esPersonaFisica": null
-},
-"descExtracte": null, "codiAssumpte": "CEDU", "responsable": "_RESPONSABLE_", "numeroFormaContacte": null, "numeroOrdreContacte": null, "codiRepresentant": null, "repcontac": null,
-"repfcontac": null, "repcontacdesc": null, "repfcontacdesc": null, "codiExtracte": null, "contingutExtracte": "test", "codiIdioma": "0", "codiOrganismeOrigen": null, "numeroRegistreOrganisme": "", "nomComplertOrganisme": null, "nifDcOrganisme": null, "domiciliOrganisme": null, "resNumeExt": "", "fotoAssumpte": {
-"codiArea": "AL",
- 
+```json
+Request:
+POST /registreentrada/get
 
 
-
-"descArea": "ALCALDIA", "codiDepartament": "G5AD", "descDepartament": "AUDIFILM", "descAssumpte": "CENTRES ESCOLARS"
-},
-"comptadorDomiciliPersona": 2,
-"codiDomiciliPersona": 11494,
-"baixaPersona": "0",
-"baixaDomiciliPersona": "0", "baixaRelacioDomiciliPersona": null,
-"fotoDomiciliPersona": "C/ ALMERIA N.0005 CP 17220 SANT FELIU DE GUIXOLS (GIRONA) - ESPAÑA",
-"comptadorDomiciliRepresentant": null, "codiDomiciliRepresentant": null, "baixaRepresentant": null, "baixaDomiciliRepresentant": null, "baixaRelacioDomiciliRepresentant": null, "fotoDomiciliRepresentant": null, "dataCreacio": "20200217",
-"horaCreacio": "104732",
-"dataPresentacio": "20200217",
-"horaPresentacio": "104722", "codiAreaCreador": "AL", "descAreaCreador": "ALCALDIA", "codiDepartamentCreador": "G5AD", "descDepartamentCreador": "AUDIFILM", "dataDocument": "20200217", "descIdioma": "CATALA",
-"numPagines": 1, "observacionsDocument": "", "comptadorDomiciliOrganisme": null, "codiDomiciliOrganisme": null, "dataRegistreOrganisme": "", "horaRegistreOrganisme": "", "codiTerritori": null,
- 
-
-
-
-"descTerritori": null, "codiTipusTransport": "12", "descTipusTransport": "Notarial", "numeroTransport": "", "dataTransport": "",
-"horaTransport": "", "observacionsTransport": "ewrgewrg", "arxiu": "",
-"firmaTopograficaArxiu": "", "descTipusContacte": null, "descContacte": null, "interessats": [
-1
-],
-"efactNumfactura": "", "registreTancat": true, "registreRelacionat": "X2020000017",
-"registreRelacionatEntitat": "X2020000017", "tipusOrganisme": "",
-"baixaOrganisme": null, "baixaDomiciliOrganisme": null, "baixaRelacioDomiciliOrganisme": null, "resorgcontac": null,
-"resorgfcontac": null, "perscontacn": null, "persnumconordre": null, "plataforma": null, "notSms": null,
-"notMail": null, "persndMail": null, "fcontactMail": null, "numconordreMail": null, "persndSms": null, "fcontactSms": null, "numconordreSms": null,
- 
-
-
-
- 
-
-
-5.5.6	Cercar Registres. TODO
-
-Mètode	POST
-Ruta	/registreentrada/
-
-Paràmetres:
-
-	
-
-
-Exemple:
- 
-
-
-
- 
-
-
-5.5.7	Relacionar Expedient. TODO
-
-Mètode	POST
-Ruta	/registreentrada/
-
-Paràmetres:
-
-	
-
-Exemple:
-
-
-5.5.8	Recuperar Expedient relacionat. TODO
-
-Mètode	POST
-Ruta	/registreentrada/expedients/get
-Cos	de	la petició	{
-"numeroRegistreEntrada": "string", "nivell": "string",
-"aplicacio": "string", "usuari": "string"
-}
-
-Exemple:
- 
-
-
-
- 
-
-
-5.5.9	Assignar Interessat. TODO
-
-Mètode	POST
-Ruta	/registreentrada/
-
-Paràmetres:
-
-	
-
-Exemple:
-
-
-5.5.10	Recuperar Documents relacionats
-
-Mètode	POST
-Ruta	/registreentrada/documents/get
-Cos	de	la petició	{
-"numeroRegistreEntrada": "E2020000001", "nivell": "9999",
-"aplicacio": "RES",
- 
-
-
-
-	"usuari": "G5Admin"
+Request body: {
+    "numeroRegistreEntrada": "E2020000001",
+    "nivell": "9999",
+    "aplicacio": "RES",
+    "usuari": "G5Admin"
 }
 
 
-Exemple:
- 
-
-
-
- 
-
-
-5.5.11	Recupera Entrades relacionades
-
-Mètode	POST
-Ruta	/registreentrada/entrades/get
-Cos	de	la petició	{
-"numeroRegistreEntrada": "string", "nivell": "string",
-"aplicacio": "string", "usuari": "string"
+Expected response: {
+    "numeroRegistre": "E2020000001",
+    "numeroRegistreEntitat": "E2020000001",
+    "codiEntitat": "1",
+    "codiPersona": 1,
+    "fotoRepresentant": null,
+    "fotoPersona": {
+        "nom": "AJUNTAMENT DE PROVES",
+        "nif": "P0826900C",
+        "particula1": "",
+        "cognom1": "",
+        "particula2": "",
+        "cognom2": "",
+        "domicili": null,
+        "esPersonaFisica": null
+    },
+    "descExtracte": null,
+    "codiAssumpte": "CEDU",
+    "responsable": "_RESPONSABLE_",
+    "numeroFormaContacte": null,
+    "numeroOrdreContacte": null,
+    "codiRepresentant": null,
+    "repcontac": null,
+    "repfcontac": null,
+    "repcontacdesc": null,
+    "repfcontacdesc": null,
+    "codiExtracte": null,
+    "contingutExtracte": "test",
+    "codiIdioma": "0",
+    "codiOrganismeOrigen": null,
+    "numeroRegistreOrganisme": "",
+    "nomComplertOrganisme": null,
+    "nifDcOrganisme": null,
+    "domiciliOrganisme": null,
+    "resNumeExt": "",
+    "fotoAssumpte": {
+        "codiArea": "AL",
+        "descArea": "ALCALDIA",
+        "codiDepartament": "G5AD",
+        "descDepartament": "AUDIFILM",
+        "descAssumpte": "CENTRES ESCOLARS"
+    },
+    "comptadorDomiciliPersona": 2,
+    "codiDomiciliPersona": 11494,
+    "baixaPersona": "0",
+    "baixaDomiciliPersona": "0",
+    "baixaRelacioDomiciliPersona": null,
+    "fotoDomiciliPersona": "C/ ALMERIA N.0005 CP 17220 SANT FELIU DE GUIXOLS (GIRONA) - ESPAÑA",
+    "comptadorDomiciliRepresentant": null,
+    "codiDomiciliRepresentant": null,
+    "baixaRepresentant": null,
+    "baixaDomiciliRepresentant": null,
+    "baixaRelacioDomiciliRepresentant": null,
+    "fotoDomiciliRepresentant": null,
+    "dataCreacio": "20200217",
+    "horaCreacio": "104732",
+    "dataPresentacio": "20200217",
+    "horaPresentacio": "104722",
+    "codiAreaCreador": "AL",
+    "descAreaCreador": "ALCALDIA",
+    "codiDepartamentCreador": "G5AD",
+    "descDepartamentCreador": "AUDIFILM",
+    "dataDocument": "20200217",
+    "descIdioma": "CATALA",
+    "numPagines": 1,
+    "observacionsDocument": "",
+    "comptadorDomiciliOrganisme": null,
+    "codiDomiciliOrganisme": null,
+    "dataRegistreOrganisme": "",
+    "horaRegistreOrganisme": "",
+    "codiTerritori": null,
+    "descTerritori": null,
+    "codiTipusTransport": "12",
+    "descTipusTransport": "Notarial",
+    "numeroTransport": "",
+    "dataTransport": "",
+    "horaTransport": "",
+    "observacionsTransport": "ewrgewrg",
+    "arxiu": "",
+    "firmaTopograficaArxiu": "",
+    "descTipusContacte": null,
+    "descContacte": null,
+    "interessats": [
+        1
+    ],
+    "efactNumfactura": "",
+    "registreTancat": true,
+    "registreRelacionat": "X2020000017",
+    "registreRelacionatEntitat": "X2020000017",
+    "tipusOrganisme": "",
+    "baixaOrganisme": null,
+    "baixaDomiciliOrganisme": null,
+    "baixaRelacioDomiciliOrganisme": null,
+    "resorgcontac": null,
+    "resorgfcontac": null,
+    "perscontacn": null,
+    "persnumconordre": null,
+    "plataforma": null,
+    "notSms": null,
+    "notMail": null,
+    "persndMail": null,
+    "fcontactMail": null,
+    "numconordreMail": null,
+    "persndSms": null,
+    "fcontactSms": null,
+    "numconordreSms": null,
+    "stddgr": "20200217",
+    "stddmod": "20200416",
+    "stdhgr": "104732",
+    "stdhmod": "093823",
+    "stdugr": "G5Admin",
+    "stdumod": "G5Admin",
+    "persNot": "I",
+    "domNot": "I",
+    "swAreaDepKO": 0,
+    "areaDepKODesc": null,
+    "swTractat": 0,
+    "nifPersSw": "F",
+    "nifReprSw": null,
+    "tramcod": null,
+    "tramdesc": null,
+    "efactComptabilitat": "",
+    "efactEstat": "",
+    "efactObs": "",
+    "efactProveidor": ""
 }
 
-Exemple:
- 
+```
 
+###3.5.6 Cercar Registres. TODO
 
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /registreentrada/	|	
 
- 
+|Paràmetres| |
+|----------|-|
+| 	                          |
 
+***Exemple:***
 
-5.5.12	Recupera Sortides relacionades
+```json
+Request:
+Request body:
+Expected response:
 
-Mètode	POST
-Ruta	/registreentrada/sortides/get
-Cos	de	la petició	{
-"mostrarRelExpedients": true, "numeroRegistreEntrada": "string", "nivell": "string",
-"aplicacio": "string", "usuari": "string"
+```
+
+### 3.5.7 Relacionar Expedient. TODO
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /registreentrada/	|	
+
+|Paràmetres| |
+|----------|-|
+| 	                          |
+
+***Exemple:***
+
+```json
+Request:
+Request body:
+Expected response:
+
+```
+
+### 3.5.8 Recuperar Expedient relacionat. TODO
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /registreentrada/expedients/get	|	
+
+***Cos de la petició***:
+
+```json
+{
+    "numeroRegistreEntrada": "string",
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string"
 }
+```
 
-Exemple:
- 
+***Exemple:***
 
+```json
+Request:
+POST /registreentrada/expedients/get
 
 
- 
- 
+Request body:
 
 
-5.6	Registre de sortida
+Expected response:
 
-Descripció	Operacions relacionades amb el registre de sortida. Creació i modificació de registres, obtenir registres relacionats, documents, relacionar registres, relacionar expedients, cercar i altres.
-Ruta	/registresortida
+```
 
-5.6.1	Operacions
+### 3.5.9 Assignar Interessat. TODO
 
-Mètod e	Ruta	Descripció
-POST	/put	Crea o modifica un Registre de Sortida.
-POST	/newsimple	Crea un Registre de Sortida amb les dades mínimes necessàries.
-POST	/putsimple	Modifica dades concretes d’un Registre de Sortida.
-POST	/get	FALTA!!!
-POST	/search	Cerca per diferents criteris.
-POST	/interessat/put	Assigna un Interessat a un Registre de Sortida.
-POST	/documents/get	Recupera els Documents d’un Registre de Sortida.
-POST	/entrades/get	Recupera els Registres d’Entrada relacionats.
-POST	/sortides/get	Recupera els Registres de Sortida relacionats.
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /registreentrada/	|	
 
+|Paràmetres| |
+|----------|-|
+| 	                          |
 
-5.6.2	Crear o modificar. TODO
+***Exemple:***
 
-Mètode	POST
-Ruta	/registreSORTIDA/
+```json
+Request:
+Request body:
+Expected response:
+```
 
-Paràmetres:
+### 3.5.10 Recuperar Documents relacionats
 
-	
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /registreentrada/documents/get	|	
 
-Exemple:
- 
+***Cos de la petició***:
 
-
-
- 
-
-
-5.6.3	Creació simple. TODO
-
-Mètode	POST
-Ruta	/registreSORTIDA/
-
-Paràmetres:
-
-	
-
-
-Exemple:
-
-
-5.6.4	Modificació simple. TODO
-
-Mètode	POST
-Ruta	/registreSORTIDA/
-
-Paràmetres:
-
-	
- 
-
-
-
-Exemple:
-
-
-5.6.5	Cercar Registres. TODO
-
-Mètode	POST
-Ruta	/registreSORTIDA/
-
-Paràmetres:
-
-	
-
-Exemple:
-
-
-5.6.6	Assignar Interessat. TODO
-
-Mètode	POST
-Ruta	/registreSORTIDA/
-
-Paràmetres:
-
-	
- 
-
-
-
-
-Exemple:
-
-
-5.6.7	Recuperar Documents relacionats. TODO
-
-Mètode	POST
-Ruta	/registreSORTIDA/
-
-Paràmetres:
-
-	
-
-Exemple:
-
-
-5.6.8	Recuperar Entrades relacionades. TODO
-
-Mètode	POST
-Ruta	/registreSORTIDA/
-
-Paràmetres:
- 
-
-
-
-	
-
-
-Exemple:
-
-
-5.6.9	Recuperar Sortides relacionades. TODO
-
-Mètode	POST
-Ruta	/registreSORTIDA/
-
-Paràmetres:
-
-	
-
-Exemple:
- 
-
-
-5.7	Expedients
-
-Descripció	Operacions relacionades amb expedients.
-Ruta	/expedients
-
-5.7.1	Operacions
-
-Mètod e	Ruta	Descripció
-POST	/newsimple	Crea un Expedient amb les dades mínimes necessàries.
-POST	/putsimple	Modifica dades concretes d’un Expedient.
-POST	/get	Recupera un Expedient.
-POST	/infoadicional/{sdenum
-}	Modificar o afegir dades addicionals d’un Expedient.
-DELE TE	/infoadicional/{sdenum
-}	Esborrar dades addicionals d’un Expedient
-GET	/infoadicional/{sdenum
-}	Obtenir les dades addicionals d’un expedient.
-
-
-5.7.2	Creació simple
-
-Mètode	POST
-Ruta	/expedients/newsimple
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string",
-"entcod": "string",
-"texpcod": "string", "perscod": 0, "sdenum": "string",
-"data": "2020-05-20T13:43:05.126Z"
+```json
+{
+    "numeroRegistreEntrada": "E2020000001",
+    "nivell": "9999",
+    "aplicacio": "RES",
+    "usuari": "G5Admin"
 }
- 
+```
+
+***Exemple:***
+
+```json
+Request:
+POST /registreentrada/documents/get
 
 
-
- 
-Paràmetres
-
-entcod	Identificador de l’entitat. Si només en tenim una utilitzar el valor 1.
-texpcod	Identificador de tipus d’Expedient.
-perscod	Codi de Persona.
-sdenum	Codi d’Expedient. Permet utilitzar les variables d’un altre Expedient.
-data	Data de l’Expedient. Per omisió la data actual.
-
-
-Exemple:
-
-
-Cos de la petició:
-
-
-Resposta esperada:
-
-
-5.7.3	Modificació simple
-
-Mètode	POST
- 
-
-
-
-Ruta	/expedients/putsimple
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string",
-"sdenum": "string", "perscod": 0,
-"persnd": 0,
-"reprcod": 0,
-"reprnd": 0, "areacod": "string",
-"depcod": "string",
-"grupcod": "string",
-"rol": "string",
-"entcod": "string",
-"texpcod": "string", "decnumreg": "string", "extrcod": "string",
-"sdetext": "string", "arxsigtop": "string", "identval": "string", "idiomacod": "string", "eventexpr": "string", "sdenumtexp": "string", "sdedomcod": 0, "sderel": "string", "resracodec": "string", "resrorg": "string",
-"sdedreg": "string",
-"sdehreg": "string", "resrdata": "string", "connum2": 0, "treccod": "string",
-"assumcod": "string",
- 
-
-
-
-	"subassumcod": "string", "sdenumcont": "string", "fcontacn": 0,
-"numconordre": 0, "tipocod": "string", "licitacion": "string", "descassumpte": "string", "descsubassumpte": "string", "transcod": "string", "transcodarea": "string", "assumcodorg": "string", "subassumcodorg": "string", "plataforma": "string", "sdenument": "string", "seccod": "string", "subseccod": "string", "sercod": "string", "subsercod": "string
+Request body: {
+    "numeroRegistreEntrada": "E2020000001",
+    "nivell": "9999",
+    "aplicacio": "RES",
+    "usuari": "G5Admin"
 }
 
 
-Paràmetres:
+Expected response: {
+    "documentArray": [
+        {
+            "descriptor": "ACTA TEST 01012020",
+            "nomDocument": "AnnexarDocSelenium.doc",
+            "idOrigen": null,
+            "codiTipusDocument": "T006",
+            "descTipusDocument": "DOCUMENT ANNEXAT",
+            "motiuRebut": "",
+            "idNReg": 6020506,
+            "guid": "9f32932e-0c2f-4761-8a30-cb19ce1b44ad"
+        },
+        {
+            "descriptor": "ACCEPTACIÓ TEST 01012020",
+            "nomDocument": "DOC2.Pdf",
+            "idOrigen": null,
+            "codiTipusDocument": "T001",
+            "descTipusDocument": "DOCUMENT ANNEXAT",
+            "motiuRebut": "",
+            "idNReg": 6020124,
+            "guid": "3813b39d-d40b-4afb-8166-4d86c101bf51"
+        },
+....
+    ]
+}
 
-sdenum	Codi d’Expedient. Obligatori.
-percod	Codi de Persona.
-persnd	Codi de Domicili de la Persona.
-reprcod	Codi de Representant.
-reprnd	Codi de Domicili del Representant.
-areacod	Cod d’Àrea.
-depcod	Codi de Departament.
-grupcod	Codi de Grup de Treball.
-rol	Codi de Rol.
-entcod	Codi Entitat. Per omissió: ‘1’
+```
+
+
+### 3.5.11 Recupera Entrades relacionades
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /registreentrada/entrades/get	|	
+
+***Cos de la petició***:
+
+```json
+{
+    "numeroRegistreEntrada": "string",
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string"
+}
+```
+
+***Exemple:***
+
+```json
+Request:
+POST /registreentrada/entrada/get
+
+
+Request body: {
+    "numeroRegistreEntrada": "E2020000001",
+    "nivell": "9999",
+    "aplicacio": "RES",
+    "usuari": "G5Admin"
+}
+
+
+Expected response: {
+    "numeroRegistreEntradaArray": [
+        "string"
+    ],
+    "regRelArray": [
+        {
+            "numeroRegEntRel": "string",
+            "numeroRegistreEntrada": "string",
+            "stddgr": "string",
+            "stddmod": "string",
+            "stdhgr": "string",
+            "stdhmod": "string",
+            "stdugr": "string",
+            "stdumod": "string"
+        }
+    ]
+}
+
+```
+
+### 3.5.12 Recupera Sortides relacionades
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /registreentrada/sortides/get	|	
+
+***Cos de la petició***:
+
+```json
+{
+    "mostrarRelExpedients": true,
+    "numeroRegistreEntrada": "string",
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string"
+}
+
+```
+
+***Exemple:***
+
+```json
+Request:
+POST /registreentrada/sortides/get
+Request body: {
+    "numeroRegistreEntrada": "E2020000001",
+    "nivell": "9999",
+    "aplicacio": "RES",
+    "usuari": "G5Admin"
+}
+
+
+Expected response: {
+    "numeroRegistreSortidaArray": [
+        "string"
+    ],
+    "regRelArray": [
+        {
+            "numeroRegSortRel": "string",
+            "numeroRegistreEntrada": "string",
+            "stddgr": "string",
+            "stddmod": "string",
+            "stdhgr": "string",
+            "stdhmod": "string",
+            "stdugr": "string",
+            "stdumod": "string"
+        }
+    ]
+}
+
+```
+
+## 3.6 Registre de sortida
+
+* ***Descripció*** - Operacions relacionades amb el registre de sortida. Creació i modificació de registres, obtenir registres relacionats, documents, relacionar registres, relacionar expedients, cercar i altres.
+
+* ***Ruta*** -  /registresortida
+
+### 3.6.1 Operacions
+
+| Mètode | Ruta | Descripció |
+| ------ | ---- | ---------- |                                                                   
+|POST	|/put			|Crea o modifica un Registre de Sortida.                                      |
+|POST	|/newsimple		|Crea un Registre de Sortida amb les dades mínimes necessàries.               |
+|POST	|/putsimple		|Modifica dades concretes d’un Registre de Sortida.                           |
+|POST	|/get			|FALTA!!!                                                                     |
+|POST	|/search			|Cerca per diferents criteris.                                                |
+|POST	|/interessat/put	|Assigna un Interessat a un Registre de Sortida.                              |
+|POST	|/documents/get	|Recupera els Documents d’un Registre de Sortida.                             |
+|POST	|/entrades/get	|Recupera els Registres d’Entrada relacionats.                                |
+|POST	|/sortides/get	|Recupera els Registres de Sortida relacionats.                               |
+
+
+### 3.6.2 Crear o modificar. TODO
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /registreSORTIDA/	|	
+
+***Cos de la petició***:
+
+```json
+
+```
+
+***Exemple:***
+
+```json
+
+
+```
+
+### 3.6.3 Creació simple. TODO
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /registreSORTIDA/	|	
+
+***Cos de la petició***:
+
+```json
+
+```
+
+***Exemple:***
+
+```json
+
+
+```
+
+#### 3.6.4 Modificació simple. TODO
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /registreSORTIDA/	|	
+
+***Cos de la petició***:
+
+```json
+
+```
+
+***Exemple:***
+
+```json
+
+
+```
+
+### 3.6.5 Cercar Registres. TODO
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /registreSORTIDA/	|	
+
+***Cos de la petició***:
+
+```json
+
+```
+
+***Exemple:***
+
+```json
+
+
+```
+
+### 3.6.6 Assignar Interessat. TODO
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /registreSORTIDA/	|	
+
+***Cos de la petició***:
+
+```json
+
+```
+
+***Exemple:***
+
+```json
+
+
+```
+
+### 3.6.7 Recuperar Documents relacionats. TODO
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /registreSORTIDA/	|	
+
+***Cos de la petició***:
+
+```json
+
+```
+
+***Exemple:***
+
+```json
+
+
+```
+
+# 3.6.8	Recuperar Entrades relacionades. TODO
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /registreSORTIDA/	|	
+
+***Cos de la petició***:
+
+```json
+
+```
+
+***Exemple:***
+
+```json
+
+
+```
+
+### 3.6.9 Recuperar Sortides relacionades. TODO
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /registreSORTIDA/	|	
+
+***Cos de la petició***:
+
+```json
+
+```
+
+***Exemple:***
+
+```json
+
+
+```
+
+## 3.7	Expedients
+
+* ***Descripció*** - Operacions relacionades amb expedients.
+
+* ***Ruta*** -  /expedients
+
+### 3.7.1 Operacions
+
+| Mètode | Ruta | Descripció |
+| ------ | ---- | ---------- |                                                                   
+|POST	|/newsimple				|Crea un Expedient amb les dades mínimes necessàries.             |
+|POST	|/putsimple				|Modifica dades concretes d’un Expedient.                         |
+|POST	|/get					|Recupera un Expedient.                                           |
+|POST	|/infoadicional/{sdenum}|Modificar o afegir dades addicionals d’un Expedient.             |
+|DELETE	|/infoadicional/{sdenum}|Esborrar dades addicionals d’un Expedient                        |
+|GET		|/infoadicional/{sdenum}|Obtenir les dades addicionals d’un expedient.                    |
+
+
+### 3.7.2 Creació simple
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /expedients/newsimple	|	
+
+***Cos de la petició***:
+
+```json
+{
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string",
+    "entcod": "string",
+    "texpcod": "string",
+    "perscod": 0,
+    "sdenum": "string",
+    "data": "2020-05-20T13:43:05.126Z"
+}
+```
  
+|Paràmetres| |
+|----------|-|
+|entcod	|Identificador de l’entitat. Si només en tenim una utilitzar el valor 1.              |
+|texpcod	|Identificador de tipus d’Expedient.                                              |
+|perscod	|Codi de Persona.                                                                 |
+|sdenum	|Codi d’Expedient. Permet utilitzar les variables d’un altre Expedient.               |
+|data	|Data de l’Expedient. Per omisió la data actual.                                      |
+
+***Exemple:***
+
+```json
+POST /expedients/newsimple
+Cos de la petició: {
+    "nivell": "9999",
+    "aplicacio": "SDE",
+    "usuari": "G5Admin",
+    "entcod": "1",
+    "texpcod": "GENE",
+    "perscod": 1,
+    "sdenum": "",
+    "data": ""
+}
+    Resposta esperada: {
+    "sdenum": "X2020000759"
+}
+
+```
 
 
+## 3.7.3 Modificació simple
 
-texpcod	Codi del tipus d’expedient
-decnumreg	Número decret vinculat.
-extrcod	Codi Extracte
-sdetext	Text de l’expedient
-arxsigtop	Arxiu: signatura topogràfica
-identval	Valor identificador. Camp lliure
-idiomacod	Codi d’Idioma.
-eventexpr	Valor intern ja obsolet.
-sdenumtexp	Identificador a nivell de tipus d’expedient
-sdedomcod	Domicili vinculat a l’expedient
-sderel	Número d’expedient relacionat
-resracodec	
-resrorg	
-sdedreg	Data alta expedient
-sdehreg	Hora alta expedient
-resrdata	
-connum2	
-treccod	Tipus de recurs.
-assumcod	Codi d’Assumpte.
-subassumco d	Codi de Subassumpte.
-sdenumcont	
-fcontacn	Forma de contacte de l’interessat principal
-numconordre	Número de forma de contacte de l’interessa principal.
-tipcod	
-licitacion	Valor obsolet.
- 
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /expedients/putsimple	|	
+
+***Cos de la petició***:
+
+```json
+{
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string",
+    "sdenum": "string",
+    "perscod": 0,
+    "persnd": 0,
+    "reprcod": 0,
+    "reprnd": 0,
+    "areacod": "string",
+    "depcod": "string",
+    "grupcod": "string",
+    "rol": "string",
+    "entcod": "string",
+    "texpcod": "string",
+    "decnumreg": "string",
+    "extrcod": "string",
+    "sdetext": "string",
+    "arxsigtop": "string",
+    "identval": "string",
+    "idiomacod": "string",
+    "eventexpr": "string",
+    "sdenumtexp": "string",
+    "sdedomcod": 0,
+    "sderel": "string",
+    "resracodec": "string",
+    "resrorg": "string",
+    "sdedreg": "string",
+    "sdehreg": "string",
+    "resrdata": "string",
+    "connum2": 0,
+    "treccod": "string",
+    "assumcod": "string",
+    "subassumcod": "string",
+    "sdenumcont": "string",
+    "fcontacn": 0,
+    "numconordre": 0,
+    "tipocod": "string",
+    "licitacion": "string",
+    "descassumpte": "string",
+    "descsubassumpte": "string",
+    "transcod": "string",
+    "transcodarea": "string",
+    "assumcodorg": "string",
+    "subassumcodorg": "string",
+    "plataforma": "string",
+    "sdenument": "string",
+    "seccod": "string",
+    "subseccod": "string",
+    "sercod": "string",
+    "subsercod": "string
+}
+```
+
+|Paràmetres| |
+|----------|-|
+|sdenum		|Codi d’Expedient. Obligatori.                               |
+|percod		|Codi de Persona.                                            |
+|persnd		|Codi de Domicili de la Persona.                             |
+|reprcod		|Codi de Representant.                                       |
+|reprnd		|Codi de Domicili del Representant.                          |
+|areacod		|Cod d’Àrea.                                                 |
+|depcod		|Codi de Departament.                                        |
+|grupcod		|Codi de Grup de Treball.                                    |
+|rol			|Codi de Rol.                                                |
+|entcod		|Codi Entitat. Per omissió: ‘1’                              |
+|texpcod		|Codi del tipus d’expedient                                  |
+|decnumreg	|Número decret vinculat.                                     |
+|extrcod		|Codi Extracte                                               |
+|sdetext		|Text de l’expedient                                         |
+|arxsigtop	|Arxiu: signatura topogràfica                                |
+|identval	|Valor identificador. Camp lliure                            |
+|idiomacod	|Codi d’Idioma.                                              |
+|eventexpr	|Valor intern ja obsolet.                                    |
+|sdenumtexp	|Identificador a nivell de tipus d’expedient                 |
+|sdedomcod	|Domicili vinculat a l’expedient                             |
+|sderel		|Número d’expedient relacionat                               |
+|resracodec	|                                                            |
+|resrorg	    |                                                            |
+|sdedreg		|Data alta expedient                                         |
+|sdehreg		|Hora alta expedient                                         |
+|resrdata	|                                                            |
+|connum2	    |                                                            |
+|treccod		|Tipus de recurs.                                            |
+|assumcod	|Codi d’Assumpte.                                            |
+|subassumcod	|Codi de Subassumpte.                                        |
+|sdenumcont	|                                                            |
+|fcontacn	|Forma de contacte de l’interessat principal                 |
+|numconordre	|Número de forma de contacte de l’interessa principal.       |
+|tipcod	    |                                                            |
+|licitacion	|	Valor obsolet.                                          |
+|descassumpte	|Descripció de l’assumpte                                |
+|descsubassumpte	|Descripció del subassumpte                              |
+|transcod		|Tipus de transport                                      |
+|transcodarea	|Àrea de transport                                       |
+|assumcodorg	    |                                                        |
+|subassumcodorg	|                                                        |
+|plataforma		|Plataforma de notificació.                              |
+|sdenument		|Número d’expedient a nivell d’entitat                   |
+|seccod			|Codi Secció (classificació documental)                  |
+|subseccod		|Codi SubSecció (classificació documental)               |
+|sercod			|Codi Sèrie (classificació documental)                   |
+|subsercod		|Codi SubSerie (classificacio documental)                |
+|tancamentData	|Data tancament                                          |
+|tancamentHora	|Hora tancament                                          |
+|tancamentMotiu	|Motiu tancament.                                        |
+|tancamentObs	|Descripcio motiu tancament                              |
+|texpcod	Tipus 	|Expedient                                               |
+|texpdesc		|Descripció del Tipus Expedient                          |
 
 
+> En el cos de la petició s’indiquen totes les propietats possibles.
+> En la petició només cal indicar aquelles propietats que volem modificar, la resta quedaran inalterades.
 
-descassumpt e	Descripció de l’assumpte
-descsubassu mpte	Descripció del subassumpte
-transcod	Tipus de transport
-transcodarea	Àrea de transport
-assumcodorg	
-subassumco dorg	
-plataforma	Plataforma de notificació.
-sdenument	Número d’expedient a nivell d’entitat
-seccod	Codi Secció (classificació documental)
-subseccod	Codi SubSecció (classificació documental)
-sercod	Codi Sèrie (classificació documental)
-subsercod	Codi SubSerie (classificacio documental)
-tancamentDa ta	Data tancament
-tancamentHo ra	Hora tancament
-tancamentMo tiu	Motiu tancament.
-tancamentOb s	Descripcio motiu tancament
-texpcod	Tipus Expedient
-texpdesc	Descripció del Tipus Expedient
+> Excepcions:
+
+>* Per canviar el Domicili cal enviar perscod i persnd.
+>* Per canviar el Domicili del Representant cal enviar reprcod i reprnd.
+>* Per canviar Àrea, Departament o Grup, cal enviar les tres dades areacod, depcod i grupcod.
+>* Per canviar el contacte cal enviar perscod, persnd, numconorde i fcontactn.
+
+***Exemple:***
+
+```json
+Request:
+POST /expedients/putsimple
 
 
-En el cos de la petició s’indiquen totes les propietats possibles.
-En la petició només cal indicar aquelles propietats que volem modificar, la resta quedaran inalterades.
-Excepcions:
-	Per canviar el Domicili cal enviar perscod i persnd.
- 
+Request body: {
+    "nivell": "9999",
+    "aplicacio": "SDE",
+    "usuari": "G5Admin",
+    "sdenum": "X2020000001",
+    "perscod": 1,
+    "persnd": 1,
+    "sdetext": "Prova de test"
+}
 
 
+Expected response: {
+    "response": true
+}
 
-	Per canviar el Domicili del Representant cal enviar reprcod i reprnd.
-	Per canviar Àrea, Departament o Grup, cal enviar les tres dades areacod, depcod i grupcod.
-	Per canviar el contacte cal enviar perscod, persnd, numconorde i fcontactn.
-
-
-Exemple:
+```
 
 
 5.7.4	Recuperar un Expedient

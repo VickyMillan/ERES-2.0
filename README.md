@@ -1219,7 +1219,7 @@ Expected response: {
 
 
 | Mètode | Ruta | Descripció |
-| ------ | ---- | ---------- |                                                                   |
+| ------ | ---- | ---------- |                                                                   
 |POST|	/put					|Modificar les dades d’una Persona.                               |
 |POST|	/putsimple				|Crea un registre de Persona amb les mínimes dades requerides.    |
 |POST|	/get					|Recupera una Persona.                                            |
@@ -2514,7 +2514,7 @@ Expected response: {
 ### 3.4.1 Operacions
 
 | Mètode | Ruta | Descripció |
-| ------ | ---- | ---------- |                                                                   |
+| ------ | ---- | ---------- |                                                                   
 |POST	| /duplicar						|Duplica registres.                                              |
 |POST	| /reservar						|Reserva registres.                                              |
 |POST	| /arees/get						|Recupera les Àrees.                                             |

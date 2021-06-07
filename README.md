@@ -5031,393 +5031,808 @@ Expected response: {
 
 ### 3.9.5 Elimina una àrea.
 
-Mètode	POST
-Ruta	/organigrama/arees/delete
-Cos	de	la petició	{
-"aplicacio": "string", "nivell": "string",
-"usuari": "string",
-"areacod": "string", "areadesc": "string", "sdeprioritat": 0, "entcod": "string"
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /organigrama/arees/delete	| 
+
+***Cos de la petició***:
+
+```json
+{
+    "aplicacio": "string",
+    "nivell": "string",
+    "usuari": "string",
+    "areacod": "string",
+    "areadesc": "string",
+    "sdeprioritat": 0,
+    "entcod": "string"
 }
+```
  
+|Paràmetres| |
+|----------|-|
+|areacod		|Codi d’àrea              |
+|areadesc	|No s’utilitza.           |
+|sdeprioritat|No s’utilitza.           |
+|entcod		|No s’utilitza            |
+
+***Exemple:***
+
+```json
+Request:
+POST /organigrama/arees/delete
 
 
-
-
-Paràmetres:
-
-areacod	Codi d’àrea
-areadesc	No s’utilitza.
-sdeprioritat	No s’utilitza.
-entcod	No s’utilitza
-
-Exemple:
-
-
-5.9.6	Crea o modifica un departament.
-
-Mètode	POST
-Ruta	/organigrama/arees/departaments
- 
-
-
-
-Cos	de	la petició	{
-"aplicacio": "string", "nivell": "string",
-"usuari": "string",
-"areacod": "string",
-"depcod": "string",
-"depdesc": "string", "depdesc2": "string", "sdeprioritat": 0, "responsable": "string"
-}
-
-
-Paràmetres:
-
-areacod	Codi d’àrea.
-depcod	Codi de departament.
-depdesc	Descripció del departament.
-depdesc2	Segona descripció del departament.
-sdeprioritat	
-responsable	Responsable del departament.
-
-Exemple:
- 
-
-
-
- 
-
-
-5.9.7	Recupera tots els departaments d’una àrea.
-
-Mètode	GET
-Ruta	/organigrama/arees/{areacod}/departaments
-
-Paràmetres:
-
-areacod	Codi d’àrea
-
-Exemple:
- 
-
-
-
- 
- 
-
-
-
-
-
-5.9.8	Recupera un departament.
-
-Mètode	GET
-Ruta	/organigrama/arees/{areacod}/departaments/{depcod}
-
-Paràmetres:
-
-areacod	Codi d’area.
-depcod	Codi de departament.
-
-Exemple:
- 
-
-
-
- 
-
-
-5.9.9	Elimina un departament.
-
-Mètode	POST
-Ruta	/organigrama/arees/departaments/delete
-Cos	de	la petició	{
-"aplicacio": "string", "nivell": "string",
-"usuari": "string",
-"areacod": "string",
-"depcod": "string",
-"depdesc": "string", "depdesc2": "string", "sdeprioritat": 0, "responsable": "string"
-}
- 
-
-
-
-Paràmetres:
-
-areacod	Codi d’area.
-depcod	Codi de departament.
-depdesc	No s’utilitza.
-Depdesc2	No s’utilitza.
-sdeprioritat	No s’utilitza.
-responsable	No s’utilitza.
-
-
-Exemple:
- 
-
-
-
-5.9.10	Crea o modifica un grup de treball.
-
-Mètode	POST
-Ruta	/organigrama/arees/departaments/grupstreball
-Cos	de	la petició	{
-"aplicacio": "string", "nivell": "string",
-"usuari": "string",
-"areacod": "string",
-"depcod": "string",
-"grupcod": "string", "grupdesc": "string"
+Request body: {
+    "aplicacio": "ORG",
+    "nivell": "9999",
+    "usuari": "G5Admin",
+    "areacod": "TST"
 }
 
-Paràmetres:
 
-areacod	Codi d’àrea.
-depcod	Codi de departament.
-grupcod	Codi de grup de treball.
-grupdesc	Descripció del grup de treball.
+Expected response: {
+    "timestamp": "2020-07-31T08:06:33.733+0000",
+    "status": 200,
+    "error": "OK",
+    "message": "Área eliminada.",
+    "path": "/JGenesysREST/api/organigrama/arees/delete"
+}
 
-Exemple:
+
+```
+
+### 3.9.6 Crea o modifica un departament.
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /organigrama/arees/departaments	| 
+
+***Cos de la petició***:
+
+```json
+{
+    "aplicacio": "string",
+    "nivell": "string",
+    "usuari": "string",
+    "areacod": "string",
+    "depcod": "string",
+    "depdesc": "string",
+    "depdesc2": "string",
+    "sdeprioritat": 0,
+    "responsable": "string"
+}
+```
+
+|Paràmetres| |
+|----------|-|
+|areacod		|Codi d’àrea.                              |
+|depcod		|Codi de departament.                      |
+|depdesc		|Descripció del departament.               |
+|depdesc2	|Segona descripció del departament.        |
+|sdeprioritat|	                                      |
+|responsable	|	Responsable del departament.          |
+
+***Exemple:***
+
+```json
+Request:
+POST /organigrama/arees/departaments
+
+
+Request body: {
+    "aplicacio": "ORG",
+    "nivell": "9999",
+    "usuari": "G5Admin",
+    "areacod": "TST",
+    "depcod": "DT",
+    "depdesc": "Departament de test",
+    "depdesc2": "Dep. test"
+}
+
+
+Expected response: {
+    "nivell": "9999",
+    "aplicacio": "ORG",
+    "usuari": "G5Admin",
+    "areacod": "TST",
+    "depcod": "DT",
+    "depdesc": "Departament de test",
+    "depdesc2": "Dep. test",
+    "sdeprioritat": null,
+    "responsable": null
+}
+
+
+```
+
+### 3.9.7 Recupera tots els departaments d’una àrea.
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|GET | /organigrama/arees/{areacod}/departaments	| 
+
+|Paràmetres| |
+|----------|-|
+|areacod		|Codi d’àrea.                              |
+
+***Exemple:***
+
+```json
+Request:
+GET /organigrama/arees/TST/departaments
+
+
+Expected response: [
+    {
+        "id": {
+            "areacod": "TST",
+            "depcod": "DT"
+        },
+        "orgArea": {
+            "areacod": "TST",
+            "areadesc": "Area de test",
+            "audit": {
+                "usuariCreacio": "G5Admin",
+                "usuariModificacio": "G5Admin",
+                "dataCreacio": "20200731",
+                "dataModificacio": "20200731",
+                "horaCreacio": "101238",
+                "horaModificacio": "101238"
+            },
+            "sdeprioritat": null,
+            "baixasw": 0,
+            "entcod": "	"
+        },
+        "depdesc": "Departament de test",
+        "depdesc2": "Dep. test",
+        "audit": {
+            "usuariCreacio": "G5Admin",
+            "usuariModificacio": "G5Admin",
+            "dataCreacio": "20200731",
+            "dataModificacio": "20200731",
+            "horaCreacio": "103052",
+            "horaModificacio": "103052"
+        },
+        "sdeprioritat": null,
+        "baixasw": 0,
+        "responsable": null
+    },
+    ...
+]
+
+
+```
+ 
+### 3.9.8 Recupera un departament.
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|GET | /organigrama/arees/{areacod}/departaments/{depcod}	| 
+
+|Paràmetres| |
+|----------|-|
+|areacod		|Codi d’àrea.                              |
+|depcod		|Codi de departament.                      |
+
+***Exemple:***
+
+```json
+Request:
+GET /organigrama/arees/TST/departaments/DT
+
+
+Expected response: {
+    "id": {
+        "areacod": "TST",
+        "depcod": "DT"
+    },
+    "orgArea": {
+        "areacod": "TST",
+        "areadesc": "Area de test",
+        "audit": {
+            "usuariCreacio": "G5Admin",
+            "usuariModificacio": "G5Admin",
+            "dataCreacio": "20200731",
+            "dataModificacio": "20200731",
+            "horaCreacio": "101238",
+            "horaModificacio": "101238"
+        },
+        "sdeprioritat": null,
+        "baixasw": 0,
+        "entcod": "	"
+    },
+    "depdesc": "Departament de test",
+    "depdesc2": "Dep. test",
+    "audit": {
+        "usuariCreacio": "G5Admin",
+        "usuariModificacio": "G5Admin",
+        "dataCreacio": "20200731",
+        "dataModificacio": "20200731",
+        "horaCreacio": "103052",
+        "horaModificacio": "103052"
+    },
+    "sdeprioritat": null,
+    "baixasw": 0,
+    "responsable": null
+}
+```
+
+### 3.9.9 Elimina un departament.
+
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /organigrama/arees/departaments/delete	| 
+
+***Cos de la petició***:
+
+```json
+{
+    "aplicacio": "string",
+    "nivell": "string",
+    "usuari": "string",
+    "areacod": "string",
+    "depcod": "string",
+    "depdesc": "string",
+    "depdesc2": "string",
+    "sdeprioritat": 0,
+    "responsable": "string"
+}
+```
+ 
+|Paràmetres| |
+|----------|-|
+|areacod		|Codi d’area.                 |
+|epcod		|Codi de departament.         |
+|epdesc		|No s’utilitza.               |
+|epdesc2	|No s’utilitza.               |
+|deprioritat|	No s’utilitza.            |
+|esponsable	|No s’utilitza.               |
+
+***Exemple:***
+
+```json
+Request:
+POST /organigrama/arees/departaments/delete
+
+
+Request body: {
+    "aplicacio": "ORG",
+    "nivell": "9999",
+    "usuari": "G5Admin",
+    "areacod": "TST",
+    "depcod": "DT"
+}
+
+
+Expected response: {
+    "timestamp": "2020-07-31T08:52:13.488+0000",
+    "status": 200,
+    "error": "OK",
+    "message": "Departamento eliminado.",
+    "path": "/JGenesysREST/api/organigrama/arees/departaments/delete"
+}
+
+
+```
  
 
+### 3.9.10 Crea o modifica un grup de treball.
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /organigrama/arees/departaments/grupstreball	| 
+
+***Cos de la petició***:
+
+```json
+{
+    "aplicacio": "string",
+    "nivell": "string",
+    "usuari": "string",
+    "areacod": "string",
+    "depcod": "string",
+    "grupcod": "string",
+    "grupdesc": "string"
+}
+```
+
+|Paràmetres| |
+|----------|-|                                         
+|areacod	|Codi d’àrea.                              |
+|depcod		|Codi de departament.                      |
+|grupcod	|Codi de grup de treball.                  |
+|grupdesc	|Descripció del grup de treball.           |
+
+***Exemple:***
+
+```json
+Request:
+POST /organigrama/arees/departaments/grupstreball
 
 
+Request body: {
+    "aplicacio": "ORG",
+    "nivell": "9999",
+    "usuari": "G5Admin",
+    "areacod": "TST",
+    "depcod": "DT",
+    "grupcod": "GT",
+    "grupdesc": "Grup de test"
+}
+
+
+Expected response: {
+    "nivell": "9999",
+    "aplicacio": "ORG",
+    "usuari": "G5Admin",
+    "areacod": "TST",
+    "depcod": "DT",
+    "grupcod": "GT",
+    "grupdesc": "Grup de test"
+}
+```
  
+### 3.9.11 Recupera tots els grups de treball d’un departments.
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|GET | /organigrama/arees/{areacod}/departaments/{depcod}/grupstreball	| 
+
+***Exemple:***
+
+```json
+Request:
+GET /organigrama/arees/TST/departaments/DT/grupstreball
 
 
-5.9.11	Recupera tots els grups de treball d’un departments.
+Expected response: [
+    {
+        "id": {
+            "areacod": "TST",
+            "depcod": "DT",
+            "grupcod": "GT"
+        },
+        "orgDepartament": {
+            "id": {
+                "areacod": "TST",
+                "depcod": "DT"
+            },
+            "orgArea": {
+                "areacod": "TST",
+                "areadesc": "Area de test",
+                "audit": {
+                    "usuariCreacio": "G5Admin",
+                    "usuariModificacio": "G5Admin",
+                    "dataCreacio": "20200731",
+                    "dataModificacio": "20200731",
+                    "horaCreacio": "101238",
+                    "horaModificacio": "101238"
+                },
+                "sdeprioritat": null,
+                "baixasw": 0,
+                "entcod": "	"
+            },
+            "depdesc": "Departament de test",
+            "depdesc2": "Dep. test",
+            "audit": {
+                "usuariCreacio": "G5Admin",
+                "usuariModificacio": "G5Admin",
+                "dataCreacio": "20200731",
+                "dataModificacio": "20200731",
+                "horaCreacio": "105333",
+                "horaModificacio": "105333"
+            },
+            "sdeprioritat": null,
+            "baixasw": 0,
+            "responsable": null
+        },
+        "grupdesc": "Grup de test",
+        "audit": {
+            "usuariCreacio": "G5Admin",
+            "usuariModificacio": "G5Admin",
+            "dataCreacio": "20200731",
+            "dataModificacio": "20200731",
+            "horaCreacio": "105947",
+            "horaModificacio": "105947"
+        },
+        "baixasw": 0
+    },
+...
+]
+```
 
-Mètode	GET
-Ruta	/organigrama/arees/{areacod}/departaments/{depcod}/grupstreball
 
-Exemple:
- 
-
-
-
-"depcod": "DT"
-},
-"orgArea": { "areacod": "TST",
-"areadesc": "Area de test", "audit": {
-"usuariCreacio": "G5Admin", "usuariModificacio": "G5Admin", "dataCreacio": "20200731",
-"dataModificacio": "20200731",
-"horaCreacio": "101238",
-"horaModificacio": "101238"
-},
-"sdeprioritat": null, "baixasw": 0,
-"entcod": "	"
-},
-"depdesc": "Departament de test", "depdesc2": "Dep. test",
-"audit": {
-"usuariCreacio": "G5Admin", "usuariModificacio": "G5Admin", "dataCreacio": "20200731",
-"dataModificacio": "20200731",
-"horaCreacio": "105333",
-"horaModificacio": "105333"
-},
-"sdeprioritat": null, "baixasw": 0, "responsable": null
-},
-"grupdesc": "Grup de test", "audit": {
-"usuariCreacio": "G5Admin", "usuariModificacio": "G5Admin",
- 
-
-
-
- 
-
-
-5.9.12	Recupera un grup de treball.
+### 3.9.12 Recupera un grup de treball.
 
 Mètode	GET
 Ruta	/organigrama/arees/{areacod}/departaments/{depcod}/grupstreball/{grupcod}
 
-Exemple:
- 
+***Exemple:***
+
+```json
+Request:
+GET /organigrama/arees/TST/departaments/DT/grupstreball/GT
 
 
+Expected response: {
+    "id": {
+        "areacod": "TST",
+        "depcod": "DT",
+        "grupcod": "GT"
+    },
+    "orgDepartament": {
+        "id": {
+            "areacod": "TST",
+            "depcod": "DT"
+        },
+        "orgArea": {
+            "areacod": "TST",
+            "areadesc": "Area de test",
+            "audit": {
+                "usuariCreacio": "G5Admin",
+                "usuariModificacio": "G5Admin",
+                "dataCreacio": "20200731",
+                "dataModificacio": "20200731",
+                "horaCreacio": "101238",
+                "horaModificacio": "101238"
+            },
+            "sdeprioritat": null,
+            "baixasw": 0,
+            "entcod": "	"
+        },
+        "depdesc": "Departament de test",
+        "depdesc2": "Dep. test",
+        "audit": {
+            "usuariCreacio": "G5Admin",
+            "usuariModificacio": "G5Admin",
+            "dataCreacio": "20200731",
+            "dataModificacio": "20200731",
+            "horaCreacio": "105333",
+            "horaModificacio": "105333"
+        },
+        "sdeprioritat": null,
+        "baixasw": 0,
+        "responsable": null
+    },
+    "grupdesc": "Grup de test",
+    "audit": {
+        "usuariCreacio": "G5Admin",
+        "usuariModificacio": "G5Admin",
+        "dataCreacio": "20200731",
+        "dataModificacio": "20200731",
+        "horaCreacio": "105947",
+        "horaModificacio": "105947"
+    },
+    "baixasw": 0
+}
+```
 
-"audit": {
-"usuariCreacio": "G5Admin", "usuariModificacio": "G5Admin", "dataCreacio": "20200731",
-"dataModificacio": "20200731",
-"horaCreacio": "101238",
-"horaModificacio": "101238"
-},
-"sdeprioritat": null, "baixasw": 0,
-"entcod": "	"
-},
-"depdesc": "Departament de test", "depdesc2": "Dep. test",
-"audit": {
-"usuariCreacio": "G5Admin", "usuariModificacio": "G5Admin", "dataCreacio": "20200731",
-"dataModificacio": "20200731",
-"horaCreacio": "105333",
-"horaModificacio": "105333"
-},
-"sdeprioritat": null, "baixasw": 0, "responsable": null
-},
-"grupdesc": "Grup de test", "audit": {
-"usuariCreacio": "G5Admin", "usuariModificacio": "G5Admin", "dataCreacio": "20200731",
-"dataModificacio": "20200731",
-"horaCreacio": "105947",
-"horaModificacio": "105947"
-},
- 
+### 3.9.13 Elimina un grup de treball.
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /organigrama/arees/departaments/grupstreball/delete	| 
+
+***Cos de la petició***:
+
+```json
+{
+    "aplicacio": "string",
+    "nivell": "string",
+    "usuari": "string",
+    "areacod": "string",
+    "depcod": "string",
+    "grupcod": "string",
+    "grupdesc": "string"
+}
+```
+
+|Paràmetres| |
+|----------|-|                                         
+|areacod		|Codi d’area.                    |
+|depcod		|Codi de departament.            |
+|grupcod		|Codi de grup de treball.        |
+|grupdesc	|No s’utilitza.                  |
+
+***Exemple:***
+
+```json
+Request:
+POST /organigrama/arees/departaments/grupstreball/delete
 
 
-
- 
-
-
-5.9.13	Elimina un grup de treball.
-
-Mètode	POST
-Ruta	/organigrama/arees/departaments/grupstreball/delete
-Cos	de	la petició	{
-"aplicacio": "string", "nivell": "string",
-"usuari": "string",
-"areacod": "string",
-"depcod": "string",
-"grupcod": "string", "grupdesc": "string"
+Request body: {
+    "aplicacio": "ORG",
+    "nivell": "9999",
+    "usuari": "G5Admin",
+    "areacod": "TST",
+    "depcod": "DT",
+    "grupcod": "GT"
 }
 
-Paràmetres:
 
-areacod	Codi d’area.
-depcod	Codi de departament.
-grupcod	Codi de grup de treball.
-grupdesc	No s’utilitza.
+Expected response: {
+    "timestamp": "2020-07-31T09:14:27.871+0000",
+    "status": 200,
+    "error": "OK",
+    "message": "Grupo de Trabajo eliminado.",
+    "path": "/JGenesysREST/api/organigrama/arees/departaments/grupstreball/delete"
+}
+```
 
-Exemple:
- 
+### 3.9.14 Crea o modifica un assumpte.
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /organigrama/assumptes	| 
+
+***Cos de la petició***:
+
+```json
+{
+    "aplicacio": "string",
+    "nivell": "string",
+    "usuari": "string",
+    "assumcod": "string",
+    "depcod": "string",
+    "areacod": "string",
+    "assumdesc": "string"
+}
+```
+|Paràmetres| |
+|----------|-|                                         
+|assumcod	|Codi d’assumpte.               |
+|depcod		|Codi de departament.           |
+|areacod	|Codi d’àrea |
+|assumdesc	|Descripció de l’assumpte. |
+
+***Exemple:***
+
+```json
+Request:
+POST /organigrama/assumptes
 
 
-
- 
-
-
-5.9.14	Crea o modifica un assumpte.
-
-Mètode	POST
-Ruta	/organigrama/assumptes
-Cos	de	la petició	{
-"aplicacio": "string", "nivell": "string",
-"usuari": "string", "assumcod": "string", "depcod": "string",
-"areacod": "string", "assumdesc": "string"
+Request body: {
+    "aplicacio": "ORG",
+    "nivell": "9999",
+    "usuari": "G5Admin",
+    "assumcod": "AST",
+    "depcod": "DT",
+    "areacod": "TST",
+    "assumdesc": "Assumpte de test"
 }
 
-Paràmetres:
 
-assumcod	Codi d’assumpte.
-depcod	Codi de departament.
- 
+Expected response: {
+    "nivell": "9999",
+    "aplicacio": "ORG",
+    "usuari": "G5Admin",
+    "assumcod": "AST",
+    "depcod": "DT",
+    "areacod": "TST",
+    "assumdesc": "Assumpte de test"
+}
+```
 
-
-
-areacod	Codi d’àrea
-assumdesc	Descripció de l’assumpte.
-
-
-Exemple:
-
-
-5.9.15	Recupera tots els assumptes
+### 3.9.15 Recupera tots els assumptes
 
 Mètode	GET
 Ruta	/organigrama/assumptes
  
+***Exemple:***
+
+```json
+Request:
+GET /organigrama/assumptes
 
 
+Expected response: [
+    {
+        "assumcod": "EDIC",
+        "depcod": "G5AD",
+        "areacod": "AL",
+        "assumdesc": "EDICTE",
+        "orgArea": {
+            "areacod": "AL",
+            "areadesc": "ALCALDIA",
+            "audit": {
+                "usuariCreacio": null,
+                "usuariModificacio": null,
+                "dataCreacio": null,
+                "dataModificacio": null,
+                "horaCreacio": null,
+                "horaModificacio": null
+            },
+            "sdeprioritat": null,
+            "baixasw": 0,
+            "entcod": "1 "
+        },
+        "orgDepartament": {
+            "id": {
+                "areacod": "AL",
+                "depcod": "G5AD"
+            },
+            "orgArea": {
+                "areacod": "AL",
+                "areadesc": "ALCALDIA",
+                "audit": {
+                    "usuariCreacio": null,
+                    "usuariModificacio": null,
+                    "dataCreacio": null,
+                    "dataModificacio": null,
+                    "horaCreacio": null,
+                    "horaModificacio": null
+                },
+                "sdeprioritat": null,
+                "baixasw": 0,
+                "entcod": "1 "
+            },
+            "depdesc": "AUDIFILM",
+            "depdesc2": null,
+            "audit": {
+                "usuariCreacio": null,
+                "usuariModificacio": null,
+                "dataCreacio": null,
+                "dataModificacio": null,
+                "horaCreacio": null,
+                "horaModificacio": null
+            },
+            "sdeprioritat": null,
+            "baixasw": 0,
+            "responsable": null
+        },
+        "baixasw": 0,
+        "regswa": null,
+        "audit": {
+            "usuariCreacio": null,
+            "usuariModificacio": null,
+            "dataCreacio": null,
+            "dataModificacio": null,
+            "horaCreacio": null,
+            "horaModificacio": null
+        }
+    },
+...
+]
+```
 
 
-Exemple:
- 
+### 3.9.16 Recupera un assumpte.
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|GET | /organigrama/assumptes/{assumcod}	| 
+
+|Paràmetres| |
+|----------|-|                                         
+|assumcod	|Codi d’assumpte.               |
+
+***Exemple:***
+
+```json
+Request:
+GET /organigrama/assumptes/AST
 
 
+Expected response: {
+    "assumcod": "AST",
+    "depcod": "DT",
+    "areacod": "TST",
+    "assumdesc": "Assumpte de test",
+    "orgArea": {
+        "areacod": "TST",
+        "areadesc": "Area de test",
+        "audit": {
+            "usuariCreacio": "G5Admin",
+            "usuariModificacio": "G5Admin",
+            "dataCreacio": "20200731",
+            "dataModificacio": "20200731",
+            "horaCreacio": "101238",
+            "horaModificacio": "101238"
+        },
+        "sdeprioritat": null,
+        "baixasw": 0,
+        "entcod": "	"
+    },
+    "orgDepartament": {
+        "id": {
+            "areacod": "TST",
+            "depcod": "DT"
+        },
+        "orgArea": {
+            "areacod": "TST",
+            "areadesc": "Area de test",
+            "audit": {
+                "usuariCreacio": "G5Admin",
+                "usuariModificacio": "G5Admin",
+                "dataCreacio": "20200731",
+                "dataModificacio": "20200731",
+                "horaCreacio": "101238",
+                "horaModificacio": "101238"
+            },
+            "sdeprioritat": null,
+            "baixasw": 0,
+            "entcod": "	"
+        },
+        "depdesc": "Departament de test",
+        "depdesc2": "Dep. test",
+        "audit": {
+            "usuariCreacio": "G5Admin",
+            "usuariModificacio": "G5Admin",
+            "dataCreacio": "20200731",
+            "dataModificacio": "20200731",
+            "horaCreacio": "105333",
+            "horaModificacio": "105333"
+        },
+        "sdeprioritat": null,
+        "baixasw": 0,
+        "responsable": null
+    },
+    "baixasw": 0,
+    "regswa": null,
+    "audit": {
+        "usuariCreacio": "G5Admin",
+        "usuariModificacio": "G5Admin",
+        "dataCreacio": "20200731",
+        "dataModificacio": "20200731",
+        "horaCreacio": "112107",
+        "horaModificacio": "112107"
+    }
+}
+```
 
-"audit": { "usuariCreacio": null,
-"usuariModificacio": null, "dataCreacio": null, "dataModificacio": null, "horaCreacio": null, "horaModificacio": null
-},
-"sdeprioritat": null, "baixasw": 0,
-"entcod": "1 "
-},
-"depdesc": "AUDIFILM", "depdesc2": null, "audit": { "usuariCreacio": null,
-"usuariModificacio": null, "dataCreacio": null, "dataModificacio": null, "horaCreacio": null, "horaModificacio": null
-},
-"sdeprioritat": null, "baixasw": 0, "responsable": null
-},
-"baixasw": 0, "regswa": null, "audit": { "usuariCreacio": null,
-"usuariModificacio": null, "dataCreacio": null, "dataModificacio": null, "horaCreacio": null, "horaModificacio": null
- 
+### 3.9.17 Elimina un assumpte.
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /organigrama/assumptes/delete	| 
+
+***Cos de la petició***:
+
+```json
+{
+    "aplicacio": "string",
+    "nivell": "string",
+    "usuari": "string",
+    "assumcod": "string",
+    "depcod": "string",
+    "areacod": "string",
+    "assumdesc": "string"
+}
+```
+
+|Paràmetres| |
+|----------|-|                                         
+|assumcod	|Codi d’assumpte.               |
+|depcod	|No s’utilitza.|
+|areacod	|No s’utilitza.|
+|assumdesc	|No s’utilitza.|
 
 
+***Exemple:***
 
- 
-
-
-5.9.16	Recupera un assumpte.
-
-Mètode	GET
-Ruta	/organigrama/assumptes/{assumcod}
-
-Paràmetres:
-
-assumcod	Codi d’assumpte.
+```json
+Request:
+POST /organigrama/assumptes/delete
 
 
-Exemple:
- 
-
-
-
-},
-"sdeprioritat": null, "baixasw": 0,
-"entcod": "	"
-},
-"orgDepartament": { "id": {
-"areacod": "TST",
-"depcod": "DT"
-},
-"orgArea": { "areacod": "TST",
-"areadesc": "Area de test", "audit": {
-"usuariCreacio": "G5Admin", "usuariModificacio": "G5Admin", "dataCreacio": "20200731",
-"dataModificacio": "20200731",
-"horaCreacio": "101238",
-"horaModificacio": "101238"
-},
-"sdeprioritat": null, "baixasw": 0,
-"entcod": "	"
-},
-"depdesc": "Departament de test", "depdesc2": "Dep. test",
-"audit": {
-"usuariCreacio": "G5Admin", "usuariModificacio": "G5Admin", "dataCreacio": "20200731",
-"dataModificacio": "20200731",
-"horaCreacio": "105333",
-"horaModificacio": "105333"
-},
- 
-
-
-
- 
-
-
-5.9.17	Elimina un assumpte.
-
-Mètode	POST
-Ruta	/organigrama/assumptes/delete
-Cos	de	la petició	{
-"aplicacio": "string", "nivell": "string",
-"usuari": "string", "assumcod": "string", "depcod": "string",
-"areacod": "string", "assumdesc": "string"
+Request body: {
+    "aplicacio": "ORG",
+    "nivell": "9999",
+    "usuari": "G5Admin",
+    "assumcod": "AST"
 }
 
-Paràmetres:
 
-assumcod	Codi d’assumpte.
- 
-
-
-
-depcod	No s’utilitza.
-areacod	No s’utilitza.
-assumdesc	No s’utilitza.
-
-
-Exemple:
+Expected response: {
+    "timestamp": "2020-07-31T09:35:07.784+0000",
+    "status": 200,
+    "error": "OK",
+    "message": "Asunto eliminado.",
+    "path": "/JGenesysREST/api/organigrama/assumptes/delete"
+}
+```
  

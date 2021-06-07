@@ -4279,413 +4279,757 @@ Expected response: {
 
 ### 3.7.4 Recuperar un Expedient
 
-Mètode	POST
-Ruta	/expedients/get
-Cos	de	la petició	{
-"nivell": "string", "aplicacio": "string", "usuari": "string",
-"idioma": 0,
- 
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /expedients/get	|	
 
+***Cos de la petició***:
 
-
-	"nifPersona": "string", "numeroExpedient": "string"
-}
-
-
-Paràmetres:
-
-idioma	Codi d’idioma.
-nifPersona	NIF de la Persona.
-numeroExpe dient	Codi d’expedient a recuperar.
-
-Exemple:
- 
-
-
-
-"cognom2": "",
-"domicili": "C/ ALMERIA N.0005 Pis.02 CP 17220 SANT FELIU DE GUIXOLS (GIRONA) - ESPAÑA",
-"esPersonaFisica": null
-},
-"sdenum": "X2020000001",
-"texpcod": "GENE",
-"texpdesc": "PROCEDIMENT GENÈRIC",
-"decnumreg": "", "notes": null,
-"format": 0,
-"formatDesc": "Suport electrònic", "extrcod": "",
-"sdetext": "Prova de test", "arxsigtop": "",
-"identval": "",
-"idiomacod": "0",
-"eventexpr": "",
-"stdugr": "G5Admin",
-"stdumod": "", "persnd": 1, "reprcod": null,
-"sdenumtexp": "2480-000001-2020", "reprnd": null,
-"sdedomcod": null, "sderel": "",
-"resracodec": "",
-"resrorg": "", "stddgr": "20200101",
-"stdhgr": "203358",
-"stddmod": "",
-"stdhmod": "", "sdedreg": "20200101",
-"sdehreg": "203358",
-"resrdata": "",
- 
-
-
-
-"connum2": 0, "treccod": "",
-"areacod": "AL",
-"depcod": "G5AD",
-"assumcod": "",
-"subassumcod": "", "tancamentData": "20200702",
-"tancamentHora": "125800", "tancamentMotiu": "Moti",
-"tancamentObs": "Tancament expedient via REST", "sdenumcont": "",
-"fcontacn": null, "numconordre": null, "tipocod": "",
-"licitacion": "",
-"descassumpte": "", "descsubassumpte": "", "transcod": "",
-"transcodarea": "",
-"assumcodorg": "", "subassumcodorg": "", "sdeExpedientdoms": { "domiciliArray": []
-},
-"resEntrelexps": { "registreArray": []
-},
-"estats": {
-"estatArray": []
-},
-"descTipusExpedient": "AUTORITZACIONS I CONCESSIONS", "descExtracte": null,
-"resSortidaRels": { "registreSortidaArray": []
-},
- 
-
-
-
- 
- 
-
-
-
-5.7.5	Modificar o afegir dades addicionals
-
-Mètode	POST
-Ruta	/infoadicional/{sdenum}
-Paràmetre de ruta	sdenum
-De tipus string. Identificador de l’expedient.
-Cos	de	la petició	{
-"aplicacio": "string", "nivell": "string",
-"usuari": "string", "infoAddicional": [
+```json
 {
-"variable": "string", "valor": "string", "varLabel": "string"
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string",
+    "idioma": 0,
+    "nifPersona": "string",
+    "numeroExpedient": "string"
 }
+```
+
+|Paràmetres| |
+|----------|-|
+|idioma			|Codi d’idioma.                     |
+|nifPersona		|NIF de la Persona.                 |
+|numeroExpedient	|Codi d’expedient a recuperar.      |
+
+***Exemple:***
+
+```json
+Request:
+POST /expedients/get
+
+
+Request body: {
+    "numeroExpedient": "X2020000001",
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string"
+}
+
+
+Expected response body: {
+    "perscod": 1,
+    "entcod": "1",
+    "fotoRepresentant": null,
+    "fotoPersona": {
+        "nom": "AJUNTAMENT DE PROVES",
+        "nif": "P0826900C",
+        "particula1": null,
+        "cognom1": "",
+        "particula2": null,
+        "cognom2": "",
+        "domicili": "C/ ALMERIA N.0005 Pis.02 CP 17220 SANT FELIU DE GUIXOLS (GIRONA) - ESPAÑA",
+        "esPersonaFisica": null
+    },
+    "sdenum": "X2020000001",
+    "texpcod": "GENE",
+    "texpdesc": "PROCEDIMENT GENÈRIC",
+    "decnumreg": "",
+    "notes": null,
+    "format": 0,
+    "formatDesc": "Suport electrònic",
+    "extrcod": "",
+    "sdetext": "Prova de test",
+    "arxsigtop": "",
+    "identval": "",
+    "idiomacod": "0",
+    "eventexpr": "",
+    "stdugr": "G5Admin",
+    "stdumod": "",
+    "persnd": 1,
+    "reprcod": null,
+    "sdenumtexp": "2480-000001-2020",
+    "reprnd": null,
+    "sdedomcod": null,
+    "sderel": "",
+    "resracodec": "",
+    "resrorg": "",
+    "stddgr": "20200101",
+    "stdhgr": "203358",
+    "stddmod": "",
+    "stdhmod": "",
+    "sdedreg": "20200101",
+    "sdehreg": "203358",
+    "resrdata": "",
+    "connum2": 0,
+    "treccod": "",
+    "areacod": "AL",
+    "depcod": "G5AD",
+    "assumcod": "",
+    "subassumcod": "",
+    "tancamentData": "20200702",
+    "tancamentHora": "125800",
+    "tancamentMotiu": "Moti",
+    "tancamentObs": "Tancament expedient via REST",
+    "sdenumcont": "",
+    "fcontacn": null,
+    "numconordre": null,
+    "tipocod": "",
+    "licitacion": "",
+    "descassumpte": "",
+    "descsubassumpte": "",
+    "transcod": "",
+    "transcodarea": "",
+    "assumcodorg": "",
+    "subassumcodorg": "",
+    "sdeExpedientdoms": {
+        "domiciliArray": []
+    },
+    "resEntrelexps": {
+        "registreArray": []
+    },
+    "estats": {
+        "estatArray": []
+    },
+    "descTipusExpedient": "AUTORITZACIONS I CONCESSIONS",
+    "descExtracte": null,
+    "resSortidaRels": {
+        "registreSortidaArray": []
+    },
+    "descPersona": ", AJUNTAMENT DE PROVES",
+    "descDomiciliPersona": "C/ ALMERIA N.0005 Pis.02 CP 17220 SANT FELIU DE GUIXOLS (GIRONA) - ESPAÑA",
+    "descDomiciliSdeDomCod": null,
+    "descRepresentant": null,
+    "descDomiciliRepresentant": null,
+    "nifPersona": "P0826900C",
+    "nifRepresentant": null,
+    "plataforma": "",
+    "sdenument": "2480-000001-2020",
+    "seccod": "02",
+    "subseccod": "04",
+    "sercod": "02",
+    "subsercod": "",
+    "baixaSW": 0,
+    "baixaData": null,
+    "baixaHora": null,
+    "grupcod": "GRUP",
+    "descEstat": "INFORME",
+    "esRAE": true,
+    "descDepResp": null
+}
+
+```
+### 3.7.5 Modificar o afegir dades addicionals
+
+| Mètode | Ruta | Paràmetre de ruta |
+| ------ | ---- |  ----- |
+|POST | /infoadicional/{sdenum}	|	 sdenum - De tipus string. Identificador de l’expedient. |
+
+***Cos de la petició***:
+
+```json
+{
+    "aplicacio": "string",
+    "nivell": "string",
+    "usuari": "string",
+    "infoAddicional": [
+        {
+            "variable": "string",
+            "valor": "string",
+            "varLabel": "string"
+        }
+    ]
+}
+```
+
+|Paràmetres| |
+|----------|-|
+|variable	|Codi de la dada addicional.            |
+|valor		|Valor a guardar.                       |
+|varLabel	|Etiqueta de la dada.                   |
+
+***Exemple:***
+
+```json
+
+
+```
+
+### 3.7.6 Esborrar dades addicionals
+
+| Mètode | Ruta | Paràmetre de ruta |
+| ------ | ---- |  ----- |
+|DELETE | /infoadicional/{sdenum}	|	 sdenum - De tipus string. Identificador de l’expedient. |
+
+***Cos de la petició***:
+
+```json
+[
+    "string"
 ]
+```
+
+|Paràmetres| |
+|----------|-|
+|array	|Llista de variables a eliminar.            |
+
+***Exemple:***
+
+```json
+Request:
+DELETE /expedients/infoaddicional/X2020000010
+
+
+Request body: [
+    "DAT1"
+]
+
+
+Expected response: HTTP 200. Empty body.
+
+```
+
+### 3.7.7 Obtenir dades addicionals
+
+| Mètode | Ruta | Paràmetre de ruta |
+| ------ | ---- |  ----- |
+|GET | /infoadicional/{sdenum}	|	 sdenum - De tipus string. Identificador de l’expedient. |
+
+***Exemple:***
+
+```json
+Request:
+GET /expedients/infoaddicional/X2020000010
+
+
+Expected response: [
+    {
+        "variable": "DAT1",
+        "valor": "D1",
+        "varLabel": "Dada 1"
+    }
+]
+```
+ 
+## 3.8 Documents
+
+* ***Descripció*** - Permet guardar i obtenir documents. Consultar i modificar la informació associada a un document.
+
+* ***Ruta*** -  /documents
+
+### 3.8.1 Operacions
+
+| Mètode | Ruta | Descripció |
+| ------ | ---- | ---------- |                                                                   
+|POST		|/file					|Guardar un Document.                                                           |
+|GET			|/file/{guid}			|Obtenir un Document.                                                           |
+|POST		|/info/{guid}			|Modificar la informació associada a un Document.                               |
+|GET			|/info/{guid}			|Obtenir la informació associada a un Document.                                 |
+|POST		|/infoadicional/{idnreg}	|Modificar o afegir dades addicionals a un Document.                            |
+|DELETE		|/infoadicional/{idnreg}	|Esborrar dades adicionals a un Document.                                       |
+|GET			|/infobyidnreg/{idnreg}	|Obtenir la informació associada a un Document a partir del seu identificador.  |
+
+ > **Notes**: el codi guid es una cadena alfanumèrica única de 36 caràcters que identifica de forma segura un document. L’idnreg es un codi numèric intern.
+
+### 3.8.2 Guardar un Document
+
+| Mètode | Ruta | Paràmetre |
+| ------ | ---- | ----|
+|POST | /documents/file	| file Arxiu a guardar.|
+
+
+***Paràmetre***:
+
+```json
+AnnexarDocumentReq
+Cadena que conté una objecte JSON amb la següent estructura: {
+    "aplicacio": "string",
+    "nivell": "string",
+    "usuari": "string",
+    "aplcod": "string",
+    "docorigen": "string",
+    "doccod": "string",
+    "modelcod": "string",
+    "docnompc": "string",
+    "descriptor": "string",
+    "doctip": "string",
+    "identificador": "string"
+}
+```
+
+***Exemple:***
+
+```json
+Request:
+POST /document/file
+
+
+Parameters:
+file : arxiu a enviar AnnexarDocumentReq: {
+    "nivell": "9999",
+    "usuari": "G5Admin",
+    "aplicacio": "SDE",
+    "aplcod": "SDE",
+    "docorigen": "REGENT",
+    "doccod": "INST",
+    "modelcod": "****",
+    "docnompc": "test_doc.pdf",
+    "descriptor": "prova",
+    "doctip": "EXP",
+    "identificador": "E2020000001"
 }
 
-Paràmetres:
 
-variable	Codi de la dada addicional.
-valor	Valor a guardar.
-varLabel	Etiqueta de la dada.
+Expected response: {
+    "idnreg": 6020720,
+    "guid": "4bf18bd4-c014-4bc9-8933-94520c225d6f"
+}
 
-Exemple:
- 
+```
 
-
-
- 
+### 3.8.3 Obtenir un Document
 
 
-5.7.6	Esborrar dades addicionals
+| Mètode | Ruta |Paràmetre de ruta|
+| ------ | ---- | ---- |
+|GET | //documents/file/{guid}	|  guid  De tipus string. Identificador únic del document. |
 
-Mètode	DELETE
-Ruta	/infoadicional/{sdenum}
-Paràmetre de ruta	sdenum
-De tipus string. Identificador de l’expedient.
-Cos	de	la petició	[
+> Exemple (utilitzarem el codi guid obtingut en l’exemple de guradar un document):
+
+***Exemple:***
+
+```json
+Request:
+GET /documents/file/4bf18bd4-c014-4bc9-8933-94520c225d6f
+
+
+Expected response: File download.
+
+```
+
+### 3.8.4 Modificar la informació associada
+
+| Mètode | Ruta |Paràmetre de ruta|
+| ------ | ---- | ---- |
+|POST | //documents/file/{guid}	|  guid  De tipus string. Identificador únic del document. |
+
+***Cos de la petició***:
+
+```json
+{
+    "guid": "string",
+    "doctip": "string",
+    "doctitol": "string",
+    "descriptor": "string",
+    "observacions": "string",
+    "estatsig": "string",
+    "motiurebu": "string",
+    "perscod": 0,
+    "sdenum": "string",
+    "persnd": 0,
+    "vidsignerGuid": "string",
+    "vidsignerEstat": 0,
+    "cmisDocId": 0,
+    "orgcod": "string",
+    "dataCaducitat": "string",
+    "infoAddicional": [
+        {
+            "variable": "string",
+            "valor": "string",
+            "varLabel": "string"
+        }
+    ]
+}
+```
+
+
+> En el cos de la peticó s’indiquen totes les propietats possibles.
+> En la petició només cal indicar aquelles propietats que volem modificar, la resta quedaran inalterades.
+
+***Exemple:***
+
+```json
+Request:
+POST /documents/info/4bf18bd4-c014-4bc9-8933-94520c225d6f
+
+
+Request body: {
+    "guid": "",
+    "doctip": "EXP",
+    "doctitol": "Títol del document",
+    "descriptor": "Això és un descriptor",
+    "observacions": "Algun comentari",
+    "infoAddicional": [
+        {
+            "variable": "CAMP1",
+            "valor": "C1",
+            "varLabel": ""
+        },
+        {
+            "variable": "CAMP2",
+            "valor": "C2",
+            "varLabel": ""
+        }
+    ]
+}
+
+
+Expected response: HTTP 200. Empty body.
+
+
+```
+
+### 3.8.5 Obtenir la informació associada
+
+| Mètode | Ruta |Paràmetre de ruta|
+| ------ | ---- | ---- |
+|GET | //documents/file/{guid}	|  guid  De tipus string. Identificador únic del document. |
+
+***Exemple:***
+
+```json
+Request:
+GET /documents/info/4bf18bd4-c014-4bc9-8933-94520c225d6f
+
+
+Expected response body: {
+    "aplcod": "SDE ",
+    "docorigen": "REGENT ",
+    "doccod": "INST",
+    "modelcod": "****",
+    "docnompc": "test_pdf_22.pdf",
+    "identificador": "test_pdf_22.pdf",
+    "docorigenDesc": "Registre Entrada",
+    "doccodDesc": "Instància",
+    "modelcodDesc": "Document annexat",
+    "doctip": "EXP ",
+    "idnreg": 6020720,
+    "doctitol": "Títol del document",
+    "descriptor": "Això és un descriptor",
+    "observacions": "Algun comentari",
+    "stdugr": "G5Admin	",
+    "stdumod": "G5Admin		",
+    "stddgr": "20200519",
+    "stdhgr": "080429",
+    "stddmod": "20200519",
+    "stdhmod": "080429",
+    "estatsig": null,
+    "motiurebu": null,
+    "guid": "4bf18bd4-c014-4bc9-8933-94520c225d6f",
+    "eliminat": null,
+    "perscod": null,
+    "sdenum": null,
+    "persnd": null,
+    "vidsignerGuid": null,
+    "vidsignerEstat": null,
+    "cmisDocId": null,
+    "orgcod": null,
+    "dataSessio": null,
+    "dataCaducitat": null,
+    "swCciuAmagar": false,
+    "infoAddicional": [
+        {
+            "variable": "CAMP1",
+            "valor": "C1",
+            "varLabel": null
+        },
+        {
+            "variable": "CAMP2",
+            "valor": "C2",
+            "varLabel": null
+        }
+    ]
+}
+
+
+```
+
+### 3.8.6 Modificar o afegir dades addicionals
+
+| Mètode | Ruta |Paràmetre de ruta|
+| ------ | ---- | ---- |
+|POST | /documents/infoadicional/{idnreg}	|  idnreg  De tipus integer. Identificador únic del document. |
+
+***Cos de la petició***:
+
+```json
+[
+    {
+        "variable": "string",
+        "valor": "string",
+        "varLabel": "string"
+    }
+]
+
+```
+
+***Exemple:***
+
+```json
+Request:
+POST /documents/infoadicional/6020720
+
+
+Request body: [
+    {
+        "variable": "VARX",
+        "valor": "XX",
+        "varLabel": ""
+    }
+]
+Expected response: HTTP 200. Empty body.
+
+```
+
+### 3.8.7 Esborrar dades addicionals
+
+| Mètode | Ruta |Paràmetre de ruta|
+| ------ | ---- | ---- |
+|DELETE | /documents/infoadicional/{idnreg}	|  idnreg  De tipus integer. Identificador únic del document. |
+
+***Cos de la petició***:
+
+```json
+[
 "string"
 ]
 
-Paràmetres:
+```
+> En el cos de la petició indicarem les variables a esborrar.
 
-array	Llista de variables a eliminar.
+***Exemple:***
 
-
-Exemple:
- 
-
-
-
- 
+```json 
+ Request:
+DELETE /documents/infoadicional/6020720
 
 
-5.7.7	Obtenir dades addicionals
-
-Mètode	GET
-Ruta	/infoadicional/{sdenum}
-Paràmetre de ruta	sdenum
-De tipus string. Identificador de l’expedient.
-
-Exemple:
- 
-
-
-5.8	Documents
-
-Descripció	Permet guardar i obtenir documents. Consultar i modificar la informació associada a un document.
-Ruta	/documents
-5.8.1	Operacions
-
-Mètod e	Ruta	Descripció
-POST	/file	Guardar un Document.
-GET	/file/{guid}	Obtenir un Document.
-POST	/info/{guid}	Modificar la informació associada a un Document.
-GET	/info/{guid}	Obtenir la informació associada a un Document.
-POST	/infoadicional/{idnreg}	Modificar o afegir dades addicionals a un Document.
-DELE TE	/infoadicional/{idnreg}	Esborrar dades adicionals a un Document.
-GET	/infobyidnreg/{idnreg}	Obtenir la informació associada a un Document a partir del seu identificador.
-
-Notes: el codi guid es una cadena alfanumèrica única de 36 caràcters que identifica de forma segura un document. L’idnreg es un codi numèric intern.
-
-5.8.2	Guardar un Document
-
-Mètode	POST
-Ruta	/documents/file
-Paràmetre	file
-Arxiu a guardar.
-Paràmetre	AnnexarDocumentReq
-Cadena que conté una objecte JSON amb la següent estructura:
-{
-"aplicacio": "string", "nivell": "string",
-"usuari": "string",
- 
-
-
-
-	"aplcod": "string", "docorigen": "string", "doccod": "string", "modelcod": "string", "docnompc": "string", "descriptor": "string", "doctip": "string", "identificador": "string"
-}
-
-
-Exemple:
- 
-
-
-
- 
-
-
-5.8.3	Obtenir un Document
-
-Mètode	GET
-Ruta	/documents/file/{guid}
-Paràmetre de ruta	guid
-De tipus string. Identificador únic del document.
-
-Exemple (utilitzarem el codi guid obtingut en l’exemple de guradar un document):
-
-
-5.8.4	Modificar la informació associada
-
-Mètode	POST
-Ruta	/documents/info/{guid}
-Paràmetre de ruta	guid
-De tipus string. Identificador únic del document.
-Cos	de	la petició	{
-"guid": "string",
-"doctip": "string", "doctitol": "string", "descriptor": "string", "observacions": "string", "estatsig": "string", "motiurebu": "string",
-"perscod": 0,
- 
-
-
-
-	"sdenum": "string", "persnd": 0, "vidsignerGuid": "string", "vidsignerEstat": 0,
-"cmisDocId": 0, "orgcod": "string", "dataCaducitat": "string", "infoAddicional": [
-{
-"variable": "string", "valor": "string", "varLabel": "string"
-}
-]
-}
-
-
-En el cos de la peticó s’indiquen totes les propietats possibles.
-En la petició només cal indicar aquelles propietats que volem modificar, la resta quedaran inalterades.
-
-
-Exemple:
- 
-
-
-
- 
-
-
-5.8.5	Obtenir la informació associada
-
-Mètode	GET
-Ruta	/documents/info/{guid}
-Paràmetre de ruta	guid
-De tipus string. Identificador únic del document.
-
-Exemple:
- 
-
-
-
-"doccodDesc": "Instància", "modelcodDesc": "Document annexat", "doctip": "EXP ",
-"idnreg": 6020720,
-"doctitol": "Títol del document", "descriptor": "Això és un descriptor", "observacions": "Algun comentari", "stdugr": "G5Admin	", "stdumod": "G5Admin		", "stddgr": "20200519",
-"stdhgr": "080429",
-"stddmod": "20200519",
-"stdhmod": "080429", "estatsig": null, "motiurebu": null,
-"guid": "4bf18bd4-c014-4bc9-8933-94520c225d6f", "eliminat": null,
-"perscod": null, "sdenum": null, "persnd": null, "vidsignerGuid": null, "vidsignerEstat": null, "cmisDocId": null, "orgcod": null, "dataSessio": null, "dataCaducitat": null, "swCciuAmagar": false, "infoAddicional": [
-{
-"variable": "CAMP1",
-"valor": "C1", "varLabel": null
-},
-{
-"variable": "CAMP2",
- 
-
-
-
- 
-
-
-5.8.6	Modificar o afegir dades addicionals
-
-Mètode	POST
-Ruta	/documents/infoadicional/{idnreg}
-Paràmetre de ruta	idnreg
-De tipus integer. Identificador únic del document.
-Cos	de	la petició	[
-{
-"variable": "string", "valor": "string", "varLabel": "string"
-}
+Request body: [
+“CAMP2”,
+    "VARX"
 ]
 
-Exemple:
- 
+
+Expected response: HTTP 200. Empty body.
+```
+
+### 3.8.8	Obtenir la informació associada a partir de l’identificador de Document.
+
+| Mètode | Ruta |Paràmetre de ruta|
+| ------ | ---- | ---- |
+|GET | /documents/info/{idnreg}	|  idnreg  De tipus integer. Identificador únic del document. |
 
 
+***Exemple:***
 
- 
-
-
-5.8.7	Esborrar dades addicionals
-
-Mètode	DELETE
-Ruta	/documents/infoadicional/{idnreg}
-Paràmetre de ruta	idnreg
-De tipus integer. Identificador únic del document.
-Cos	de	la petició	[
-"string"
-]
-
-En el cos de la petició indicarem les variables a esborrar. Exemple:
- 
-
-
-5.8.8	Obtenir la informació associada a partir de l’identificador de Document.
-
-Mètode	GET
-Ruta	/documents/info/{idnreg}
- 
-
-
-
-Paràmetre de ruta	idnreg
-De tipus integer. Identificador únic del document.
-
-
-Exemple:
- 
-
-
-
- 
-
-5.9	Organigrama
-
-Descripció	Permet	consultar	i	actualitzar	la	informació	de	l’organigrama	(àrees, departaments, grups de treball i assumptes).
-Ruta	/organigrama
-5.9.1	Operacions
-
-Mètod e	Ruta	Descripció
-POST	/arees	Crea o modifica una àrea.
-GET	/arees	Recupera totes les àrees.
-GET	/arees/{areacod}	Recupera una àrea.
-POST	/arees/delete	Elimina una àrea.
-POST	/arees/departaments	Crea o modifica un departament.
-GET	/arees/{areacod}/departaments	Recupera tots els departaments d’una àrea.
- 
-
-
-
-GET	/arees/{areacod}/departaments/{depcod
-}	Recupera un departament.
-POST	/arees/departaments/delete	Elimina un departament.
-POST	/arees/departaments/grupstreball	Crea o modifica un grup de treball.
-GET	/arees/{areacod}/departaments/{depcod
-}/grupstreball	Recupera tots els grups de treball d’un departments.
-GET	/arees/{areacod}/departaments/{depcod
-}/grupstreball/{grupcod}	Recupera un grup de treball.
-POST	/arees/departaments/grupstreball/delete	Elimina un grup de treball.
-POST	/assumptes	Crea o modifica un assumpte.
-GET	/assumptes	Recupera tots els assumptes
-GET	/assumptes/{assumcod}	Recupera un assumpte.
-POST	/assumptes/delete	Elimina un assumpte.
-
-
-5.9.2	Crea o modifica una àrea.
-
-Mètode	POST
-Ruta	/organigrama/arees
-Cos	de	la petició	{
-"aplicacio": "string", "nivell": "string",
-"usuari": "string",
-"areacod": "string", "areadesc": "string", "sdeprioritat": 0, "entcod": "string"
+```json
+Request:
+GET /documents/infobyidnreg/6020720
+Expected response body: {
+    "aplcod": "SDE ",
+    "docorigen": "REGENT ",
+    "doccod": "INST",
+    "modelcod": "****",
+    "docnompc": "test_pdf_22.pdf",
+    "identificador": "test_pdf_22.pdf",
+    "docorigenDesc": "Registre Entrada",
+    "doccodDesc": "Instància",
+    "modelcodDesc": "Document annexat",
+    "doctip": "EXP ",
+    "idnreg": 6020720,
+    "doctitol": "Títol del document",
+    "descriptor": "Això és un descriptor",
+    "observacions": "Algun comentari",
+    "stdugr": "G5Admin",
+    "stdumod": "G5Admin",
+    "stddgr": "20200519",
+    "stdhgr": "080429",
+    "stddmod": "20200519",
+    "stdhmod": "080429",
+    "estatsig": null,
+    "motiurebu": null,
+    "guid": "4bf18bd4-c014-4bc9-8933-94520c225d6f",
+    "eliminat": null,
+    "perscod": null,
+    "sdenum": null,
+    "persnd": null,
+    "vidsignerGuid": null,
+    "vidsignerEstat": null,
+    "cmisDocId": null,
+    "orgcod": null,
+    "dataSessio": null,
+    "dataCaducitat": null,
+    "swCciuAmagar": false,
+    "infoAddicional": [
+        {
+            "variable": "CAMP1",
+            "valor": "C1",
+            "varLabel": null
+        }
+    ]
 }
 
-Paràmetres:
 
-areacod	Codi d’àrea.
- 
+```
 
-
-
-areadesc	Descripció d’area.
-sdeprioritat	
-entcod	
+## 3.9 Organigrama
 
 
-Exemple:
+* ***Descripció*** - Permet	consultar i	actualitzar	la	informació de l’organigrama	(àrees, departaments, grups de treball i assumptes).
+
+* ***Ruta*** -  /organigrama
+
+### 3.9.1 Operacions
+
+| Mètode | Ruta | Descripció |
+| ------ | ---- | ---------- |                                                                   
+|POST	|/arees									|Crea o modifica una àrea.                                                            |
+|GET		|/arees								|	Recupera totes les àrees.                                                            |
+|GET		|/arees/{areacod}					|	Recupera una àrea.                                                                   |
+|POST	|/arees/delete							|Elimina una àrea.                                                                    |
+|POST	|/arees/departaments					|	Crea o modifica un departament.                                                      |
+|GET		|/arees/{areacod}/departaments		|	Recupera tots els departaments d’una àrea.                                           |
+|GET		|/arees/{areacod}/departaments/{depcod}	|Recupera un departament.                                                             |
+|POST	|/arees/departaments/delete				|Elimina un departament.                                                              |
+|POST	|/arees/departaments/grupstreball		|Crea o modifica un grup de treball.                                                  |
+|GET		|/arees/{areacod}/departaments/{depcod}/grupstreball			|	Recupera tots els grups de treball d’un departments.         |
+|GET		|/arees/{areacod}/departaments/{depcod}/grupstreball/{grupcod}	|Recupera un grup de treball.                                 |
+|POST	|/arees/departaments/grupstreball/delete							|Elimina un grup de treball.                                  |
+|POST	|/assumptes				|Crea o modifica un assumpte.                                                                         |
+|GET		|/assumptes				|Recupera tots els assumptes                                                                          |
+|GET		|/assumptes/{assumcod}	|Recupera un assumpte.                                                                                |
+|POST	/assumptes/delete		|Elimina un assumpte.                                                                                 |
 
 
-5.9.3	Recupera totes les àrees.
-
-Mètode	GET
-Ruta	/organigrama/arees
- 
+### 3.9.2 Crea o modifica una àrea.
 
 
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /organigrama/arees	| 
 
-Exemple:
+***Cos de la petició***:
+
+```json
+{
+    "aplicacio": "string",
+    "nivell": "string",
+    "usuari": "string",
+    "areacod": "string",
+    "areadesc": "string",
+    "sdeprioritat": 0,
+    "entcod": "string"
+}
+
+```
+|Paràmetres| |
+|----------|-|
+|areacod	|Codi d’àrea.                   |
+|areadesc	|Descripció d’area.             |
+|sdeprioritat|	                            |
+|entcod	     |                              |
+
+***Exemple:***
+
+```json
+Request:
+POST /organigrama/arees
 
 
-5.9.4	Recupera una àrea.
-
-Mètode	GET
-Ruta	/organigrama/arees/{areacod}
-
-Paràmetres:
-
-areacod	Codi d’àrea.
-
-Exemple:
- 
+Request body: {
+    "aplicacio": "ORG",
+    "nivell": "9999",
+    "usuari": "G5Admin",
+    "areacod": "TST",
+    "areadesc": "Area de test"
+}
 
 
+Expected response: {
+    "nivell": "9999",
+    "aplicacio": "ORG",
+    "usuari": "G5Admin",
+    "areacod": "TST",
+    "areadesc": "Area de test",
+    "sdeprioritat": null,
+    "entcod": null
+}
 
- 
+
+```
+
+###3.9.3 Recupera totes les àrees.
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|GET | /organigrama/arees	| 
+
+***Exemple:***
+
+```json
+Request:
+GET /organigrama/arees
 
 
-5.9.5	Elimina una àrea.
+Expected response: [
+    {
+        "areacod": "AL",
+        "areadesc": "ALCALDIA",
+        "audit": {
+            "usuariCreacio": null,
+            "usuariModificacio": null,
+            "dataCreacio": null,
+            "dataModificacio": null,
+            "horaCreacio": null,
+            "horaModificacio": null
+        },
+        "sdeprioritat": null,
+        "baixasw": 0,
+        "entcod": "1 "
+    },
+...
+]
+
+
+```
+
+#### 3.9.4 Recupera una àrea.
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|GET | /organigrama/arees/{areacod}	| 
+
+|Paràmetres| |
+|----------|-|
+|areacod	|Codi d’àrea.                   |
+
+***Exemple:***
+
+```json
+Request:
+GET /organigrama/arees/TST
+
+
+Expected response: {
+    "areacod": "string",
+    "areadesc": "string",
+    "audit": {
+        "dataCreacio": "string",
+        "dataModificacio": "string",
+        "horaCreacio": "string",
+        "horaModificacio": "string",
+        "usuariCreacio": "string",
+        "usuariModificacio": "string"
+    },
+    "baixasw": 0,
+    "entcod": "string",
+    "sdeprioritat": 0
+}
+
+
+```
+
+### 3.9.5 Elimina una àrea.
 
 Mètode	POST
 Ruta	/organigrama/arees/delete

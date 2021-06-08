@@ -532,6 +532,7 @@ Expected response:
 "aplicacio": "string",
 "usuari": "string"
 }
+```
 
 ***Exemple:***
 
@@ -544,6 +545,8 @@ Request body:
 "nivell": "9999",
 "aplicacio": "NCL",
 "usuari": "G5Admin"
+}
+
 Expected response:
 {
 "siglaArray": [
@@ -588,7 +591,7 @@ Expected response:
 |POST|	/tipuslocals/get	|Recuperar els Tipus de Locals                         |
 
 
-### 3.2.2 Alta. PARAMETRES EXEMPLE
+### 3.2.2 Alta
 
 | Mètode | Ruta |
 | ------ | ---- | 
@@ -744,6 +747,8 @@ Request body:
 "nivell": "9999",
 "aplicacio": "NCL",
 "usuari": "G5Admin"
+}
+
 Expected response body:
 {
 "codiDomicili": 555,
@@ -866,9 +871,7 @@ Expected response body:
 
 |Paràmetres|
 |----------|
-|Veure la descrició de paràmetres de l’apartat **Alta**.|
-
-
+|Veure la descrició de paràmetres de l’apartat [**Alta**](#322-alta).|
 
 ***Exemple:***
 
@@ -981,10 +984,9 @@ Expected response: {
 
 
 
-|Paràmetres| |
-|----------|-|
-|Veure apartat **Recuperar un domicili** |
-
+|Paràmetres|
+|----------|
+|Veure apartat [**Recuperar un domicili**](#323-recuperar-un-domicili) |
 
 ***Exemple:***
 
@@ -1095,9 +1097,8 @@ Request body: {
     "aplicacio": "NCL",
     "usuari": "G5Admin"
 }
-    
-    
-    Expected response: [
+        
+Expected response: [
     265,
     9607
 ]
@@ -1365,103 +1366,96 @@ Expected response: {
 Request:
 POST /persones/put
 
-
 Request body: {
     "aplicacio": "NCL",
-Request:
-POST /persones/put
-
-
-Request body: {
-        "aplicacio": "NCL",
-        "nivell": "9999",
-        "persona": {
-            "codNacionalitat": 108,
-            "codTipusPersona": "F",
-            "codi": 1678,
-            "cognom1": "TESTC1",
-            "cognom2": "TESTC2",
-            "dataNaixement": "19251226",
-            "descNacionalitat": "ESPAÑA",
-            "esContribuent": false,
-            "esHabitant": false,
-            "esNifModificable": false,
-            "esPersnull": false,
-            "gestCont": false,
-            "municipiNaixement": {
-                "codMunicipi": 232,
-                "codPais": 108,
-                "codProvincia": 31,
-                "descMunicipi": "TUDELA",
-                "descPais": "ESPAÑA",
-                "descProvincia": "NAVARRA"
-            },
-            "nif": "00507486",
-            "nifDC": "Z",
-            "nom": "PACO",
-            "nomComplet": "PACO TESTC1 TESTC2",
-            "nomesBaixa": false,
-            "sexe": "1"
-        },
-        "tipoPersona": [
-            "F"
-        ],
-        "usuari": "G5Admin"
-    }
-     
-    Expected response: {
-        "nom": "PACO",
-        "nif": "00507486",
-        "nifDC": "Z",
-        "particula1": "",
-        "cognom1": "TESTC1",
-        "particula2": "",
-        "cognom2": "TESTC2",
-        "baixa": {
-            "dataBaixa": "",
-            "esBaixa": ""
-        },
-        "password": "",
-        "descTipusPersona": null,
-        "descNacionalitat": "ESPAÑA",
-        "codi": 1678,
-        "codTipusPersona": "F",
-        "passaport": "",
-        "dataNaixement": "19251226",
+    "nivell": "9999",
+    "persona": {
         "codNacionalitat": 108,
-        "sexe": "1",
+        "codTipusPersona": "F",
+        "codi": 1678,
+        "cognom1": "TESTC1",
+        "cognom2": "TESTC2",
+        "dataNaixement": "19251226",
+        "descNacionalitat": "ESPAÑA",
+        "esContribuent": false,
+        "esHabitant": false,
+        "esNifModificable": false,
+        "esPersnull": false,
+        "gestCont": false,
         "municipiNaixement": {
+            "codMunicipi": 232,
             "codPais": 108,
             "codProvincia": 31,
+            "descMunicipi": "TUDELA",
             "descPais": "ESPAÑA",
-            "descProvincia": "NAVARRA",
-            "baixa": null,
-            "codMunicipi": 232,
-            "descMunicipi": "TUDELA"
+            "descProvincia": "NAVARRA"
         },
-        "nomComplet": "TESTC1 TESTC2 PACO",
-        "contacte": null,
-        "formaContacte": null,
-        "codIdioma": "",
-        "perssw": "",
-        "nifOrig": "",
-        "esHabitant": false,
-        "esPersnull": false,
-        "esContribuent": false,
-        "esNifModificable": false,
-        "stddgr": "20021129",
-        "stddmod": "20200709",
-        "stdhgr": "104936",
-        "stdhmod": "092742",
-        "stdugr": "traspas",
-        "stdumod": "G5Admin",
-        "stdapladd": "HAB ",
-        "stdaplmod": "NCL",
-        "codiEstudis": null,
+        "nif": "00507486",
+        "nifDC": "Z",
+        "nom": "PACO",
+        "nomComplet": "PACO TESTC1 TESTC2",
         "nomesBaixa": false,
-        "dataBaixa2": null,
-        "gestCont": false
-    }
+        "sexe": "1"
+    },
+    "tipoPersona": [
+        "F"
+    ],
+    "usuari": "G5Admin"
+}
+     
+Expected response: {
+    "nom": "PACO",
+    "nif": "00507486",
+    "nifDC": "Z",
+    "particula1": "",
+    "cognom1": "TESTC1",
+    "particula2": "",
+    "cognom2": "TESTC2",
+    "baixa": {
+        "dataBaixa": "",
+        "esBaixa": ""
+    },
+    "password": "",
+    "descTipusPersona": null,
+    "descNacionalitat": "ESPAÑA",
+    "codi": 1678,
+    "codTipusPersona": "F",
+    "passaport": "",
+    "dataNaixement": "19251226",
+    "codNacionalitat": 108,
+    "sexe": "1",
+    "municipiNaixement": {
+        "codPais": 108,
+        "codProvincia": 31,
+        "descPais": "ESPAÑA",
+        "descProvincia": "NAVARRA",
+        "baixa": null,
+        "codMunicipi": 232,
+        "descMunicipi": "TUDELA"
+    },
+    "nomComplet": "TESTC1 TESTC2 PACO",
+    "contacte": null,
+    "formaContacte": null,
+    "codIdioma": "",
+    "perssw": "",
+    "nifOrig": "",
+    "esHabitant": false,
+    "esPersnull": false,
+    "esContribuent": false,
+    "esNifModificable": false,
+    "stddgr": "20021129",
+    "stddmod": "20200709",
+    "stdhgr": "104936",
+    "stdhmod": "092742",
+    "stdugr": "traspas",
+    "stdumod": "G5Admin",
+    "stdapladd": "HAB ",
+    "stdaplmod": "NCL",
+    "codiEstudis": null,
+    "nomesBaixa": false,
+    "dataBaixa2": null,
+    "gestCont": false
+}
 
 ```
 ### 3.3.3 Creacio simple
@@ -1797,11 +1791,7 @@ Request body: {
 }
 
 
-Expected response:
-
-
-Response body
-{
+Expected response: {
     "persones": [
         106260
     ]
@@ -1870,7 +1860,7 @@ Expected response: {
         "descripcio2": "string",
         "qual": "string"
     }
-
+}
 ```
 
 
@@ -1888,7 +1878,6 @@ Expected response: {
 ```json
 Request:
 POST /persones/particulescognom/put
-
 
 Request body: {
     "particulaCognom": {
@@ -4996,7 +4985,8 @@ Cos de la petició: {
     "sdenum": "",
     "data": ""
 }
-    Resposta esperada: {
+
+Resposta esperada: {
     "sdenum": "X2020000759"
 }
 
@@ -5123,15 +5113,15 @@ Cos de la petició: {
 |texpdesc		|Descripció del Tipus Expedient                          |
 
 
-> En el cos de la petició s’indiquen totes les propietats possibles.
-> En la petició només cal indicar aquelles propietats que volem modificar, la resta quedaran inalterades.
+En el cos de la petició s’indiquen totes les propietats possibles.
+En la petició només cal indicar aquelles propietats que volem modificar, la resta quedaran inalterades.
 
-> Excepcions:
+Excepcions:
 
->* Per canviar el Domicili cal enviar perscod i persnd.
->* Per canviar el Domicili del Representant cal enviar reprcod i reprnd.
->* Per canviar Àrea, Departament o Grup, cal enviar les tres dades areacod, depcod i grupcod.
->* Per canviar el contacte cal enviar perscod, persnd, numconorde i fcontactn.
+* Per canviar el Domicili cal enviar perscod i persnd.
+* Per canviar el Domicili del Representant cal enviar reprcod i reprnd.
+* Per canviar Àrea, Departament o Grup, cal enviar les tres dades areacod, depcod i grupcod.
+* Per canviar el contacte cal enviar perscod, persnd, numconorde i fcontactn.
 
 ***Exemple:***
 
@@ -5410,7 +5400,7 @@ Expected response: [
 |DELETE		|/infoadicional/{idnreg}	|Esborrar dades adicionals a un Document.                                       |
 |GET			|/infobyidnreg/{idnreg}	|Obtenir la informació associada a un Document a partir del seu identificador.  |
 
- > **Notes**: el codi guid es una cadena alfanumèrica única de 36 caràcters que identifica de forma segura un document. L’idnreg es un codi numèric intern.
+ **Notes**: el codi `guid` es una cadena alfanumèrica única de 36 caràcters que identifica de forma segura un document. L’`idnreg` es un codi numèric intern.
 
 ### 3.8.2 Guardar un Document
 
@@ -5418,25 +5408,10 @@ Expected response: [
 | ------ | ---- | ----|
 |POST | /documents/file	| file Arxiu a guardar.|
 
+|Paràmetres| |
+|----------|-|
+|AnnexarDocumentReq	|Cadena que conté una objecte JSON amb la següent estructura: `{"aplicacio": "string","nivell": "string","usuari": "string""aplcod": "string","docorigen": "string","doccod": "string","modelcod": "string","docnompc": "string","descriptor": "string","doctip": "string","identificador": "string"}` |
 
-***Paràmetre***:
-
-```json
-AnnexarDocumentReq
-Cadena que conté una objecte JSON amb la següent estructura: {
-    "aplicacio": "string",
-    "nivell": "string",
-    "usuari": "string",
-    "aplcod": "string",
-    "docorigen": "string",
-    "doccod": "string",
-    "modelcod": "string",
-    "docnompc": "string",
-    "descriptor": "string",
-    "doctip": "string",
-    "identificador": "string"
-}
-```
 
 ***Exemple:***
 
@@ -5444,9 +5419,9 @@ Cadena que conté una objecte JSON amb la següent estructura: {
 Request:
 POST /document/file
 
-
 Parameters:
-file : arxiu a enviar AnnexarDocumentReq: {
+file : arxiu a enviar 
+AnnexarDocumentReq : {
     "nivell": "9999",
     "usuari": "G5Admin",
     "aplicacio": "SDE",
@@ -5459,7 +5434,6 @@ file : arxiu a enviar AnnexarDocumentReq: {
     "doctip": "EXP",
     "identificador": "E2020000001"
 }
-
 
 Expected response: {
     "idnreg": 6020720,
@@ -5475,9 +5449,9 @@ Expected response: {
 | ------ | ---- | ---- |
 |GET | //documents/file/{guid}	|  guid  De tipus string. Identificador únic del document. |
 
-> Exemple (utilitzarem el codi guid obtingut en l’exemple de guradar un document):
-
 ***Exemple:***
+
+Utilitzarem el codi `guid` obtingut en l’exemple de guradar un document
 
 ```json
 Request:
@@ -5492,7 +5466,7 @@ Expected response: File download.
 
 | Mètode | Ruta |Paràmetre de ruta|
 | ------ | ---- | ---- |
-|POST | //documents/file/{guid}	|  guid  De tipus string. Identificador únic del document. |
+|POST | /documents/file/{guid}	|  guid  De tipus string. Identificador únic del document. |
 
 ***Cos de la petició***:
 
@@ -5524,8 +5498,8 @@ Expected response: File download.
 ```
 
 
-> En el cos de la peticó s’indiquen totes les propietats possibles.
-> En la petició només cal indicar aquelles propietats que volem modificar, la resta quedaran inalterades.
+En el cos de la peticó s’indiquen totes les propietats possibles.
+En la petició només cal indicar aquelles propietats que volem modificar, la resta quedaran inalterades.
 
 ***Exemple:***
 
@@ -5564,7 +5538,7 @@ Expected response: HTTP 200. Empty body.
 
 | Mètode | Ruta |Paràmetre de ruta|
 | ------ | ---- | ---- |
-|GET | //documents/file/{guid}	|  guid  De tipus string. Identificador únic del document. |
+|GET | /documents/file/{guid}	|  guid  De tipus string. Identificador únic del document. |
 
 ***Exemple:***
 
@@ -5573,7 +5547,7 @@ Request:
 GET /documents/info/4bf18bd4-c014-4bc9-8933-94520c225d6f
 
 
-Expected response body: {
+Expected response: {
     "aplcod": "SDE ",
     "docorigen": "REGENT ",
     "doccod": "INST",
@@ -5676,7 +5650,7 @@ Expected response: HTTP 200. Empty body.
 ]
 
 ```
-> En el cos de la petició indicarem les variables a esborrar.
+En el cos de la petició indicarem les variables a esborrar.
 
 ***Exemple:***
 
@@ -5686,10 +5660,9 @@ DELETE /documents/infoadicional/6020720
 
 
 Request body: [
-“CAMP2”,
+    "CAMP2",
     "VARX"
 ]
-
 
 Expected response: HTTP 200. Empty body.
 ```
@@ -5835,8 +5808,6 @@ Expected response: {
     "sdeprioritat": null,
     "entcod": null
 }
-
-
 ```
 
 ###3.9.3 Recupera totes les àrees.
@@ -6325,10 +6296,11 @@ Expected response: [
 ```
 
 
-### 3.9.12 Recupera un grup de treball.
+### 3.9.12 Recupera un grup de treball
 
-Mètode	GET
-Ruta	/organigrama/arees/{areacod}/departaments/{depcod}/grupstreball/{grupcod}
+| Mètode | Ruta |
+| ------ | ---- | 
+|GET | /organigrama/arees/{areacod}/departaments/{depcod}/grupstreball/{grupcod}| 
 
 ***Exemple:***
 
@@ -6390,7 +6362,7 @@ Expected response: {
 }
 ```
 
-### 3.9.13 Elimina un grup de treball.
+### 3.9.13 Elimina un grup de treball
 
 | Mètode | Ruta |
 | ------ | ---- | 
@@ -6443,7 +6415,7 @@ Expected response: {
 }
 ```
 
-### 3.9.14 Crea o modifica un assumpte.
+### 3.9.14 Crea o modifica un assumpte
 
 | Mètode | Ruta |
 | ------ | ---- | 
@@ -6500,8 +6472,9 @@ Expected response: {
 
 ### 3.9.15 Recupera tots els assumptes
 
-Mètode	GET
-Ruta	/organigrama/assumptes
+| Mètode | Ruta |
+| ------ | ---- | 
+| GET | /organigrama/assumptes| 
  
 ***Exemple:***
 

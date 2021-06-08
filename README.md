@@ -2722,7 +2722,7 @@ Expected response: {
 
 ```
 
-## 3.4.5 Recuperara Departaments
+### 3.4.5 Recuperara Departaments
 
 | Mètode | Ruta |
 | ------ | ---- | 
@@ -2822,6 +2822,69 @@ Expected response: {
     ]
 }
 
+```
+
+### 3.4.7 Recuperar Assumptes per Departament
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /registre/assumptes/getperdepartament	|	
+
+***Cos de la petició***:
+
+```json
+{
+    "codiArea": "string",
+    "codiDepartament": "string",
+    "nivell": "string",
+    "aplicacio": "string",
+    "usuari": "string"
+}
+```
+
+***Exemple:***
+
+```json
+Request:
+POST /registre/assumptes/getperdepartament
+
+
+Request body: {
+    "codiArea": "AL",
+    "codiDepartament": "G5AD",
+    "nivell": "9999",
+    "aplicacio": "RES",
+    "usuari": "G5Admin"
+}
+
+
+Expected response: {
+    "assumpteArray": [
+        {
+            "descripcio": "AJUTS I BEQUES",
+            "baixa": null,
+            "codi": "AJBE",
+            "departament": {
+                "codiArea": "AL",
+                "descArea": "ALCALDIA",
+                "codiDepartament": "G5AD",
+                "descDepartament": "AUDIFILM"
+            }
+        },
+        {
+            "descripcio": "ALTA RÀPIDA",
+            "baixa": null,
+            "codi": "ALTA",
+            "departament": {
+                "codiArea": "AL",
+                "descArea": "ALCALDIA",
+                "codiDepartament": "G5AD",
+                "descDepartament": "AUDIFILM"
+            }
+        },
+    ....
+    ]
+}
 ```
 ### 3.4.8 Recuperar Extractes
 

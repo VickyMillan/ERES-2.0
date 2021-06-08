@@ -368,10 +368,10 @@ Expected response body:
 
 |Paràmetres| |
 |----------|-|
-|codi1	           ||
+|codi1	           |Codi de la partícula|
 |codi2	           ||
 |comptador	       ||
-|descripcio	       ||
+|descripcio	       |Descripció de la partícula|
 |descripcio2        ||	
 |qual	||
 
@@ -1681,8 +1681,8 @@ Expected response: {
     ]
 }
 
-
 ```
+
 |Paràmetres| 
 |----------|
 |Veure l’apartat **Modifcar.** |
@@ -3629,45 +3629,171 @@ Expected response: {
 
 ```
 
-###3.5.6 Cercar Registres. TODO
+### 3.5.6 Cercar Registres.
 
 | Mètode | Ruta |
 | ------ | ---- | 
-|POST | /registreentrada/	|	
+|POST | /registreentrada/search	|
 
-|Paràmetres| |
-|----------|-|
-| 	                          |
+***Cos de la petició***:
+
+```json
+{
+    "aplicacio": "string",
+    "areacoddes": "string",
+    "cercaDadesFoto": true,
+    "codiAreaAssumpte": "string",
+    "codiAssumpte": "string",
+    "codiDepartamentAssumpte": "string",
+    "codiEntitat": "string",
+    "codiExtracte": "string",
+    "codiIdioma": "string",
+    "codiOrganismeOrigen": 0,
+    "codiPersonaInteressada": 0,
+    "codiRepresentant": 0,
+    "codiTerritori": 0,
+    "cognom1Interessat": "string",
+    "cognom1Representant": "string",
+    "cognom2Interessat": "string",
+    "cognom2Representant": "string",
+    "comptDomiciliPersonaInteressada": 0,
+    "contingutExtracte": "string",
+    "copiarDownload4J": true,
+    "copiarFileBase64": true,
+    "dataDocumentFinal": "string",
+    "dataDocumentInici": "string",
+    "dataPresentacioFinal": "string",
+    "dataPresentacioInici": "string",
+    "dataRegistreFinal": "string",
+    "dataRegistreInici": "string",
+    "dataTransport": "string",
+    "depcoddes": "string",
+    "efactComptabilitat": "string",
+    "efactEstat": "string",
+    "efactNumFactura": "string",
+    "entitats": [
+        "string"
+    ],
+    "entorn": "string",
+    "guidrebut": "string",
+    "ignoreUsuariFiltreAdeaDept": true,
+    "inclouInteressatsRelacionats": true,
+    "inclouRepresentantsRelacionats": true,
+    "maxResults": 0,
+    "mitjaTransport": "string",
+    "nifInteressat": "string",
+    "nifRepresentant": "string",
+    "nivell": "string",
+    "noTractats": true,
+    "nomInteressat": "string",
+    "nomRepresentant": "string",
+    "nomesMalClassificats": true,
+    "numRelCertificatCorreus": "string",
+    "numeroFormaContacte": 0,
+    "numeroOrdreContacte": 0,
+    "numeroRegistreEntitatFinal": "string",
+    "numeroRegistreEntitatInici": "string",
+    "numeroRegistreFinal": "string",
+    "numeroRegistreInici": "string",
+    "numeroRegistreOrganisme": "string",
+    "numeroRegistreRelacionat": "string",
+    "observacionsTransport": "string",
+    "perscontacn": "string",
+    "persnumconordre": "string",
+    "resNumeExt": "string",
+    "senseDocumentsAnnexats": true,
+    "senseDocumentsRelacionats": true,
+    "senseRegMalClassificats": true,
+    "stddgr": "string",
+    "stddmod": "string",
+    "stdugr": "string",
+    "stdumod": "string",
+    "tipusOrganisme": "string",
+    "tots": true,
+    "tractats": true,
+    "urlServer": "string",
+    "usuari": "string"
+}
+```
 
 ***Exemple:***
 
 ```json
 Request:
-Request body:
-Expected response:
+POST /registreentrada/search
+
+
+Request body: {
+    "aplicacio": "RES",
+    "nivell": "9999",
+    "usuari": "G5Admin",
+    "numeroRegistreInici": "E2020000001",
+    "numeroRegistreFinal": "E2020000010"
+}
+
+
+Expected response: {
+    "numeroRegistreArray": [
+        "E2020000010",
+        "E2020000009",
+        "E2020000008",
+        "E2020000007",
+        "E2020000006",
+        "E2020000005",
+        "E2020000004",
+        "E2020000003",
+        "E2020000002",
+        "E2020000001"
+    ]
+}
 
 ```
 
-### 3.5.7 Relacionar Expedient. TODO
+### 3.5.7 Relacionar Expedient.
 
 | Mètode | Ruta |
 | ------ | ---- | 
-|POST | /registreentrada/	|	
+|POST | /registreentrada/expedient/put	|	
+
+***Cos de la petició***:
+
+```json
+{
+    "aplicacio": "string",
+    "nivell": "string",
+    "resnume": "string",
+    "sdenum": "string",
+    "usuari": "string"
+}
+```
 
 |Paràmetres| |
 |----------|-|
-| 	                          |
+| 	resnume                         |Codi de registre d’entrada|
+| 	sdenum                         |Codi de l’expedient al que el relacionarem|
 
 ***Exemple:***
 
 ```json
 Request:
-Request body:
-Expected response:
+POST /registreentrada/expedient/put
 
+
+Request body: {
+    "aplicacio": "RES",
+    "nivell": "9999",
+    "resnume": "X2020000011",
+    "sdenum": "E2020000011",
+    "usuari": "G5Admin"
+}
+
+
+Expected response: {
+    "response": true
+}
 ```
 
-### 3.5.8 Recuperar Expedient relacionat. TODO
+### 3.5.8 Recuperar Expedient relacionat.
 
 | Mètode | Ruta |
 | ------ | ---- | 
@@ -3691,29 +3817,79 @@ Request:
 POST /registreentrada/expedients/get
 
 
-Request body:
+Request body: {
+    "aplicacio": "RES",
+    "nivell": "9999",
+    "numeroRegistreEntrada": "E2020000011",
+    "usuari": "G5Admin"
+}
 
 
-Expected response:
+Expected response: {
+    "numeroRegistreEntrada": "E2020000011",
+    "listExpRel": [
+        "X2020000011"
+    ]
+}
 
 ```
 
-### 3.5.9 Assignar Interessat. TODO
+### 3.5.9 Assignar Interessat.
 
 | Mètode | Ruta |
 | ------ | ---- | 
-|POST | /registreentrada/	|	
+|POST | /registreentrada/interessat/put	|	
 
-|Paràmetres| |
-|----------|-|
-| 	                          |
+***Cos de la petició***:
+
+```json
+{
+    "aplicacio": "string",
+    "codiPersona": 0,
+    "codiRepresentant": 0,
+    "comptDomiciliPersona": 0,
+    "comptDomiciliRepresentant": 0,
+    "domNot": "string",
+    "gestCont": true,
+    "idioma": 0,
+    "nivell": "string",
+    "notMail": "string",
+    "notSms": "string",
+    "numeroRegistre": "string",
+    "persNot": "string",
+    "perscontac": 0,
+    "persfcontac": 0,
+    "plataforma": "string",
+    "repcontac": 0,
+    "repfcontac": 0,
+    "usuari": "string"
+}
+```
 
 ***Exemple:***
 
 ```json
 Request:
-Request body:
-Expected response:
+POST /registreentrada/interessat/put
+Request body: {
+    "aplicacio": "RES",
+    "codiPersona": 11,
+    "codiRepresentant": 0,
+    "comptDomiciliPersona": 0,
+    "comptDomiciliRepresentant": 0,
+    "domNot": null,
+    "gestCont": true,
+    "nivell": "9999",
+    "notMail": null,
+    "notSms": null,
+    "numeroRegistre": "E2020000011",
+    "persNot": null,
+    "perscontac": null,
+    "persfcontac": null,
+    "repcontac": null,
+    "repfcontac": null,
+    "usuari": "G5Admin"
+}
 ```
 
 ### 3.5.10 Recuperar Documents relacionats
@@ -3902,156 +4078,798 @@ Expected response: {
 |POST	|/sortides/get	|Recupera els Registres de Sortida relacionats.                               |
 
 
-### 3.6.2 Crear o modificar. TODO
+### 3.6.2 Crear o modificar.
 
 | Mètode | Ruta |
 | ------ | ---- | 
-|POST | /registreSORTIDA/	|	
+|POST | /registresortida/put	|	
 
 ***Cos de la petició***:
 
 ```json
-
+{
+    "aplicacio": "string",
+    "entcod": "string",
+    "gestCont": true,
+    "idioma": 0,
+    "nivell": "string",
+    "nivellTaula": "string",
+    "registreSortida": {
+        "arxiu": "string",
+        "avisRebutTransport": "string",
+        "codiAreaAssumpte": "string",
+        "codiAreaCreador": "string",
+        "codiAssumpte": "string",
+        "codiDepartamentAssumpte": "string",
+        "codiDepartamentCreador": "string",
+        "codiEntitat": "string",
+        "codiExtracte": "string",
+        "codiIdioma": "string",
+        "codiOrganismeDesti": 0,
+        "codiPersona": 0,
+        "codiRepresentant": 0,
+        "codiTerritori": 0,
+        "codiTipusTransport": "string",
+        "comptDomiciliOrganisme": 0,
+        "comptDomiciliPersona": 0,
+        "comptDomiciliRepresentant": 0,
+        "contingutExtracte": "string",
+        "dataDocument": "string",
+        "dataPresentacio": "string",
+        "dataTransport": "string",
+        "descAreaAssumpte": "string",
+        "descDepartamentAssumpte": "string",
+        "domNot": "string",
+        "fcontactMail": 0,
+        "fcontactSms": 0,
+        "firmaTopograficaArxiu": "string",
+        "horaRegistre": "string",
+        "horaTransport": "string",
+        "ine10Origen": "string",
+        "modificarAreaDeptartamentCreador": true,
+        "notMail": "string",
+        "notSms": "string",
+        "numPagines": 0,
+        "numconordreMail": 0,
+        "numconordreSms": 0,
+        "numeroFormaContacte": 0,
+        "numeroOrdreContacte": 0,
+        "numeroSortida": "string",
+        "numeroSortidaEntitat": "string",
+        "numeroTransport": "string",
+        "observacionsDocument": "string",
+        "observacionsTransport": "string",
+        "persNifFoto": "string",
+        "persNomFoto": "string",
+        "persNot": "string",
+        "perscontacn": "string",
+        "persndMail": 0,
+        "persndSms": 0,
+        "persnumconordre": "string",
+        "plataforma": "string",
+        "registreRelacionat": "string",
+        "repcontac": 0,
+        "repfcontac": 0,
+        "resNumsExt": "string",
+        "resorgcontac": 0,
+        "resorgfcontac": 0,
+        "responsable": "string",
+        "tipusOrganisme": "string",
+        "tractat": 0
+    },
+    "usuari": "string",
+    "validarCampsObligatoris": true
+}
 ```
 
 ***Exemple:***
 
 ```json
+Request:
+POST /registresortida/put
+Request body: {
+    "aplicacio": "RES",
+    "idioma": 0,
+    "nivell": "9999",
+    "registreSortida": {
+        "codiAreaAssumpte": "AOC",
+        "codiAreaCreador": "AOC",
+        "codiAssumpte": "XXVV",
+        "codiDepartamentAssumpte": "AOC",
+        "codiDepartamentCreador": "AOC",
+        "codiEntitat": "1",
+        "codiPersona": 1,
+        "codiRepresentant": 0,
+        "codiTerritori": 0
+    },
+    "usuari": "G5Admin",
+    "validarCampsObligatoris": false
+}
 
+
+Expected response: {
+    "registreSortida": "S2021000001",
+    "registreSortidaEntitat": "S2021000001",
+    "dataRegistreSortida": "20210504",
+    "horaRegistreSortida": "105848"
+}
 
 ```
 
-### 3.6.3 Creació simple. TODO
+### 3.6.3 Creació simple.
 
 | Mètode | Ruta |
 | ------ | ---- | 
-|POST | /registreSORTIDA/	|	
+|POST | /registresortida/newsimple	|	
 
 ***Cos de la petició***:
 
 ```json
-
+{
+    "aplicacio": "string",
+    "areacodAssumpte": "string",
+    "assumcod": "string",
+    "codiTransport": "string",
+    "contingut": "string",
+    "depcodAssumpte": "string",
+    "descripcioCurta": "string",
+    "nivell": "string",
+    "numeroTransport": "string",
+    "representant": {
+        "carcod": 0,
+        "codiPostal": "string",
+        "cognom1": "string",
+        "cognom2": "string",
+        "crearPersonaSiNoExisteix": true,
+        "escala": "string",
+        "mail": "string",
+        "municipi": "string",
+        "municod": 0,
+        "nif": "string",
+        "nom": "string",
+        "nomCarrer": "string",
+        "numero": "string",
+        "pais": "string",
+        "paiscod": 0,
+        "passaport": "string",
+        "pis": "string",
+        "porta": "string",
+        "provcod": 0,
+        "provincia": "string",
+        "telefon": "string"
+    },
+    "solicitant": {
+        "carcod": 0,
+        "codiPostal": "string",
+        "cognom1": "string",
+        "cognom2": "string",
+        "crearPersonaSiNoExisteix": true,
+        "escala": "string",
+        "mail": "string",
+        "municipi": "string",
+        "municod": 0,
+        "nif": "string",
+        "nom": "string",
+        "nomCarrer": "string",
+        "numero": "string",
+        "pais": "string",
+        "paiscod": 0,
+        "passaport": "string",
+        "pis": "string",
+        "porta": "string",
+        "provcod": 0,
+        "provincia": "string",
+        "telefon": "string"
+    },
+    "transObs": "string",
+    "usuari": "string"
+}
 ```
 
 ***Exemple:***
 
 ```json
+Request:
+POST /registresortida/newsimple
 
+
+Request body: {
+    "aplicacio": "RES",
+    "assumcod": "XXVV",
+    "descripcioCurta": "PROVA ALTA SIMPLE",
+    "nivell": "9999",
+    "solicitant": {
+        "nif": "39918681L"
+    },
+    "usuari": "G5Admin"
+}
+
+
+Expected response: {
+    "registreSortida": "S2021000002",
+    "registreSortidaEntitat": "S2021000002",
+    "dataRegistreSortida": "20210504",
+    "horaRegistreSortida": "112309"
+}
 
 ```
 
-#### 3.6.4 Modificació simple. TODO
+#### 3.6.4 Modificació simple.
 
 | Mètode | Ruta |
 | ------ | ---- | 
-|POST | /registreSORTIDA/	|	
+|POST | /registresortida/putsimple	|	
 
 ***Cos de la petició***:
 
 ```json
-
+{
+    "aplicacio": "string",
+    "entcod": "string",
+    "gestCont": true,
+    "idioma": 0,
+    "nivell": "string",
+    "nivellTaula": "string",
+    "registreSortida": {
+        "arxiu": "string",
+        "avisRebutTransport": "string",
+        "codiAreaAssumpte": "string",
+        "codiAreaCreador": "string",
+        "codiAssumpte": "string",
+        "codiDepartamentAssumpte": "string",
+        "codiDepartamentCreador": "string",
+        "codiEntitat": "string",
+        "codiExtracte": "string",
+        "codiIdioma": "string",
+        "codiOrganismeDesti": 0,
+        "codiPersona": 0,
+        "codiRepresentant": 0,
+        "codiTerritori": 0,
+        "codiTipusTransport": "string",
+        "comptDomiciliOrganisme": 0,
+        "comptDomiciliPersona": 0,
+        "comptDomiciliRepresentant": 0,
+        "contingutExtracte": "string",
+        "dataDocument": "string",
+        "dataPresentacio": "string",
+        "dataTransport": "string",
+        "descAreaAssumpte": "string",
+        "descDepartamentAssumpte": "string",
+        "domNot": "string",
+        "fcontactMail": 0,
+        "fcontactSms": 0,
+        "firmaTopograficaArxiu": "string",
+        "horaRegistre": "string",
+        "horaTransport": "string",
+        "ine10Origen": "string",
+        "modificarAreaDeptartamentCreador": true,
+        "notMail": "string",
+        "notSms": "string",
+        "numPagines": 0,
+        "numconordreMail": 0,
+        "numconordreSms": 0,
+        "numeroFormaContacte": 0,
+        "numeroOrdreContacte": 0,
+        "numeroSortida": "string",
+        "numeroSortidaEntitat": "string",
+        "numeroTransport": "string",
+        "observacionsDocument": "string",
+        "observacionsTransport": "string",
+        "persNifFoto": "string",
+        "persNomFoto": "string",
+        "persNot": "string",
+        "perscontacn": "string",
+        "persndMail": 0,
+        "persndSms": 0,
+        "persnumconordre": "string",
+        "plataforma": "string",
+        "registreRelacionat": "string",
+        "repcontac": 0,
+        "repfcontac": 0,
+        "resNumsExt": "string",
+        "resorgcontac": 0,
+        "resorgfcontac": 0,
+        "responsable": "string",
+        "tipusOrganisme": "string",
+        "tractat": 0
+    },
+    "usuari": "string",
+    "validarCampsObligatoris": true
+}
 ```
 
 ***Exemple:***
 
 ```json
+Request:
+POST /registresortida/putsimple
 
+
+Request body: {
+    "aplicacio": "RES",
+    "nivell": "9999",
+    "registreSortida": {
+        "numeroSortida": "S2021000001",
+        "observacionsDocument": "PROVA MODIFICACIO SIMPLE"
+    },
+    "usuari": "G5Admin"
+}
+
+
+Expected response: {
+    "registreSortida": "S2021000001",
+    "registreSortidaEntitat": "S2021000001",
+    "dataRegistreSortida": "20210504",
+    "horaRegistreSortida": "105848"
+}
 
 ```
 
-### 3.6.5 Cercar Registres. TODO
+### 3.6.5 Cercar Registres.
 
 | Mètode | Ruta |
 | ------ | ---- | 
-|POST | /registreSORTIDA/	|	
+|POST | /registresortida/get	|	
 
 ***Cos de la petició***:
 
 ```json
-
+{
+    "aplicacio": "string",
+    "idioma": 0,
+    "nivell": "string",
+    "numeroRegistreSortida": "string",
+    "usuari": "string"
+}
 ```
 
 ***Exemple:***
 
 ```json
+Request:
+POST /registresortida/get
 
+
+Request body: {
+    "aplicacio": "RES",
+    "nivell": "9999",
+    "numeroRegistreSortida": "S2020000001",
+    "usuari": "G5Admin"
+}
+
+
+Expected response: {
+    "numeroRegistre": "S2020000001",
+    "numeroRegistreEntitat": "S2020000001",
+    "codiEntitat": "1",
+    "codiPersona": 1,
+    "fotoRepresentant": {
+        "nom": "JOSEP",
+        "nif": "39918681L",
+        "particula1": "",
+        "cognom1": "ESPELTA",
+        "particula2": "",
+        "cognom2": "PRIME",
+        "domicili": null,
+        "esPersonaFisica": null
+    },
+    "fotoPersona": {
+        "nom": "JOSE FRANCISCO",
+        "nif": "76194401R",
+        "particula1": "",
+        "cognom1": "GALLARDO",
+        "particula2": "",
+        "cognom2": "RUIZ",
+        "domicili": null,
+        "esPersonaFisica": null
+    },
+    "descExtracte": "0001 PRESENTACIO SOL·LICITUD",
+    "codiAssumpte": "XXVV",
+    "numeroFormaContacte": null,
+    "numeroOrdreContacte": null,
+    "codiRepresentant": 8,
+    "repcontac": null,
+    "repfcontac": null,
+    "repcontacdesc": null,
+    "repfcontacdesc": null,
+    "codiExtracte": "0001",
+    "contingutExtracte": "wertewrt",
+    "codiIdioma": null,
+    "fotoAssumpte": {
+        "codiArea": "AOC",
+        "descArea": "AOC",
+        "codiDepartament": "AOC",
+        "descDepartament": "AOC",
+        "descAssumpte": "Assumpte de proves XE"
+    },
+    "comptadorDomiciliPersona": 2,
+    "codiDomiciliPersona": 108619,
+    "baixaPersona": "0",
+    "baixaDomiciliPersona": "0",
+    "baixaRelacioDomiciliPersona": null,
+    "fotoDomiciliPersona": "CL CASTLA N.0011 Esc.1 Pis.03 Pta.01 CAMBRILS (TARRAGONA) - ESPANYA",
+    "comptadorDomiciliRepresentant": 1,
+    "codiDomiciliRepresentant": null,
+    "baixaRepresentant": "0",
+    "baixaDomiciliRepresentant": null,
+    "baixaRelacioDomiciliRepresentant": null,
+    "fotoDomiciliRepresentant": "CL CASTLA N.0007 CP 43850 CAMBRILS (TARRAGONA) - ESPANYA",
+    "dataCreacio": "20200828",
+    "horaCreacio": "101323",
+    "codiAreaCreador": "AOC",
+    "descAreaCreador": "AOC",
+    "codiDepartamentCreador": "AOC",
+    "descDepartamentCreador": "AOC",
+    "dataDocument": "20200828",
+    "descIdioma": null,
+    "numPagines": null,
+    "observacionsDocument": "",
+    "comptadorDomiciliOrganisme": null,
+    "codiDomiciliOrganisme": null,
+    "nomComplertOrganisme": null,
+    "nifDcOrganisme": null,
+    "domiciliOrganisme": null,
+    "codiTerritori": null,
+    "descTerritori": null,
+    "codiTipusTransport": null,
+    "descTipusTransport": null,
+    "numeroTransport": "",
+    "dataTransport": "",
+    "observacionsTransport": "",
+    "arxiu": "",
+    "firmaTopograficaArxiu": "",
+    "descTipusContacte": null,
+    "descContacte": null,
+    "codiOrganismeDesti": null,
+    "avisRebutTransport": "",
+    "resNumsExt": "",
+    "interessats": [],
+    "registreTancat": true,
+    "registreRelacionat": "E2019000031",
+    "registreRelacionatEntitat": "E2019000024",
+    "tipusOrganisme": "",
+    "baixaOrganisme": null,
+    "baixaDomiciliOrganisme": null,
+    "baixaRelacioDomiciliOrganisme": null,
+    "resorgcontac": null,
+    "resorgfcontac": null,
+    "perscontacn": null,
+    "persnumconordre": null,
+    "plataforma": null,
+    "notSms": null,
+    "notMail": null,
+    "stddgr": "20200828",
+    "stddmod": "20200828",
+    "stdhgr": "101324",
+    "stdhmod": "101324",
+    "stdugr": "G5Admin",
+    "stdumod": "G5Admin",
+    "persNot": null,
+    "domNot": null,
+    "persndMail": null,
+    "fcontactMail": null,
+    "numconordreMail": null,
+    "persndSms": null,
+    "fcontactSms": null,
+    "numconordreSms": null,
+    "persSw": "F",
+    "reprSw": null,
+    "swTractat": null,
+    "responsable": null,
+    "dataPresentacio": null,
+    "swDigilencia": null,
+    "swDigilenciaDesc": null
+}
 
 ```
 
-### 3.6.6 Assignar Interessat. TODO
+### 3.6.6 Assignar Interessat.
 
 | Mètode | Ruta |
 | ------ | ---- | 
-|POST | /registreSORTIDA/	|	
+|POST | /registresortida/search	|	
 
 ***Cos de la petició***:
 
 ```json
-
+{
+    "aplicacio": "string",
+    "areacoddes": "string",
+    "cercaDadesFoto": true,
+    "codiAreaAssumpte": "string",
+    "codiAssumpte": "string",
+    "codiDepartamentAssumpte": "string",
+    "codiEntitat": "string",
+    "codiExtracte": "string",
+    "codiIdioma": "string",
+    "codiOrganismeDesti": 0,
+    "codiPersonaInteressada": 0,
+    "codiRepresentant": 0,
+    "codiTerritori": 0,
+    "cognom1Interessat": "string",
+    "cognom1Representant": "string",
+    "cognom2Interessat": "string",
+    "cognom2Representant": "string",
+    "comptDomiciliPersonaInteressada": 0,
+    "contingutExtracte": "string",
+    "dataDocumentFinal": "string",
+    "dataDocumentInici": "string",
+    "dataRegistreFinal": "string",
+    "dataRegistreInici": "string",
+    "dataTransport": "string",
+    "depcoddes": "string",
+    "entitats": [
+        "string"
+    ],
+    "entorn": "string",
+    "guidrebut": "string",
+    "ignoreUsuariFiltreAdeaDept": true,
+    "inclouInteressatsRelacionats": true,
+    "inclouRepresentantsRelacionats": true,
+    "maxResults": 0,
+    "mitjaTransport": "string",
+    "nifInteressat": "string",
+    "nifRepresentant": "string",
+    "nivell": "string",
+    "noTractats": true,
+    "nomInteressat": "string",
+    "nomRepresentant": "string",
+    "numRelCertificatCorreus": "string",
+    "numeroFormaContacte": 0,
+    "numeroOrdreContacte": 0,
+    "numeroRegistreEntitatFinal": "string",
+    "numeroRegistreEntitatInici": "string",
+    "numeroRegistreFinal": "string",
+    "numeroRegistreInici": "string",
+    "numeroRegistreRelacionat": "string",
+    "observacionsTransport": "string",
+    "perscontacn": "string",
+    "persnumconordre": "string",
+    "resNumsExt": "string",
+    "senseDocumentsAnnexats": true,
+    "stddgr": "string",
+    "stddmod": "string",
+    "stdugr": "string",
+    "stdumod": "string",
+    "tipusOrganisme": "string",
+    "tots": true,
+    "tractats": true,
+    "urlServer": "string",
+    "usuari": "string",
+    "usuariFiltreAdeaDept": "string"
+}
 ```
 
 ***Exemple:***
 
 ```json
+Request:
+POST /registresortida/search
 
+
+Request body: {
+    "aplicacio": "RES",
+    "codiPersonaInteressada": 1,
+    "dataDocumentFinal": "20201231",
+    "dataDocumentInici": "20200101",
+    "nivell": "9999",
+    "usuari": "G5Admin"
+}
+
+
+Expected response: {
+    "numeroRegistreArray": [
+        "S2020000001"
+    ]
+}
 
 ```
 
-### 3.6.7 Recuperar Documents relacionats. TODO
+### 3.6.7 Recuperar Documents relacionats.
 
 | Mètode | Ruta |
 | ------ | ---- | 
-|POST | /registreSORTIDA/	|	
+|POST | /registresortida/interessat/put	|	
 
 ***Cos de la petició***:
 
 ```json
-
+{
+    "aplicacio": "string",
+    "codiPersona": 0,
+    "codiRepresentant": 0,
+    "comptDomiciliPersona": 0,
+    "comptDomiciliRepresentant": 0,
+    "domNot": "string",
+    "gestCont": true,
+    "idioma": 0,
+    "nivell": "string",
+    "notMail": "string",
+    "notSms": "string",
+    "numeroRegistre": "string",
+    "persNot": "string",
+    "perscontac": 0,
+    "persfcontac": 0,
+    "plataforma": "string",
+    "repcontac": 0,
+    "repfcontac": 0,
+    "usuari": "string"
+}
 ```
 
 ***Exemple:***
 
 ```json
+Request:
+POST /registresortida/interessat/put
 
+
+Request body: {
+    "aplicacio": "RES",
+    "codiPersona": 11,
+    "codiRepresentant": 0,
+    "comptDomiciliPersona": 0,
+    "comptDomiciliRepresentant": 0,
+    "domNot": null,
+    "gestCont": true,
+    "nivell": "9999",
+    "notMail": null,
+    "notSms": null,
+    "numeroRegistre": "S2020000001",
+    "persNot": null,
+    "perscontac": null,
+    "persfcontac": null,
+    "repcontac": null,
+    "repfcontac": null,
+    "usuari": "G5Admin"
+}
+
+
+Expected response: {
+    "response": true
+}
 
 ```
 
-# 3.6.8	Recuperar Entrades relacionades. TODO
+# 3.6.8	Recuperar Entrades relacionades.
 
 | Mètode | Ruta |
 | ------ | ---- | 
-|POST | /registreSORTIDA/	|	
+|POST | /registresortida/documents/get	|	
 
 ***Cos de la petició***:
 
 ```json
-
+{
+    "aplicacio": "string",
+    "nivell": "string",
+    "numeroRegistreSortida": "string",
+    "usuari": "string"
+}
 ```
 
 ***Exemple:***
 
 ```json
+Request:
+POST /registresortida/documents/get
 
 
+Request body: {
+    "aplicacio": "RES",
+    "nivell": "9999",
+    "numeroRegistreSortida": "S2020000003",
+    "usuari": "G5Admin"
+}
+
+
+Expected response: {
+    "documentArray": [
+        {
+            "descriptor": "Document Test Selenium",
+            "nomDocument": "AnnexarDocSelenium.pdf",
+            "idOrigen": null,
+            "codiTipusDocument": "",
+            "descTipusDocument": "DOCUMENT ANNEXAT",
+            "motiuRebut": "",
+            "idNReg": 214883,
+            "guid": null
+        }
+    ]
+}
 ```
 
-### 3.6.9 Recuperar Sortides relacionades. TODO
+### 3.6.9 Recuperar Sortides relacionades. 
 
 | Mètode | Ruta |
 | ------ | ---- | 
-|POST | /registreSORTIDA/	|	
+|POST | /registresortida/entrades/get	|	
 
 ***Cos de la petició***:
 
 ```json
-
+{
+    "aplicacio": "string",
+    "nivell": "string",
+    "numeroRegistreSortida": "string",
+    "usuari": "string"
+}
 ```
 
 ***Exemple:***
 
 ```json
+Request:
+POST /registresortida/entrades/get
 
 
+Request body: {
+    "aplicacio": "RES",
+    "nivell": "9999",
+    "numeroRegistreSortida": "S2020000002",
+    "usuari": "G5Admin"
+}
+
+
+Expected response: {
+    "numeroRegistreSortidaArray": [],
+    "regRelArray": []
+}
+
+```
+
+
+### 3.6.10 Recuperar Sortides relacionades. 
+
+| Mètode | Ruta |
+| ------ | ---- | 
+|POST | /registresortida/sortides/get	|	
+
+***Cos de la petició***:
+
+```json
+{
+    "aplicacio": "string",
+    "mostrarRelExpedients": true,
+    "nivell": "string",
+    "numeroRegistreSortida": "string",
+    "usuari": "string"
+}
+```
+
+***Exemple:***
+
+```json
+Request:
+POST /registresortida/sortides/get
+
+
+Request body: {
+    "aplicacio": "RES",
+    "mostrarRelExpedients": true,
+    "nivell": "9999",
+    "numeroRegistreSortida": "S2020000254",
+    "usuari": "G5Admin"
+}
+
+
+Expected response: {
+    "numeroRegistreEntradaArray": [
+        "E2020000473"
+    ],
+    "regRelArray": [
+        {
+            "numeroRegistreSortida": "S2020000254",
+            "numeroRegEntRel": "E2020000473",
+            "stddgr": "20201108",
+            "stddmod": "20201108",
+            "stdhgr": "194708",
+            "stdhmod": "194708",
+            "stdugr": "G5Admin",
+            "stdumod": "G5Admin"
+        }
+    ]
+}
 ```
 
 ## 3.7	Expedients

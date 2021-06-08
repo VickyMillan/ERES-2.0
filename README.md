@@ -342,7 +342,7 @@ Expected response body:
 
 ```
 
-### 3.1.5 Modificar Partícules dels Carrers. PARAMETRES
+### 3.1.5 Modificar Partícules dels Carrers
 
 | Mètode | Ruta |
 | ------ | ---- | 

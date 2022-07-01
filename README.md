@@ -5401,8 +5401,31 @@ Expected response: [
 |GET			|/infobyidnreg/{idnreg}	|Obtenir la informació associada a un Document a partir del seu identificador.  |
 
  **Notes**: el codi `guid` es una cadena alfanumèrica única de 36 caràcters que identifica de forma segura un document. L’`idnreg` es un codi numèric intern.
+ 
+### 3.8.2 Camps especials
 
-### 3.8.2 Guardar un Document
+Estat Elaboració
+
+Els possibles valors són: 
+
+•	COPIA_ELEC_AUTENTICA : Còpia electrònica autèntica
+•	COPIA_ELEC_AUTENTICA_CANVI_FORMAT : Còpia electrònica autèntica amb canvi de format
+•	COPIA_ELEC_AUTENTICA_PAPER : Còpia electrònica autèntica de document paper
+•	COPIA_ELECT_PARCIAL_AUTENTICA : Còpia electrònica parcial autèntica
+•	COPIA_PAPER_DOCUMENT_PAC : Còpia paper autèntica de document públic administratiu electrònic
+•	ORIGINAL : Original
+•	ALTRES : Altres
+
+Naturalesa del Document
+
+Els possibles valors són:
+
+•	COPIA : Còpia 
+•	COPIA_AUTENTICA : Còpia autèntica 
+•	ORIGINAL : original
+
+
+### 3.8.3 Guardar un Document
 
 | Mètode | Ruta | Paràmetre |
 | ------ | ---- | ----|
